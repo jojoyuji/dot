@@ -14,10 +14,15 @@ zplug "bobthecow/git-flow-completion"
 zplug "Valiev/almostontop"
 zplug "djui/alias-tips"
 zplug "arzzen/calc.plugin.zsh"
-zplug "walesmd/caniuse.plugin.zsh"
 zplug "akoenig/npm-run.plugin.zsh"
+zplug "b4b4r07/enhancd", use:init.sh
 
 zplug load
+
+if zplug check b4b4r07/enhancd; then
+    # setting if enhancd is available
+    export ENHANCD_FILTER=fzf-tmux
+fi
 
 for file in $HOME/dotfiles/{exports,aliases}; do
   [ -r "$file" ] && source "$file"
@@ -35,11 +40,9 @@ alias config='/usr/bin/git --git-dir=$HOME/dot/ --work-tree=$HOME'
 
 alias dd="cd ~/Desktop/"
 alias 7b="cd ~/7blazes/git/"
-alias b="cd ~/Desktop/binds/git/"
 alias bl="cd ~/blazy/"
 alias zshrc="vim ~/dotfiles/zshrc"
 alias cls="clear"
-alias dotfiles="cd $HOME/dotfiles"
 
 # Show hidden files in Finder
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
