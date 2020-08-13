@@ -14,8 +14,11 @@ zplug "bobthecow/git-flow-completion"
 zplug "Valiev/almostontop"
 zplug "djui/alias-tips"
 zplug "arzzen/calc.plugin.zsh"
-zplug "walesmd/caniuse.plugin.zsh"
 zplug "akoenig/npm-run.plugin.zsh"
+zplug "akoenig/npm-run.plugin.zsh"
+zplug "kazhala/dotbare"
+export DOTBARE_DIR="$HOME/.dot"
+export DOTBARE_TREE="$HOME"
 
 zplug load
 
@@ -28,7 +31,8 @@ for file in $HOME/dotfiles/helpers/*.sh; do
   [ -r "$file" ] && source "$file"
 done
 
-alias config='/usr/bin/git --git-dir=$HOME/dot/ --work-tree=$HOME'
+# alias config='/usr/bin/git --git-dir=$HOME/dot/ --work-tree=$HOME'
+alias config='dotbare'
 
 
 # Customize to your needs...
