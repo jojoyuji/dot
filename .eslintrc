@@ -1,1 +1,7 @@
-/Users/jojo/dotfiles/eslintrc
+{
+  "extends": [
+    "eslint:recommended"
+  ],
+  "plugins": [ ],
+  "rules": { }
+}
