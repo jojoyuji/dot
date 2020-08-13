@@ -1,4 +1,4 @@
-call plug#begin(g:configpath.'vim/bundle')
+call plug#begin(g:configpath.'/bundle')
 
 Plug 'azadkuh/vim-cmus'
 nnoremap <F7> :CmusPrevious<cr>

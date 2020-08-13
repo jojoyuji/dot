@@ -1,6 +1,8 @@
 set t_8f=^[[38;2;%lu;%lu;%lum  " Needed in tmux
 set t_8b=^[[48;2;%lu;%lu;%lum  " Ditto"
-let g:configpath = "~/dotfiles/"
+let g:configpath = expand('<sfile>:h')
+"let g:paty = expand('<sfile>:h')
+
 let &t_Co=256
 let t_Co=256
 
@@ -225,16 +227,16 @@ command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
 
 "}}}
 "VIMRC Mappings {{{1
-map <leader>vv :execute("e ".g:configpath."vimrc")<cr><c-w>
-map <leader>vmp :execute("e ".g:configpath."vim/mappingsrc")<cr><c-w>
-map <leader>vp :execute("e ".g:configpath."vim/pluginsrc")<cr><c-w>
-map <leader>vz :execute("e ".g:configpath."zshrc")<cr><c-w>
+map <leader>vv :execute("e $MYVIMRC")<cr><c-w>
+map <leader>vmp :execute("e ".g:configpath."/mappingsrc")<cr><c-w>
+map <leader>vp :execute("e ".g:configpath."/pluginsrc")<cr><c-w>
+map <leader>vz :execute("e $HOME/.zshrc")<cr><c-w>
 "edit e reload rápido
 nnoremap  <leader>so :call LoadingMsg("Loading vimrc...")<cr>:so $MYVIMRC<cr>
 "}}}
 "Load externals{{{1
-exe ('so '.g:configpath.'vim/pluginsrc')
-exe ('so '.g:configpath.'vim/mappingsrc')
+exe ('so '.g:configpath.'/pluginsrc')
+exe ('so '.g:configpath.'/mappingsrc')
 "}}}
 
 set background=dark
@@ -281,8 +283,8 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 
 if has('nvim')
   set noshowcmd
-  set runtimepath^=~/.vim runtimepath+=~/.vim/after
-  let &packpath = &runtimepath
+"  set runtimepath^=~/.vim runtimepath+=~/.vim/after
+"  let &packpath = &runtimepath
 endif
 
 let g:CSScombPluginDir = fnamemodify(expand("<sfile>"), ":h")
