@@ -1,25 +1,4 @@
 # minimal dotfiles
 
-git clone --bare https://github.com/jojoyuji/dot.git $HOME/.dot
-
-then run:
-
-```
-cd $HOME/.dot && ./install.sh
-```
-
-```
-function config {
-   /usr/bin/git --git-dir=$HOME/.dot/ --work-tree=$HOME $@
-}
-mkdir -p .config-backup
-config checkout
-if [ $? = 0 ]; then
-  echo "Checked out config.";
-  else
-    echo "Backing up pre-existing dot files.";
-    config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .config-backup/{}
-fi;
-config checkout
-config config status.showUntrackedFiles no
-```
+## Install
+curl -Lks https://gist.githubusercontent.com/jojoyuji/ed55b1e47349969fdea79875b56df510/raw/bd0820ae31c4c23d928ae9e4cb86c8a09aeaedd5/dot-run | /bin/bash
