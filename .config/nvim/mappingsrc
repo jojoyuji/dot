@@ -1,0 +1,207 @@
+nnoremap ; :
+nnoremap \ ;
+
+"removes trailing spaces and indent
+nnoremap Q gg=G``zz <esc> :%s/\s\+$//e<esc>:echo ""<esc>``zz
+nnoremap Q gg=G``zz 
+
+"substituted via plugin command js-beautify
+"nnoremap Q gg=G``zz :StripWhiteSpaces<cr>
+
+nnoremap gu :OpenURL<cr>
+
+"joins selected lines
+nnoremap J mzJ`z
+noremap <c-enter> :silent !open .
+nnoremap <d-u> <esc>viw~
+
+"file completition
+inoremap <d-f> <c-x><c-F>
+"breakline ctrl+shift+j
+nnoremap <cr> i<CR><ESC>
+
+"changepositions
+nnoremap <silent> <d-a-left> :wincmd h <cr>
+nnoremap <silent> <d-a-up> :wincmd k <cr>
+nnoremap <silent> <d-a-down> :wincmd j <cr>
+nnoremap <silent> <d-a-right> :wincmd l <cr>
+"resize windows
+nnoremap <silent> <c-down> :exe "resize " . (winheight(0) * 4/3)<cr>
+nnoremap <silent> <c-up> :exe "resize " . (winheight(0) * 3/4)<cr>
+
+nnoremap <silent> <leader><down> :exe "resize " . (winheight(0) * 6/5)<cr>
+nnoremap <silent> <leader><up> :exe "resize " . (winheight(0) * 5/6)<cr>
+
+map <silent> <leader><right> <C-w>10<
+map <silent> <leader><left> <C-w>10>
+
+"To apply a command in a selected block
+vmap ; :
+"for surround plugin
+vmap s S
+
+"remove trailing white space
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''
+
+" omnicomplete on ctrl-l
+inoremap <c-l> <c-x><c-o>
+
+
+"fix for annoying man!
+noremap K <nop>
+
+"use ,z to 'focus'   the current fold
+nnoremap <leader>z zmzvzz
+
+"substitute
+nmap <leader><leader>s :%s//<left>
+vmap <leader><leader>s :s/\%V//<left><left>
+map <leader>ss <esc>:w<cr>
+
+"Bubble single lines
+nmap  <c-a-j> ]e
+nmap  <c-a-k> [e
+
+"Bubble multiple lines
+vmap <c-a-k> [egv
+vmap <c-a-j> ]egv
+
+"clear last highlight
+nmap <silent> <leader><space> :silent noh<cr>
+noremap <leader>sf :set filetype=
+noremap <leader>tjs :set filetype=javascript
+"tab vira identador
+map <tab> >gv
+map <s-tab> <gv
+nmap <tab> >>
+nmap <s-tab> <<
+
+
+map <leader>q <esc>:call FecharBuffer()<cr>
+function! FecharBuffer()
+  let todelbufNr = bufnr("%")
+  let newbufNr = bufnr("#")
+  if ((newbufNr != -1) && (newbufNr != todelbufNr) && buflisted(newbufNr))
+    exe "b".newbufNr
+  else
+    bnext
+  endif
+
+  if (bufnr("%") == todelbufNr)
+    new
+  endif
+  exe "bd".todelbufNr
+endfunction
+
+
+""""""""""""""""""""""""""""""""
+"  ScriptNames buffer listing  "
+""""""""""""""""""""""""""""""""
+
+"Execute 'cmd' while redirecting output.
+" Delete all lines that do not match regex 'filter' (if not empty).
+" Delete any blank lines.
+" Delete '<whitespace><number>:<whitespace>' from start of each line.
+" Display result in a scratch buffer.
+function! s:Filter_lines(cmd, filter)
+  let save_more = &more
+  set nomore
+  redir => lines
+  silent execute a:cmd
+  redir END
+  let &more = save_more
+  new
+  setlocal buftype=nofile bufhidden=hide noswapfile
+  put =lines
+  g/^\s*$/d
+  %s/^\s*\d\+:\s*//e
+  if !empty(a:filter)
+    execute 'v/' . a:filter . '/d'
+  endif
+  0
+endfunction
+command! -nargs=? Scriptnames call s:Filter_lines('scriptnames', <q-args>)
+
+map <leader><leader>` <esc>:set guifont=*<cr>
+
+"abre por outros apps
+"nmap <leader>oi :!open -a preview.app % <cr>
+nmap <leader>of :!open -a firefox.app % <cr>
+nmap <leader>og :!open -a "google chrome"  %<cr>
+
+"windows manager tabbing
+imap <a-tab> <esc>:wincmd w<cr>
+nmap <a-tab> :wincmd w<cr>
+
+"folding
+
+nnoremap zr zR
+nnoremap zm zM 
+
+" no dollar sign at end of line
+map <leader>cd :cd %:p:h<cr>
+" maps for jj to act as esc
+ino jj <esc>
+cno jj <c-c>
+"inoremap jk <Esc>
+"inoremap kj <Esc>
+map <s-h> ^
+map <s-l> $
+
+"force saving files that require root permission
+cmap w!! %!sudo tee > /dev/null %
+
+"vv select the content of the cur line without indent
+nnoremap vv ^vg_
+nnoremap Y y$
+
+"keep the visual selection after shifting tabs
+vnoremap > ><CR>gv
+vnoremap < <<CR>gv
+
+noremap <S-enter> :!
+
+"open a quickfix window for the last search
+nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<cr>:copen<cr>
+nnoremap <silent> <leader>co :copen<cr>
+
+
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+"window management
+nnoremap H <c-w>h
+nnoremap L <c-w>l 
+
+
+nnoremap <leader>sfi :set fdm=indent<cr>
+nnoremap <leader>sfm :set fdm=marker<cr>
+
+"ACK SEARCHS
+noremap sw :execute ":Ack -w " . expand("<cword>")<Bar> cw<cr>
+"map <d-F> :execute ":Ack -w --type=" . expand("%:e") . " " . expand("<cword>")<Bar> cw<cr>
+
+noremap <silent> <C-S> :update<CR>
+vnoremap <silent> <C-S> <C-C>:update<CR>
+inoremap <silent> <C-S> <C-O>:update<CR>
+
+noremap <silent> <leader>] :bnext<cr>
+noremap <silent> <leader>[ :bprev<cr>
+
+nnoremap <silent> + :exe "resize " . (winheight(0) + 5)<CR>
+nnoremap <silent> _ :exe "resize " . (winheight(0) - 5)<CR>
+
+nnoremap <silent> ) :exe "vertical resize " . (winwidth(0) + 5)<CR>
+nnoremap <silent> ( :exe "vertical resize " . (winwidth(0) - 5)<CR>
+
+"nnoremap <silent> <c-Down> :exe "resize " . (winheight(0) * 3/2)<CR>
+"nnoremap <silent> <c-Up> :exe "resize " . (winheight(0) * 2/3)<CR>
+
+nmap <silent> <c-d> <c-d>zz
+nmap <silent> <c-e> <c-u>zz
+
+map <F1> <esc>:redraw!<cr>
+map <leader>w <esc>:w<cr>
+map <c-s> <esc>:w<cr>
+
+" vim: ts=2 fdm=marker fdl=0 ft=vim
+"
