@@ -16,6 +16,7 @@ zplug "djui/alias-tips"
 zplug "arzzen/calc.plugin.zsh"
 zplug "akoenig/npm-run.plugin.zsh"
 zplug "b4b4r07/enhancd", use:init.sh
+zplug "MichaelAquilina/zsh-auto-notify"
 
 zplug load
 
