@@ -26,6 +26,10 @@ https://github.com/sorin-ionescu/prezto
 
 >  ```brew install tmux```
 
+###tmuxinator
+
+> ```gem install tmuxinator```
+
 ### tpm 
 
 >  ``` git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm```
