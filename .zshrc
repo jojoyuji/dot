@@ -34,7 +34,7 @@ for file in $HOME/dotfiles/helpers/*.sh; do
   [ -r "$file" ] && source "$file"
 done
 
-alias config='/usr/bin/git --git-dir=$HOME/dot/ --work-tree=$HOME'
+alias c='/usr/bin/git --git-dir=$HOME/dot/ --work-tree=$HOME'
 
 
 # Customize to your needs...

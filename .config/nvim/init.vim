@@ -213,24 +213,13 @@ fun! LoadingMsg(message)
   sleep 3m
 endf
 
-"print Output into a buffer
-function! TabMessage(cmd)
-  redir => message
-  silent execute a:cmd
-  redir END
-  tabnew
-  silent put=message
-  set nomodified
-endfunction
-command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
-
-
 "}}}
 "VIMRC Mappings {{{1
 map <leader>vv :execute("e $MYVIMRC")<cr><c-w>
 map <leader>vmp :execute("e ".g:configpath."/mappingsrc")<cr><c-w>
 map <leader>vp :execute("e ".g:configpath."/pluginsrc")<cr><c-w>
 map <leader>vz :execute("e $HOME/.zshrc")<cr><c-w>
+
 "edit e reload rápido
 nnoremap  <leader>so :call LoadingMsg("Loading vimrc...")<cr>:so $MYVIMRC<cr>
 "}}}
@@ -243,11 +232,6 @@ set background=dark
 
 silent! colorscheme gruvbox8_hard
 
-"  if &term =~ '256color'
-"    "Disable Background Color Erase (BCE) so that color schemes work
-"    "properly within 256-color terminals
-"   set t_ut=
-" endif
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -270,6 +254,7 @@ endfunction
 
 vnoremap <silent> y y:call ClipboardYank()<cr>
 vnoremap <silent> d d:call ClipboardYank()<cr>
+vnoremap <silent> x d:call ClipboardYank()<cr>
 nnoremap <silent> p :call ClipboardPaste()<cr>p
 
 let g:loaded_python_provider = 1
@@ -286,24 +271,6 @@ if has('nvim')
 "  set runtimepath^=~/.vim runtimepath+=~/.vim/after
 "  let &packpath = &runtimepath
 endif
-
-let g:CSScombPluginDir = fnamemodify(expand("<sfile>"), ":h")
-
-function! g:CSScomb(count, line1, line2)
-  let content = getline(a:line1, a:line2)
-
-  let tempFile = tempname() . '.' . &filetype
-  call writefile(content, tempFile)
-  let systemOutput = system('csscomb ' . shellescape(tempFile))
-  if len(systemOutput)
-    echoerr split(systemOutput, "\n")[1]
-  else
-    let lines = readfile(tempFile)
-    call setline(a:line1, lines)
-  endif
-endfunction
-
-command! -nargs=? -range=% CSScomb :call g:CSScomb(<count>, <line1>, <line2>, <f-args>)
 
 "makes vim follow transparency
 hi Normal guibg=NONE

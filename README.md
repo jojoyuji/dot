@@ -26,7 +26,7 @@ https://github.com/sorin-ionescu/prezto
 
 >  ```brew install tmux```
 
-###tmuxinator
+### tmuxinator
 
 > ```gem install tmuxinator```
 
