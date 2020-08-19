@@ -87,6 +87,7 @@ Plug 'lifepillar/vim-gruvbox8'
 "let g:gruvbox_invert_selection=0
 let g:gruvbox_contrast_dark='hard'
 
+
 "Movements
 Plug 'tpope/vim-surround'
 Plug 'rhysd/clever-f.vim'
@@ -150,12 +151,12 @@ function! s:yank_handler(reg)
 endfunction
 
 command! FZFYank call fzf#run({
-     \ 'source': <sid>yank_list(),
-     \ 'sink': function('<sid>yank_handler'),
-     \ 'up': '~90%',
-     \ 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.3,'xoffset': 0.3, 'highlight': 'Todo', 'border': 'sharp' } ,
-     \ 'options': ' --no-preview'
-     \ })
+      \ 'source': <sid>yank_list(),
+      \ 'sink': function('<sid>yank_handler'),
+      \ 'up': '~90%',
+      \ 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.3,'xoffset': 0.3, 'highlight': 'Todo', 'border': 'sharp' } ,
+      \ 'options': ' --no-preview'
+      \ })
 
 nnoremap <leader>mr :History<cr>
 nnoremap <leader>b :Buffers<cr>
@@ -416,9 +417,6 @@ Plug 'benmills/vimux'
 map <leader>nt :call VimuxRunCommand("clear; npm test")<CR>
 map <leader>nb :call VimuxRunCommand("clear; gulp bump-version && gulp build")<CR>
 map <leader>x :VimuxPromptCommand<CR>
-"ApiBlueprint 
-Plug 'kylef/apiblueprint.vim' , {'do': 'brew install --HEAD  https://raw.github.com/apiaryio/drafter/master/tools/homebrew/drafter.rb'}
-autocmd FileType apiblueprint nnoremap <C-b> :call GenerateRefract()<cr>
 
 Plug 'vifm/neovim-vifm'
 
@@ -540,7 +538,7 @@ Plug 'shime/vim-livedown', {'for': ['md', 'markdown'], 'do': 'npm install -g liv
 "coc-snippets
 imap <tab> <Plug>(coc-snippets-expand-jump)
 vmap <tab> <Plug>(coc-snippets-select)
- " let g:coc_snippet_next = '<c-j>'
+" let g:coc_snippet_next = '<c-j>'
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_prev = '<S-tab>'
 inoremap <silent><expr> <TAB>
