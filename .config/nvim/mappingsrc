@@ -8,7 +8,7 @@ nnoremap Q gg=G``zz
 "substituted via plugin command js-beautify
 "nnoremap Q gg=G``zz :StripWhiteSpaces<cr>
 
-nnoremap gu :OpenURL<cr>
+nnoremap go :OpenURL<cr>
 
 "joins selected lines
 nnoremap J mzJ`z
