@@ -25,7 +25,7 @@ if zplug check b4b4r07/enhancd; then
     export ENHANCD_FILTER=fzf-tmux
 fi
 
-for file in $HOME/{exports,aliases}; do
+for file in $HOME/{exports,.aliases}; do
   [ -r "$file" ] && source "$file"
 done
 
@@ -51,6 +51,7 @@ alias hidehidden="defaults write com.apple.finder AppleShowAllFiles FALSE && kil
 
 
 defaults write -g InitialKeyRepeat -int 10
+alias v='nvim'
 alias im='nvim'
 alias nvim='~/nvim-osx64/bin/nvim'
 alias pushAll='g push && gcm && g push'
