@@ -12,9 +12,22 @@ curl -Lks https://raw.githubusercontent.com/jojoyuji/dot/master/installDots.sh |
 >  ```brew install zsh```
 
 sets default terminal
+
 > ``` chsh -s /bin/zsh ```
 
 https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH
+
+### zplug
+
+>  ``` curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh ```
+
+### rust
+
+> ``` curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh ```
+
+### alacritty 
+
+> ``` git clone https://github.com/alacritty/alacritty.git ~/alacritty```
 
 ### prezto
 

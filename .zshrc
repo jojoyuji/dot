@@ -25,14 +25,14 @@ if zplug check b4b4r07/enhancd; then
     export ENHANCD_FILTER=fzf-tmux
 fi
 
-for file in $HOME/dotfiles/{exports,aliases}; do
+for file in $HOME/{exports,aliases}; do
   [ -r "$file" ] && source "$file"
 done
 
 # source functions
-for file in $HOME/dotfiles/helpers/*.sh; do
-  [ -r "$file" ] && source "$file"
-done
+# for file in $HOME/dotfiles/helpers/*.sh; do
+#   [ -r "$file" ] && source "$file"
+# done
 
 alias c='/usr/bin/git --git-dir=$HOME/dot/ --work-tree=$HOME'
 
