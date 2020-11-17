@@ -34,7 +34,7 @@ done
 #   [ -r "$file" ] && source "$file"
 # done
 
-alias c='/usr/bin/git --git-dir=$HOME/dot/ --work-tree=$HOME'
+alias c='/usr/bin/git --git-dir=$HOME/.dot/ --work-tree=$HOME'
 
 
 # Customize to your needs...
@@ -136,3 +136,4 @@ if [ -f '/Users/jojo/Desktop/google-cloud-sdk/completion.zsh.inc' ]; then . '/Us
 if which ruby >/dev/null && which gem >/dev/null; then
   PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
+export PATH="/usr/local/opt/ruby/bin:$PATH"

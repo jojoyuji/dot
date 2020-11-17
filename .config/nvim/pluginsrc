@@ -96,6 +96,10 @@ Plug 'zoubin/vim-gotofile'
 
 " Navigation 
 Plug 'mileszs/ack.vim' 
+"unmap annoying h to navigate normally
+let g:ack_apply_qmappings = 0
+let g:ack_apply_lmappings = 0
+
 Plug 'dietsche/vim-lastplace'
 
 " Quickfix
@@ -563,6 +567,7 @@ let g:coc_snippet_prev = '<S-tab>'
 
 " let g:coc_snippet_next = '<tab>'
 nmap <leader>\ :CocCommand snippets.editSnippets<cr>
+vmap <tab> <Plug>(coc-snippets-select)
 
 "coc-yank
 " nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<cr>

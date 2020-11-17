@@ -262,7 +262,8 @@ vnoremap <silent> d d:call ClipboardYank()<cr>
 vnoremap <silent> x d:call ClipboardYank()<cr>
 nnoremap <silent> p :call ClipboardPaste()<cr>p
 
-let g:loaded_python_provider = 1
+let g:loaded_python_provider = 0
+
 if has('python3')
   let g:UltiSnipsUsePythonVersion = 3
   set pyxversion=3
@@ -270,7 +271,7 @@ else
   let g:UltiSnipsUsePythonVersion = 2
   set pyxversion=2
 endif
-let g:python_host_prog = '/usr/local/bin/python'
+" let g:python_host_prog = '/usr/local/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
 if has('nvim')
