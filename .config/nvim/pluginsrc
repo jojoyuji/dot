@@ -21,8 +21,6 @@ endfunction
 
 "GIT
 " Fugitive    
-" Plug 'tpope/vim-fugitive', { 'tag': 'v2.4' }
-"
 Plug 'tpope/vim-fugitive'
 Plug 'aacunningham/vim-fuzzy-stash'
 
@@ -30,7 +28,6 @@ nnoremap <leader>gg :GStashList
 nnoremap <leader>ga :GStash
 
 let g:fugitive_pty = 0
-" autocmd bufreadpost fugitive://* set bufhidden=delete
 let g:gitv_commitstep = 100
 let g:gitv_openhorizontal = 0
 highlight diffadded guifg=#00bf00
@@ -81,9 +78,7 @@ if (empty($TMUX))
 endif
 
 
-" Plug 'jojoyuji/gruvbox'
 Plug 'lifepillar/vim-gruvbox8' 
-"let g:gruvbox_italic=0
 "let g:gruvbox_invert_selection=0
 let g:gruvbox_contrast_dark='hard'
 
@@ -507,7 +502,7 @@ Plug 'othree/html5.vim', {'for': 'html'}
 Plug 'shime/vim-livedown', {'for': ['md', 'markdown'], 'do': 'npm install -g livedown'}
 " Plug 'shmargum/vim-sass-colors', {'for': ['sass', 'stylus', 'styl', 'scss']}
 
-
+  
 "coc-snippets
 " imap <tab> <Plug>(coc-snippets-expand-jump)
 " vmap <tab> <Plug>(coc-snippets-select)

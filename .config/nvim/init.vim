@@ -1,8 +1,5 @@
-set t_8f=^[[38;2;%lu;%lu;%lum  " Needed in tmux
-set t_8b=^[[48;2;%lu;%lu;%lum  " Ditto"
 let g:configpath = expand('<sfile>:h')
-let &t_Co=256
-let t_Co=256
+
 "Performance config
 set synmaxcol=120
 set nocursorcolumn
@@ -19,13 +16,13 @@ set clipboard=unnamed
 set ttimeout
 set ttimeoutlen=50
 set notimeout
-let mapleader=" "        " muda o leader para comma
+let mapleader=" "        " changes leader to space
 set foldmethod=indent
 set foldnestmax=20
 set pastetoggle=<F6>
 set shortmess+=filmnrxoOtT
 set number               " mostra numero linhas
-set numberwidth=5 "margin-left entre os numeros
+set numberwidth=2        " margin-left between frame and line number
 set title                " change the terminal's title
 set visualbell           " don't beep
 set noerrorbells         " don't beep
@@ -36,12 +33,12 @@ set confirm              " kill unwritten buffer
 set sm
 set mouse-=a "disable mouse
 set mousehide "hides the mouse while typing
-set guicursor=n-v-c:block-Cursor-blinkon0,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor,r-cr:hor20-Cursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
+" set guicursor=n-v-c:block-Cursor-blinkon0,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor,r-cr:hor20-Cursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
 set smartindent           "quebra de linha com tab
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo " These commands open folds
 set scrolloff=0 " When the page starts to scroll, keep the cursor 8 lines from the top and 8  lines from the bottom
 set guicursor=a:blinkon0
-set virtualedit=all "para poder andar em espaços em branco (invalid spaces)
+set virtualedit=all 
 set splitright          " Split new vertical windows right of current window.
 set splitbelow          " Split new horizontal windows under current window.
 
@@ -95,7 +92,6 @@ set directory=/tmp//
 set nobackup
 set nowb
 set noswapfile
-"set guifont=DroidSansMonoPowerLine:h15
 set cmdheight=1 " (sub-optimal) removes many press enter to continue prompts
 set list
 set listchars=tab:»·,trail:⋅,nbsp:⋅
@@ -111,16 +107,22 @@ set autoread
 set undolevels=100
 set modeline
 
+
 "Conditional Settings {{{
 if exists('+autochdir')"
   set autochdir
 endif
 autocmd BufEnter * lcd %:p:h
 
+if has("nvim")
+  set noshowcmd
+endif
+
 if has("persistent_undo")
-  set undodir = "~/.vim/undodir"
+  set undodir = "./undodir"
   set undofile
   set history=1000    " remember more commands and search history
+
   set undolevels=1000 " use many muchos levels of undo
 endif
 
@@ -140,83 +142,14 @@ au BufReadPost *
       \     execute 'normal! g`"zvzz' |
       \ endif
 
-autocmd filetype php set omnifunc=phpcomplete#completephp
-
 autocmd BufEnter *.md set filetype=markdown
 
-"}}}
-"Improvements FTW {{{1
-
-" Super useful! From an idea by Michael Naumann
-vnoremap <silent> * :call VisualSelection('f')<CR>
-vnoremap <silent> # :call VisualSelection('b')<CR>
-function! VisualSelection(direction) range
-  let l:saved_reg = @"
-  execute "normal! vgvy"
-
-  let l:pattern = escape(@", '\\/.*$^~[]')
-  let l:pattern = substitute(l:pattern, "\n$", "", "")
-
-  if a:direction == 'b'
-    execute "normal ?" . l:pattern . "^M"
-  elseif a:direction == 'gv'
-    call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
-  elseif a:direction == 'replace'
-    call CmdLine("%s" . '/'. l:pattern . '/')
-  elseif a:direction == 'f'
-    execute "normal /" . l:pattern . "^M"
-  endif
-
-  let @/ = l:pattern
-  let @" = l:saved_reg
-endfunction
-"}}}
-"Star overer selection highlights it {{{
-"AlignReplaceQuotedSpaceslows * on visualmode for searching selected stuff FTW
-vnoremap <silent> * :<C-U>
-      \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-      \gvy/<C-R><C-R>=substitute(
-      \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-      \gV:call setreg('"', old_reg, old_regtype)<CR>
-
-"}}}
-"Blink next search! {{{
-nnoremap <silent> n   n:call HLNext()<cr>zz
-nnoremap <silent> N   N:call HLNext()<cr>zz
-" OR ELSE just highlight the match in red...
-function! HLNext ()
-  let [bufnum, lnum, col, off] = getpos('.')
-  let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
-  let target_pat = '\c\%#'.@/
-  "let ring = matchadd('htmlArg', target_pat, 101)
-  redraw
-  exec 'sleep ' . float2nr(120) . 'm'
-  "call matchdelete(ring)
-  redraw
-endfunction
 "}}}
 "
 "Mispelling fix{{{
 inoreabbrev lenght length
 "}}}
 
-"Utilities {{{
-
-fun! LoadingMsg(message)
-  echo a:message
-  sleep 3m
-endf
-
-"}}}
-"VIMRC Mappings {{{1
-map <leader>vv :execute("e $MYVIMRC")<cr><c-w>
-map <leader>vmp :execute("e ".g:configpath."/mappingsrc")<cr><c-w>
-map <leader>vp :execute("e ".g:configpath."/pluginsrc")<cr><c-w>
-map <leader>vz :execute("e $HOME/.zshrc")<cr><c-w>
-
-"edit e reload rápido
-nnoremap  <leader>so :call LoadingMsg("Loading vimrc...")<cr>:so $MYVIMRC<cr>
-"}}}
 "Load externals{{{1
 exe ('so '.g:configpath.'/pluginsrc')
 exe ('so '.g:configpath.'/mappingsrc')
@@ -227,13 +160,16 @@ set background=dark
 try
   silent! colorscheme gruvbox8_hard
 catch /^Vim\%((\a\+)\)\=:E185/
-    " deal with it
+  " deal with it
 endtry
 
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
+else
+  let &t_Co=256
+  let t_Co=256
 endif
 
 if has("autocmd") && exists("+omnifunc")
@@ -243,35 +179,5 @@ if has("autocmd") && exists("+omnifunc")
         \ endif
 endif
 
-function! ClipboardYank()
-  call system('pbcopy', @@)
-endfunction
-function! ClipboardPaste()
-  let @@ = system('pbpaste')
-endfunction
-
-vnoremap <silent> y y:call ClipboardYank()<cr>
-vnoremap <silent> d d:call ClipboardYank()<cr>
-vnoremap <silent> x d:call ClipboardYank()<cr>
-nnoremap <silent> p :call ClipboardPaste()<cr>p
-
-let g:loaded_python_provider = 0
-
-if has('python3')
-  let g:UltiSnipsUsePythonVersion = 3
-  set pyxversion=3
-else
-  let g:UltiSnipsUsePythonVersion = 2
-  set pyxversion=2
-endif
-" let g:python_host_prog = '/usr/local/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
-
-if has('nvim')
-  set noshowcmd
-endif
-
-"makes vim follow transparency
-hi Normal guibg=NONE
-" ctermbg=NONE
-
+" makes vim follow transparency
+hi Normal guibg=NONE ctermbg=NONE 
