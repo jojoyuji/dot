@@ -8,7 +8,7 @@ nnoremap Q gg=G``zz
 "substituted via plugin command js-beautify
 "nnoremap Q gg=G``zz :StripWhiteSpaces<cr>
 
-nnoremap gu :OpenURL<cr>
+nnoremap go :OpenURL<cr>
 
 "joins selected lines
 nnoremap J mzJ`z
@@ -71,10 +71,10 @@ nmap <silent> <leader><space> :silent noh<cr>
 noremap <leader>sf :set filetype=
 noremap <leader>tjs :set filetype=javascript
 "tab vira identador
-map <tab> >gv
-map <s-tab> <gv
-nmap <tab> >>
-nmap <s-tab> <<
+" map <tab> >gv
+" map <s-tab> <gv
+" nmap <tab> >>
+" nmap <s-tab> <<
 
 
 map <leader>q <esc>:call FecharBuffer()<cr>

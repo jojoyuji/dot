@@ -87,6 +87,7 @@ Plug 'lifepillar/vim-gruvbox8'
 "let g:gruvbox_invert_selection=0
 let g:gruvbox_contrast_dark='hard'
 
+
 "Movements
 Plug 'tpope/vim-surround'
 Plug 'rhysd/clever-f.vim'
@@ -95,6 +96,10 @@ Plug 'zoubin/vim-gotofile'
 
 " Navigation 
 Plug 'mileszs/ack.vim' 
+"unmap annoying h to navigate normally
+let g:ack_apply_qmappings = 0
+let g:ack_apply_lmappings = 0
+
 Plug 'dietsche/vim-lastplace'
 
 " Quickfix
@@ -107,7 +112,7 @@ Plug 'kana/vim-narrow'
 let g:narrow_allow_overridingp = 1
 vmap <cr> :Narrow<cr>
 
-Plug 'svermeulen/vim-easyclip'
+" Plug 'svermeulen/vim-easyclip'
 "FZF                                                                                                
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -168,6 +173,7 @@ nnoremap <leader>y :FZFYank<cr>
 autocmd VimEnter *
       \ command! -bang -nargs=* Ag
       \ call fzf#vim#ag(<q-args>, '', { 'options': '--bind ctrl-f:select-all,ctrl-d:deselect-all' }, <bang>0)
+
 
 command! -bang -nargs=* GitAg
       \ call fzf#vim#ag(<q-args>, {'dir': systemlist('git rev-parse --show-toplevel')[0]}, <bang>0)
@@ -313,7 +319,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'vim-indent-object'
 Plug 'textobj-comment'
 Plug 'hchbaw/textobj-motionmotion.vim'
-Plug 'argtextobj.vim'
+" Plug 'argtextobj.vim'
 Plug 'kana/vim-textobj-lastpat'
 
 "Targets.vim                                                                                                
@@ -416,9 +422,6 @@ Plug 'benmills/vimux'
 map <leader>nt :call VimuxRunCommand("clear; npm test")<CR>
 map <leader>nb :call VimuxRunCommand("clear; gulp bump-version && gulp build")<CR>
 map <leader>x :VimuxPromptCommand<CR>
-"ApiBlueprint 
-Plug 'kylef/apiblueprint.vim' , {'do': 'brew install --HEAD  https://raw.github.com/apiaryio/drafter/master/tools/homebrew/drafter.rb'}
-autocmd FileType apiblueprint nnoremap <C-b> :call GenerateRefract()<cr>
 
 Plug 'vifm/neovim-vifm'
 
@@ -516,6 +519,7 @@ let g:vue_disable_pre_processors = 1
 Plug 'ap/vim-css-color'
 Plug 'vim-scripts/SyntaxComplete'
 
+Plug 'mattn/emmet-vim'
 
 "javascript libs syntax
 Plug 'othree/javascript-libraries-syntax.vim' 
@@ -538,18 +542,32 @@ Plug 'shime/vim-livedown', {'for': ['md', 'markdown'], 'do': 'npm install -g liv
 
 
 "coc-snippets
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+" imap <tab> <Plug>(coc-snippets-expand-jump)
+" vmap <tab> <Plug>(coc-snippets-select)
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
 
-let g:coc_snippet_next = '<tab>'
+ " To make completion works like VSCode
+inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
+let g:coc_snippet_next = '<TAB>'
+let g:coc_snippet_prev = '<S-TAB>'
+
+" let g:coc_snippet_next = '<c-j>'
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<S-tab>'
+" inoremap <silent><expr> <TAB>
+"      \ pumvisible() ? coc#_select_confirm() :
+"      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+"      \ <SID>check_back_space() ? "\<TAB>" :
+"      \ coc#refresh()
+" 
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
+
+" let g:coc_snippet_next = '<tab>'
+nmap <leader>\ :CocCommand snippets.editSnippets<cr>
+vmap <tab> <Plug>(coc-snippets-select)
 
 "coc-yank
 " nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<cr>
