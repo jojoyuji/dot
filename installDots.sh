@@ -1,7 +1,7 @@
 git clone --bare https://github.com/jojoyuji/dot.git $HOME/.dot
 
 function config {
-   /usr/bin/git --git-dir=$HOME/.dot/ --work-tree=$HOME $@
+   git --git-dir=$HOME/.dot/ --work-tree=$HOME $@
 }
 mkdir -p .config-backup
 config checkout
