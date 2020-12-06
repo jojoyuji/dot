@@ -327,6 +327,20 @@ Plug 'wellle/targets.vim'
 let g:targets_quotes = '"d ''q `'
 "Complete 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = [
+    \'coc-emmet',
+    \'coc-explorer',
+    \'coc-snippets',
+    \'coc-yank',
+    \'coc-markdownlint',
+    \'coc-highlight',
+    \'coc-vetur',
+    \'coc-go',
+    \'coc-python',
+    \'coc-flutter', 
+    \'coc-json', 
+    \'coc-git'
+    \]
 " Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
 " Remap for do codeAction of selected region
 
