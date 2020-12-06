@@ -292,5 +292,3 @@ export PATH="/usr/local/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modul
 
 [[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
 
-
-
