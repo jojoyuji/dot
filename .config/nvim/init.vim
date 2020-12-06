@@ -1,11 +1,8 @@
 set t_8f=^[[38;2;%lu;%lu;%lum  " Needed in tmux
 set t_8b=^[[48;2;%lu;%lu;%lum  " Ditto"
 let g:configpath = expand('<sfile>:h')
-"let g:paty = expand('<sfile>:h')
-
 let &t_Co=256
 let t_Co=256
-
 "Performance config
 set synmaxcol=120
 set nocursorcolumn
@@ -24,7 +21,6 @@ set ttimeoutlen=50
 set notimeout
 let mapleader=" "        " muda o leader para comma
 set foldmethod=indent
-" set foldlevel=99
 set foldnestmax=20
 set pastetoggle=<F6>
 set shortmess+=filmnrxoOtT
@@ -199,12 +195,10 @@ function! HLNext ()
   redraw
 endfunction
 "}}}
+"
 "Mispelling fix{{{
 inoreabbrev lenght length
 "}}}
-
-noremap vaf v$f{%;so
-
 
 "Utilities {{{
 
@@ -235,7 +229,6 @@ try
 catch /^Vim\%((\a\+)\)\=:E185/
     " deal with it
 endtry
-
 
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -276,8 +269,6 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 
 if has('nvim')
   set noshowcmd
-"  set runtimepath^=~/.vim runtimepath+=~/.vim/after
-"  let &packpath = &runtimepath
 endif
 
 "makes vim follow transparency
