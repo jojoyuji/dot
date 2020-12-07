@@ -22,7 +22,7 @@ set foldnestmax=20
 set pastetoggle=<F6>
 set shortmess+=filmnrxoOtT
 set number               " mostra numero linhas
-set numberwidth=2        " margin-left between frame and line number
+set numberwidth=5        " margin-left between frame and line number
 set title                " change the terminal's title
 set visualbell           " don't beep
 set noerrorbells         " don't beep
