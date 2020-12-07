@@ -5,7 +5,7 @@ const HANDLERS = [];
 
 /* KEYS */
 
-const HYPER = ['ctrl', 'alt', 'cmd'];
+const HYPER = ['alt'];
 const HYPER_SHIFT = [...HYPER, 'shift'];
 const DOUBLE_KEY_INTERVAL = 250;
 

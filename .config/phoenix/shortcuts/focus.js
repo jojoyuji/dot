@@ -62,7 +62,7 @@ function callbackTerminal () {
 /* FOCUS */
 
 const focus = [
-  ['`', HYPER, ['Noty']],
+  // ['`', HYPER, ['Noty']],
   ['c', HYPER, ['Google Chrome', /^(?!Developer Tools)/, launchChrome]],
   ['d', HYPER, ['Google Chrome', /(Developer Tools)|(chrome-devtools)/, launchDevTools]],
   ['v', HYPER, ['Code', false, launchVSC]],
