@@ -7,10 +7,10 @@ case "$OSTYPE" in
   *)        OS="unknown: $OSTYPE" ;;
 esac
 
-exists() {
+function exists() {
   command -v "$1" >/dev/null 2>&1
 }
-upvim(){
+function upvim(){
   cd ~/
   if [[ $OS == 'OSX' ]]; then
     echo 'nvim:osx'
@@ -27,7 +27,7 @@ upvim(){
 
   fi
 }
-upalacritty(){
+function upalacritty(){
   cd ~/alacritty
   git pull origin HEAD
   rustup update stable
@@ -42,7 +42,7 @@ upalacritty(){
     cd -
   fi
 }
-upprezto(){
+function upprezto(){
   cd $ZPREZTODIR
   git pull
   git submodule update --init --recursive
@@ -58,104 +58,40 @@ if ! exists rustup; then
   fi
 fi
 
-alias c='git --git-dir=$HOME/.dot/ --work-tree=$HOME'
-
-# # fix perl error on ack.vim
-export LC_CTYPE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
-export BAT_THEME="Monokai Extended"
-
-# Make vim the default editor
-export EDITOR="nvim"
-# Don’t clear the screen after quitting a manual page
-export MANPAGER="less -X"
-
-# Larger bash history (allow 32³ entries; default is 500)
-export HISTSIZE=32768
-export HISTFILESIZE=$HISTSIZE
-export HISTCONTROL=ignoredups
-
-# timestamps for bash history. www.debian-administration.org/users/rossen/weblog/1
-# saved for later analysis
-HISTTIMEFORMAT='%F %T '
-export HISTTIMEFORMAT
-
-# Make some commands not show up in history
-export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-COMPLETION_WAITING_DOTS="true"
-
-source ~/.zplug/init.zsh
-
-zplug "bobthecow/git-flow-completion"
-zplug "Valiev/almostontop"
-zplug "djui/alias-tips"
-zplug "arzzen/calc.plugin.zsh"
-zplug "akoenig/npm-run.plugin.zsh"
-zplug "b4b4r07/enhancd", use:init.sh
-zplug "MichaelAquilina/zsh-auto-notify"
-
-zplug load
-
-if zplug check b4b4r07/enhancd; then
-  # setting if enhancd is available
-  export ENHANCD_FILTER=fzf-tmux
+if [[ $OS == 'OSX' ]]; then
+  defaults write -g InitialKeyRepeat -int 10
 fi
-
-defaults write -g InitialKeyRepeat -int 10
-
-# for file in $HOME/{.exports,.aliases}; do
-#   [ -r "$file" ] && source "$file"
-# done
-
-# source functions
-# for file in $HOME/dotfiles/helpers/*.sh; do
-#   [ -r "$file" ] && source "$file"
-# done
-
-# Customize to your needs...
-
+# ALIASES
+alias c='git --git-dir=$HOME/.dot/ --work-tree=$HOME'
 alias dd="cd ~/Desktop/"
 alias 7b="cd ~/7blazes/git/"
 alias zshrc="nvim ~/.zshrc"
 alias cls="clear"
+alias lg="lazygit"
 
 
 alias im='nvim'
 alias v='~/nvim-osx64/bin/nvim'
 alias stat='gotop -c monokai'
-
 alias irc= 'weechat';
-
 # Easier navigation: .., ..., ~ and -
 alias ..="cd .."
-alias cd..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ~="cd ~" # `cd` is probably faster to type though
-alias -- -="cd -"
-
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
 else # OS X `ls`
 	colorflag="-G"
 fi
-
 # List all files colorized in long format
 alias l="ls -l ${colorflag}"
-
 # List all files colorized in long format, including dot files
 alias la="ls -la ${colorflag}"
-
-
-
 # List only directories
 alias lsd='ls -l | grep "^d"'
-
 # Always use color output for `ls`
 if [[ "$OSTYPE" =~ ^darwin ]]; then
 	alias ls="command ls -G"
@@ -167,59 +103,53 @@ fi
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en1"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
-
 # Enhanced WHOIS lookups
 alias whois="whois -h whois-servers.net"
-
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache"
-
 # View HTTP traffic
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
-
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
-
 # Shortcuts
 alias v="nvim"
-
 # File size
 alias fs="stat -f \"%z bytes\""
-
 # ROT13-encode text. Works for decoding, too! ;)
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
-
 # Empty the Trash on all mounted volumes and the main HDD
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
-
-# Hide/show all desktop icons (useful when presenting)
-alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
-alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-
-
-# PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
-alias plistbuddy="/usr/libexec/PlistBuddy"
-
+if [[ $OS == 'OSX' ]]; then
+  # Hide/show all desktop icons (useful when presenting)
+  alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+  alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+  showHidden() {
+    defaults write com.apple.Finder AppleShowAllFiles true
+    killall Finder
+  }
+  hideHidden() {
+    defaults write com.apple.Finder AppleShowAllFiles false
+    killall Finder
+  }
+fi
 # One of @janmoesen’s ProTip™s
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 	alias "$method"="lwp-request -m '$method'"
 done
-
 alias server="history-server ."
 alias m="musikcube"
-
-
-alias mux='TERM=xterm-256color /usr/local/bin/tmuxinator'
+alias mux='tmuxinator'
 alias server='http-server -p 4000 -i true'
-
 alias gitDeleteLocalBranches='git branch | grep -v "master" | xargs git branch -D'
 alias gitReset='git checkout -- .'
 alias gitUndoMerge='git reset --merge'
 
-alias notify='osascript -e "display notification \"Process finished\" with title \"Done!\""'
+if [[ $OS == 'OSX' ]]; then
+  alias notify='osascript -e "display notification \"Process finished\" with title \"Done!\""'
+fi
 
  # git functions
-function gflowBeforeFinish(){
+gflowBeforeFinish(){
   curBranch=$(git rev-parse --abbrev-ref HEAD)
   echo "Fetching ${1}..."
   git checkout $1 &>/dev/null
@@ -229,13 +159,8 @@ function gflowBeforeFinish(){
   echo "Merging ${1} into ${curBranch}..."
   git merge $1
 }
-function gmm() {
-  gflowBeforeFinish master
-}
-function gmd() {
-  gflowBeforeFinish develop
-}
-
+alias gmm="gflowBeforeFinish master"
+alias gmd="gflowBeforeFinish develop"
 alias g="git"
 alias gl="git pull"
 alias gt="git log --graph --pretty=oneline --abbrev-commit"
@@ -246,16 +171,57 @@ alias gco="git checkout"
 alias gcm="git checkout master"
 alias gcd="git checkout develop"
 alias gc='git commit -m'
-# Undo a `git push`
-alias undopush="git push -f origin HEAD^:master"
+alias undopush="git push -f origin HEAD^:master" # Undo a `git push`
 alias undocommit="git reset --soft HEAD~1"
-# Git Status
-alias gs='git status'
-# git root
-alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
+alias gs='git status' # Git Status
+alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`' # git root
 
 ### Added by the Heroku Toolbelt
+[ -f ~/.secrets.zsh ] && source ~/.secrets
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='ag -g ""'
+# Prezto
+[[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]] && source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
+# ZPlug
+[[ -f ~/.zplug/init.zsh ]] && source ~/.zplug/init.zsh
+
+zplug "bobthecow/git-flow-completion"
+zplug "Valiev/almostontop"
+zplug "djui/alias-tips"
+zplug "arzzen/calc.plugin.zsh"
+zplug "akoenig/npm-run.plugin.zsh"
+
+# zplug "b4b4r07/enhancd", use:init.sh
+zplug load
+if zplug check b4b4r07/enhancd; then
+  # setting if enhancd is available
+  export ENHANCD_FILTER=fzf-tmux
+fi
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+[[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
+
+# # fix perl error on ack.vim
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export BAT_THEME="Monokai Extended"
+
+export EDITOR="nvim" # Make vim the default editor
+export MANPAGER="less -X" # Don’t clear the screen after quitting a manual page
+export HISTSIZE=32768  # Larger bash history (allow 32³ entries; default is 500)
+export HISTFILESIZE=$HISTSIZE
+export HISTCONTROL=ignoredups
+export HISTTIMEFORMAT='%F %T ' # saved for later analysis
+export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help" # Make some commands not show up in history
+
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH=$HOME:$PATH
 export PATH=$HOME/local/bin:$PATH
 export PATH=usr/bin:$PATH
@@ -263,33 +229,3 @@ export PATH=/usr/local/bin:$PATH
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/.local/bin:$PATH"
 export PATH="/usr/local/heroku/bin:$PATH"
-
-# if [ "$TERM" = "screen" ] && [ "$HAS_256_COLORS" = "yes" ]
-# then
-#   export TERM=screen-256color
-# fi
-# export TERM=screen-256color
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH="/usr/local/sbin:$PATH"
-
-
-if [[ -a ~/.secrets ]]; then
-  source ~/.secrets
-fi
-
-export FZF_DEFAULT_COMMAND='ag -g ""'
-
-source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-
-export PATH="/usr/local/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-
-[[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
-

@@ -33,10 +33,9 @@ set confirm              " kill unwritten buffer
 set sm
 set mouse-=a "disable mouse
 set mousehide "hides the mouse while typing
-" set guicursor=n-v-c:block-Cursor-blinkon0,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor,r-cr:hor20-Cursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
 set smartindent           "quebra de linha com tab
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo " These commands open folds
-set scrolloff=0 " When the page starts to scroll, keep the cursor 8 lines from the top and 8  lines from the bottom
+set scrolloff=0 
 set guicursor=a:blinkon0
 set virtualedit=all 
 set splitright          " Split new vertical windows right of current window.
@@ -73,7 +72,7 @@ set ignorecase " stuff for searching
 set smartcase
 set hlsearch
 set gdefault   " assume the /g flag on :s substitutions to replace all matches in a line:
-set wildignore=*.swp,*.bak,*.pyc,*.class " autocomplete when opening files. behaves somewhat similarly to bash.
+set wildignore=*.swp,*.bak,*.pyc,*.class " autocomplete when opening files.
 set wildignore+=tags,*.bak,*.swp,*.pyc,*.o,*.obj,*.dll,*.exe,*.gif,*.png,*.jpg,*.jpeg
 set wildignore+=*.o,*.obj,*.pyc,*.ds_store,*.db,*.swc
 set wildmenu

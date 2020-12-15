@@ -1,24 +1,5 @@
 call plug#begin(g:configpath.'/bundle')
 
-Plug 'azadkuh/vim-cmus'
-nnoremap <F7> :CmusPrevious<cr>
-nnoremap <F9> :CmusNext<cr>
-" nnoremap <F8> :CmusPlay<cr>
-nnoremap <F8> :call CmusPlayToggle()<cr>
-let g:cmus_is_playing = 0
-function! CmusPlayToggle()
-  if g:cmus_is_playing
-    :CmusPause
-    let g:cmus_is_playing = 0
-  else
-    :CmusPlay
-    let g:cmus_is_playing = 1
-  endif
-endfunction
-" nnoremap <leader>i :CmusCurrent<cr>
-" nnoremap <leader>c :CmusPause<cr>
-" nnoremap <leader>v :CmusStop<cr>
-
 "GIT
 " Fugitive    
 Plug 'tpope/vim-fugitive'
@@ -44,15 +25,7 @@ nnoremap <leader>gl :Gpull
 Plug 'tpope/vim-dispatch'
 "Gitgutter 
 
-Plug 'airblade/vim-gitgutter' 
-let g:gitgutter_realtime = 0
-let g:gitgutter_eager = 0
-nmap ]h <Plug>GitGutterNextHunk
-nmap [h <Plug>GitGutterPrevHunk
-omap ih <Plug>GitGutterTextObjectInnerPending
-omap ah <Plug>GitGutterTextObjectOuterPending
-xmap ih <Plug>GitGutterTextObjectInnerVisual
-xmap ah <Plug>GitGutterTextObjectOuterVisual
+Plug 'mhinz/vim-signify'
 
 "Colorthemes 
 " Plug 'dracula/vim'
@@ -263,19 +236,12 @@ autocmd BufEnter NERD_tree_* :call BookmarkUnmapKeys()
 "Indentation 
 "Align                                                                                                     
 Plug 'vim-scripts/Align'
-if exists(":Align")
-  noremap <leader>t :Align 
-  noremap <leader>a :Align 
-endif
 Plug 'tommcdo/vim-lion'
 Plug 'maksimr/vim-jsbeautify' , { 'for': [ 'html', 'css', 'stylus', 'scss', 'less'] }
 
 Plug 'dense-analysis/ale', { 'for': [ 'html', 'css', 'stylus', 'scss', 'less', 'javascript', 'stylus', 'vue'] }
-" 'w0rp/ale', 
 "
-" let g:ale_sign_column_always = 1
-
-
+let g:ale_sign_column_always = 1
 let g:ale_fixers = {
       \ 'javascript': ['eslint'],
       \ 'vue': ['eslint', 'stylelint']
@@ -304,6 +270,7 @@ Plug 'leshill/vim-json'
 Plug 'elzr/vim-json' 
 Plug 'XadillaX/json-formatter.vim', {'for': 'json', 'do': 'npm install jjson -g'}
 Plug 'tpope/vim-jdaddy' ,{'for': 'json'}
+Plug 'metakirby5/codi.vim'
 
 "Pairing 
 Plug 'Raimondi/delimitMate'
@@ -314,7 +281,6 @@ Plug 'kana/vim-textobj-user'
 Plug 'vim-indent-object'
 Plug 'textobj-comment'
 Plug 'hchbaw/textobj-motionmotion.vim'
-" Plug 'argtextobj.vim'
 Plug 'kana/vim-textobj-lastpat'
 
 "Targets.vim                                                                                                
@@ -328,18 +294,14 @@ let g:coc_global_extensions = [
     \'coc-snippets',
     \'coc-yank',
     \'coc-markdownlint',
-    \'coc-highlight',
     \'coc-vetur',
-    \'coc-go',
-    \'coc-python',
-    \'coc-flutter', 
-    \'coc-json', 
-    \'coc-git'
     \]
+
 " Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
 " Remap for do codeAction of selected region
 
 Plug 'roxma/nvim-yarp'
+Plug 'voldikss/vim-floaterm'
 
 
 Plug 'jojoyuji/megaman-vim'
@@ -429,10 +391,9 @@ Plug 'christoomey/vim-tmux-navigator'
 "Vimux 
 Plug 'benmills/vimux'
 map <leader>nt :call VimuxRunCommand("clear; npm test")<CR>
-map <leader>nb :call VimuxRunCommand("clear; gulp bump-version && gulp build")<CR>
 map <leader>x :VimuxPromptCommand<CR>
 
-Plug 'vifm/neovim-vifm'
+" Plug 'vifm/neovim-vifm'
 
 Plug 'itchyny/lightline.vim'
 let g:lightline = {
