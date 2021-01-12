@@ -3,6 +3,10 @@
     {
       "title": "Home",
       "arg": "18"
+    },
+    {
+      "title": "Space 2",
+      "arg": "19"
     }
   ]
 }

@@ -294,7 +294,6 @@ let g:coc_global_extensions = [
     \'coc-snippets',
     \'coc-yank',
     \'coc-markdownlint',
-    \'coc-vetur',
     \]
 
 " Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
