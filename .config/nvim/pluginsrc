@@ -286,6 +286,8 @@ Plug 'kana/vim-textobj-lastpat'
 "Targets.vim                                                                                                
 Plug 'wellle/targets.vim'
 let g:targets_quotes = '"d ''q `'
+
+Plug 'neovim/nvim-lspconfig'
 "Complete 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
