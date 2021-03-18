@@ -176,6 +176,8 @@ alias undocommit="git reset --soft HEAD~1"
 alias gs='git status' # Git Status
 alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`' # git root
 
+
+
 ### Added by the Heroku Toolbelt
 [ -f ~/.secrets.zsh ] && source ~/.secrets
 # fzf
@@ -210,6 +212,9 @@ fi
 # # fix perl error on ack.vim
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export LC_MESSAGES=en_US.UTF-8
+export LANG="en_US"
+
 export BAT_THEME="Monokai Extended"
 
 export EDITOR="nvim" # Make vim the default editor
