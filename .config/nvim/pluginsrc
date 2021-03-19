@@ -62,11 +62,6 @@ Plug 'rhysd/clever-f.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'zoubin/vim-gotofile'
 
-" Navigation 
-Plug 'mileszs/ack.vim' 
-"unmap annoying h to navigate normally
-let g:ack_apply_qmappings = 0
-let g:ack_apply_lmappings = 0
 
 Plug 'dietsche/vim-lastplace'
 
