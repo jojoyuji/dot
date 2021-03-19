@@ -149,18 +149,20 @@ autocmd BufEnter *.md set filetype=markdown
 inoreabbrev lenght length
 "}}}
 
+set background=dark
 "Load externals{{{1
 exe ('so '.g:configpath.'/pluginsrc')
 exe ('so '.g:configpath.'/mappingsrc')
 "}}}
-
-set background=dark
+"
 
 try
   silent! colorscheme gruvbox8_hard
 catch /^Vim\%((\a\+)\)\=:E185/
   " deal with it
 endtry
+
+
 
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -180,3 +182,15 @@ endif
 
 " makes vim follow transparency
 hi Normal guibg=NONE ctermbg=NONE 
+
+
+
+lua<< EOF
+require'lspconfig'.tsserver.setup{}
+require'lspconfig'.vuels.setup{}
+EOF
+" lsp syntax highlight fix colors
+highlight! link LspDiagnosticsUnderlineError CocErrorHighlight
+highlight! link LspDiagnosticsUnderlineHint CocHintHighlight
+highlight! link LspDiagnosticsUnderlineInfo CocInfoHighlight
+highlight! link LspDiagnosticsUnderlineWarning CocWarningHighlight

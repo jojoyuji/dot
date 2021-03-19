@@ -288,6 +288,16 @@ Plug 'wellle/targets.vim'
 let g:targets_quotes = '"d ''q `'
 
 Plug 'neovim/nvim-lspconfig'
+Plug 'anott03/nvim-lspinstall'
+
+
+" lua << EOF
+" local nvim_lsp = require'nvim_lsp'
+" nvim_lsp.tsserver.setup{}
+" EOF
+"
+
+
 "Complete 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
