@@ -17,6 +17,7 @@ set ttimeout
 set ttimeoutlen=50
 set notimeout
 let mapleader=" "        " changes leader to space
+let maplocalleader=" "        " changes leader to space
 set foldmethod=indent
 set foldnestmax=20
 set pastetoggle=<F6>
@@ -143,11 +144,6 @@ au BufReadPost *
 
 autocmd BufEnter *.md set filetype=markdown
 
-"}}}
-"
-"Mispelling fix{{{
-inoreabbrev lenght length
-"}}}
 
 "Load externals{{{1
 exe ('so '.g:configpath.'/pluginsrc')

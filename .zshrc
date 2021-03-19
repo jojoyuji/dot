@@ -16,7 +16,8 @@ function upvim(){
     echo 'nvim:osx'
     curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-macos.tar.gz
     # https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.bz2
-    tar -xf nvim-macos.tar.bz2
+    # tar -xf nvim-macos.tar.bz2
+    tar -xf nvim-macos.tar.gz
     mv ./nvim-osx64/bin/nvim /usr/local/bin/
   fi
   if [[ $OS == 'linux' ]]; then

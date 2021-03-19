@@ -20,7 +20,7 @@ nnoremap <leader>gd :Gdiff
 nnoremap <leader>gb :Gblame
 nnoremap <leader>gr :Gread
 nnoremap <leader>gw :Gwrite
-nnoremap <leader>gp :Gpush origin HEAD
+nnoremap <leader>gp :Git push origin HEAD
 nnoremap <leader>gl :Gpull
 Plug 'tpope/vim-dispatch'
 "Gitgutter 
@@ -28,7 +28,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'mhinz/vim-signify'
 
 "Colorthemes 
-" Plug 'dracula/vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'sainnhe/edge'
 let g:edge_style = 'neon'
@@ -39,12 +38,8 @@ if (has("termguicolors"))
 endif
 if (empty($TMUX))
   if (has("nvim"))
-    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   endif
-  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
   if (has("termguicolors"))
     set termguicolors
   endif
@@ -134,7 +129,7 @@ nnoremap <leader>mr :History<cr>
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>pf :GitFiles<cr>
 nnoremap <leader>ag :GitAg<cr>
-nnoremap <f12> :Colors<cr>
+" nnoremap <f12> :Colors<cr>
 nnoremap <leader>y :FZFYank<cr>
 
 
@@ -233,6 +228,35 @@ endfunction
 autocmd BufEnter * :call BookmarkMapKeys()
 autocmd BufEnter NERD_tree_* :call BookmarkUnmapKeys()
 
+
+
+"Filetype Plug
+" Plug 'posva/vim-vue'
+let g:vue_disable_pre_processors = 1
+Plug 'ap/vim-css-color'
+Plug 'vim-scripts/SyntaxComplete'
+
+Plug 'mattn/emmet-vim'
+
+"javascript libs syntax
+Plug 'othree/javascript-libraries-syntax.vim' 
+let g:used_javascript_libs = 'underscore,jquery,angularjs,flux,vue,react,lodash,chai,jasmine'		
+Plug 'moll/vim-node' , {'for': 'javascript'}
+Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
+Plug 'othree/yajs.vim', {'for': 'javascript'}
+Plug 'jojoyuji/vim-javascript', {'for': 'javascript'}
+Plug 'Quramy/vim-js-pretty-template', {'for': 'javascript'}
+Plug 'heavenshell/vim-jsdoc', {'for': 'javascript'}
+Plug 'kkoomen/vim-doge'
+Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
+Plug 'chrisbra/csv.vim', {'for': 'csv'}
+Plug 'wavded/vim-stylus', {'for': 'stylus'}
+Plug 'tpope/vim-haml'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'othree/html5.vim', {'for': 'html'}
+Plug 'shime/vim-livedown', {'for': ['md', 'markdown'], 'do': 'npm install -g livedown'}
+" Plug 'shmargum/vim-sass-colors', {'for': ['sass', 'stylus', 'styl', 'scss']}
+
 "Indentation 
 "Align                                                                                                     
 Plug 'vim-scripts/Align'
@@ -260,8 +284,10 @@ let g:ale_open_list = 1
 " This can be useful if you are combining ALE with
 " some other plugin which sets quickfix errors, etc.
 let g:ale_keep_list_window_open = 0
-nmap <silent> [[ <Plug>(ale_previous_wrap)
-nmap <silent> ]] <Plug>(ale_next_wrap)
+let g:ale_list_window_size = 5
+let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰']
+map <silent> [[ <Plug>(ale_previous_wrap)
+map <silent> ]] <Plug>(ale_next_wrap)
 autocmd BufEnter,BufNewFile,BufRead *.js noremap Q :ALEFix<cr>
 
 
@@ -286,25 +312,33 @@ Plug 'kana/vim-textobj-lastpat'
 "Targets.vim                                                                                                
 Plug 'wellle/targets.vim'
 let g:targets_quotes = '"d ''q `'
-"Complete 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = [
-    \'coc-emmet',
-    \'coc-explorer',
-    \'coc-snippets',
-    \'coc-yank',
-    \'coc-markdownlint',
-    \]
-
-" Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
-" Remap for do codeAction of selected region
 
 Plug 'roxma/nvim-yarp'
 Plug 'voldikss/vim-floaterm'
+let g:floaterm_keymap_new    = '<F7>'
+let g:floaterm_keymap_prev   = '<F8>'
+let g:floaterm_keymap_next   = '<F9>'
+" let g:floaterm_keymap_toggle = '<F12>'
+let g:floaterm_keymap_kill = '<F11>'
 
+
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 Plug 'jojoyuji/megaman-vim'
 Plug 'jojoyuji/nyancat-vim'
+
+Plug 'dbeniamine/todo.txt-vim'
+
+
+" autocmd VimEnter * FloatermNew --height=0.6 --width=0.4 --wintype=float --name=todo --silent --title=Todos --position=topright --autoclose=0 
+
+au filetype todo setlocal omnifunc=todo#Complete
+" " Auto complete projects
+" au filetype todo imap <buffer> + +<C-X><C-O>
+" 
+" " Auto complete contexts
+" au filetype todo imap <buffer> @ @<C-X><C-O>
+
 
 "youcompleteme mapping
 imap <c-j> <c-n>
@@ -332,7 +366,7 @@ Plug 'tpope/vim-abolish'
 Plug 'splitjoin.vim'
 
 "Switch                                                                                                         
-Plug 'AndrewRadev/switch.vim'
+Plug 'jojoyuji/switch.vim'
 nnoremap - :Switch<cr>
 let g:switch_custom_definitions =
       \ [
@@ -434,41 +468,37 @@ endif
 Plug 'junegunn/vim-emoji'
 command! Emoji %s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g
 
+" Plug 'neovim/nvim-lspconfig'
 
-"Filetype Plug
-Plug 'posva/vim-vue'
-let g:vue_disable_pre_processors = 1
-Plug 'ap/vim-css-color'
-Plug 'vim-scripts/SyntaxComplete'
 
-Plug 'mattn/emmet-vim'
 
-"javascript libs syntax
-Plug 'othree/javascript-libraries-syntax.vim' 
-let g:used_javascript_libs = 'underscore,jquery,angularjs,flux,vue,react,lodash,chai,jasmine'		
-Plug 'moll/vim-node' , {'for': 'javascript'}
-Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
-Plug 'othree/yajs.vim', {'for': 'javascript'}
-Plug 'jojoyuji/vim-javascript', {'for': 'javascript'}
-Plug 'Quramy/vim-js-pretty-template', {'for': 'javascript'}
-Plug 'heavenshell/vim-jsdoc', {'for': 'javascript'}
-Plug 'kkoomen/vim-doge'
-Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
-Plug 'chrisbra/csv.vim', {'for': 'csv'}
-Plug 'wavded/vim-stylus', {'for': 'stylus'}
-Plug 'tpope/vim-haml'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'othree/html5.vim', {'for': 'html'}
-Plug 'shime/vim-livedown', {'for': ['md', 'markdown'], 'do': 'npm install -g livedown'}
-" Plug 'shmargum/vim-sass-colors', {'for': ['sass', 'stylus', 'styl', 'scss']}
+"Complete 
 
-  
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" let g:coc_node_path = '/usr/local/bin/node'
+let g:coc_global_extensions = [
+    \'coc-css',
+    \'coc-html',
+    \'coc-vetur',
+    \'coc-emmet',
+    \'coc-snippets',
+    \'coc-yank',
+    \'coc-eslint',
+    \'coc-markdownlint'
+    \]
+autocmd FileType scss setl iskeyword+=@-@
+
+Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
+" Remap for do codeAction of selected region
+
+
 "coc-snippets
 " imap <tab> <Plug>(coc-snippets-expand-jump)
 " vmap <tab> <Plug>(coc-snippets-select)
 
 
- " To make completion works like VSCode
+" To make completion works like VSCode
 inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
 let g:coc_snippet_next = '<TAB>'
 let g:coc_snippet_prev = '<S-TAB>'
@@ -499,5 +529,46 @@ call plug#end()
 nnoremap <leader>vu :call LoadingMsg('Updating plugins...')<cr>:so $MYVIMRC<CR>:PlugUpdate
 nnoremap <leader>vi :call LoadingMsg('Installing plugins...')<cr>:so $MYVIMRC<CR>:PlugInstall<cr>
 nnoremap <leader>vc :call LoadingMsg('Cleaning plugins...')<cr>:so $MYVIMRC<CR>:PlugClean<cr>
+
+function! CreateCenteredFloatingWindow() abort
+  let height = float2nr((&lines - 2) / 1.5)
+  let row = float2nr((&lines - height) / 2)
+  let width = float2nr(&columns / 1.5)
+  let col = float2nr((&columns - width) / 2)
+  " Window
+  let opts = {
+    \ 'relative': 'editor',
+    \ 'row': row - 1,
+    \ 'col': col - 2,
+    \ 'width': width + 4,
+    \ 'height': height + 2,
+    \ 'style': 'minimal'
+    \ }
+
+  let opts.row += 1
+  let opts.height -= 2
+  let opts.col += 2
+  let opts.width -= 4
+
+  autocmd BufEnter,BufNewFile,BufRead todo.txt noremap <buffer> <F12> :close<cr>
+  autocmd BufEnter,BufNewFile,BufRead todo.txt noremap <buffer> q :close<cr>
+  autocmd BufEnter,BufNewFile,BufRead todo.txt setlocal number
+
+  call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+  " au BufWipeout <buffer> exe 'bw '.s:buf
+endfunction
+
+function! FloatingWindowHelp(query) abort
+  let l:buf = CreateCenteredFloatingWindow()
+  hi Pmenu ctermbg=gray guibg=#333333
+  set winhl=Normal:Pmenu
+  call nvim_set_current_buf(l:buf)
+  execute 'e ' . a:query
+  " setlocal filetype=help
+  " au BufWipeout <buffer> exe 'bw '.l:buf
+endfunction
+
+command! -complete=help -nargs=? Todo call FloatingWindowHelp(<q-args>)
+nmap <F12> <esc>:Todo ~/Google Drive/NOTAS/todo.txt<cr>
 
 " vim:  ft=vim 
