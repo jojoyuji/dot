@@ -57,11 +57,6 @@ Plug 'rhysd/clever-f.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'zoubin/vim-gotofile'
 
-" Navigation 
-Plug 'mileszs/ack.vim' 
-"unmap annoying h to navigate normally
-let g:ack_apply_qmappings = 0
-let g:ack_apply_lmappings = 0
 
 Plug 'dietsche/vim-lastplace'
 
@@ -312,6 +307,30 @@ Plug 'kana/vim-textobj-lastpat'
 "Targets.vim                                                                                                
 Plug 'wellle/targets.vim'
 let g:targets_quotes = '"d ''q `'
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'anott03/nvim-lspinstall'
+
+
+" lua << EOF
+" local nvim_lsp = require'nvim_lsp'
+" nvim_lsp.tsserver.setup{}
+" EOF
+"
+
+
+"Complete 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = [
+    \'coc-emmet',
+    \'coc-explorer',
+    \'coc-snippets',
+    \'coc-yank',
+    \'coc-markdownlint',
+    \]
+
+" Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
+" Remap for do codeAction of selected region
 
 Plug 'roxma/nvim-yarp'
 Plug 'voldikss/vim-floaterm'
