@@ -312,7 +312,7 @@ Plug 'wellle/targets.vim'
 let g:targets_quotes = '"d ''q `'
 
 
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'anott03/nvim-lspinstall'
 
@@ -593,5 +593,4 @@ endfunction
 
 command! -complete=help -nargs=? Todo call FloatingWindowHelp(<q-args>)
 nmap <F12> <esc>:Todo ~/Google Drive/NOTAS/todo.txt<cr>
-
 " vim:  ft=vim 
