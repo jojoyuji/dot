@@ -185,8 +185,17 @@ lua<< EOF
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.vuels.setup{}
 EOF
+
 " lsp syntax highlight fix colors
 highlight! link LspDiagnosticsUnderlineError CocErrorHighlight
 highlight! link LspDiagnosticsUnderlineHint CocHintHighlight
 highlight! link LspDiagnosticsUnderlineInfo CocInfoHighlight
 highlight! link LspDiagnosticsUnderlineWarning CocWarningHighlight
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true
+  },
+}
+EOF
