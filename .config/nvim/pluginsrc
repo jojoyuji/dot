@@ -69,7 +69,20 @@ Plug 'kana/vim-narrow'
 let g:narrow_allow_overridingp = 1
 vmap <cr> :Narrow<cr>
 
-" Plug 'svermeulen/vim-easyclip'
+"Vim telescope stuff :)
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-frecency.nvim'
+
+ " Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>pf <cmd>Telescope git_files<cr>
+nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap <leader>mr <cmd>Telescope oldfiles<cr>
+" nnoremap <leader>gh <cmd>Telescope git_status<cr>
+
 "FZF                                                                                                
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -119,13 +132,10 @@ command! FZFYank call fzf#run({
       \ 'options': ' --no-preview'
       \ })
 
-nnoremap <leader>mr :History<cr>
-nnoremap <leader>b :Buffers<cr>
-nnoremap <leader>pf :GitFiles<cr>
-nnoremap <leader>ag :GitAg<cr>
-" nnoremap <f12> :Colors<cr>
-nnoremap <leader>y :FZFYank<cr>
-
+" nnoremap <leader>mr :History<cr>
+" nnoremap <leader>b :Buffers<cr>
+" nnoremap <leader>pf :GitFiles<cr>
+" nnoremap <leader>ag :GitAg<cr>
 
 autocmd VimEnter *
       \ command! -bang -nargs=* Ag
