@@ -182,9 +182,16 @@ hi Normal guibg=NONE ctermbg=NONE
 
 
 lua<< EOF
+require('plugins')
+require('telescope-config')
+
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.vuels.setup{}
+
+
 EOF
+
+autocmd BufWritePost plugins.lua PackerCompile
 
 " lsp syntax highlight fix colors
 highlight! link LspDiagnosticsUnderlineError CocErrorHighlight

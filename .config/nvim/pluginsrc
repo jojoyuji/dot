@@ -70,17 +70,14 @@ let g:narrow_allow_overridingp = 1
 vmap <cr> :Narrow<cr>
 
 "Vim telescope stuff :)
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-frecency.nvim'
+"
 
  " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>pf <cmd>Telescope git_files<cr>
+nnoremap <leader>pf <esc>:lua require'telescope-gitfallback'.project_files()<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
-nnoremap <leader>mr <cmd>Telescope oldfiles<cr>
-" nnoremap <leader>gh <cmd>Telescope git_status<cr>
+nnoremap <leader>mr <cmd>Telescope frecency<cr>
+" nnoremap <leader>gh <cmd>Telescope git_status<cr>         
 
 "FZF                                                                                                
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -620,7 +617,7 @@ nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<cr>
 call plug#end()
 
 nnoremap <leader>vu :call LoadingMsg('Updating plugins...')<cr>:so $MYVIMRC<CR>:PlugUpdate
-nnoremap <leader>vi :call LoadingMsg('Installing plugins...')<cr>:so $MYVIMRC<CR>:PlugInstall<cr>
+nnoremap <leader>vi :call LoadingMsg('Installing plugins...')<cr>:PlugInstall<cr>
 nnoremap <leader>vc :call LoadingMsg('Cleaning plugins...')<cr>:so $MYVIMRC<CR>:PlugClean<cr>
 
 function! CreateCenteredFloatingWindow() abort
