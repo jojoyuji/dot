@@ -1,4 +1,6 @@
 {
+ "suggest.enablePreselect": false,
+ "suggest.noselect": false,
   "languageserver": {
     "go": {
       "command": "gopls",
