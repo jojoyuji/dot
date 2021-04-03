@@ -70,7 +70,6 @@ let g:narrow_allow_overridingp = 1
 vmap <cr> :Narrow<cr>
 
 "Vim telescope stuff :)
-Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -155,40 +154,101 @@ endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
-"NERDTree                                                                                                       
-Plug 'jojoyuji/nerdtree-async' ", { 'on':  'NERDTreeToggle' }
-Plug 'nerdtree-execute' ", { 'on':  'NERDTreeToggle' }
-Plug 'MarSoft/nerdtree-grep-plugin'
+"Nerdtree removal
+Plug 'justinmk/vim-dirvish' 
+Plug 'kristijanhusak/vim-dirvish-git'
+" Highlight dirvish modified files with blue color
 
-let g:indent_guides_exclude_filetypes = ['nerdtree'] "fixes the folding issue on NERDTree
-let NERDTreeShowBookmarks=1
-let NERDTreeDirArrows=1
-let NERDTreeMinimalUI=1
-let NERDTreeChDirMode=2
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-"closes nerdtree on tab
-autocmd FileType NERDTree nmap <tab> q
-"map <silent> <leader><tab>  :NERDTreeToggle<cr>
-map <bs> :call RcsyncTree()<cr>
-map <silent> <leader><tab>  :call RcsyncTree()<cr>
-"map <silent> <bs>  :call RcsyncTree()<cr>
-map <silent> <leader><leader><tab> <nop>
-"allows NERDTree to change de cur dir
-let g:NERDTreeChDirMode=2
-" returns true iff is NERDTree open/active
-function! RcisNTOpen()
-  return exists("t:NERDTreeBufName")
+" map <silent> <leader><tab>  <Plug>(dirvish_toggle)<cr>
+
+" nmap <C-o> <Plug>(dirvish-toggle)
+ nmap <leader><tab> <Plug>(dirvish-toggle)
+nnoremap <silent> <Plug>(dirvish-toggle) :<C-u>call <SID>dirvish_toggle()<CR>
+
+function! s:dirvish_toggle() abort
+  let l:last_buffer = bufnr('$')
+  let l:i = 1
+  let l:dirvish_already_open = 0
+
+  while l:i <= l:last_buffer
+    if bufexists(l:i) && bufloaded(l:i) && getbufvar(l:i, '&filetype') ==? 'dirvish'
+      let l:dirvish_already_open = 1
+      execute ':'.l:i.'bd!'
+    endif
+    let l:i += 1
+  endwhile
+
+  set nosplitright
+  if !l:dirvish_already_open
+    30vsp +Dirvish
+  endif
+  set splitright
 endfunction
-"calls NERDTreeFind iff NERDTree is active, current window contains a modifiable file, and we're not in vimdiff
-function! RcsyncTree()
-  if RcisNTOpen() == 0 && !&modifiable
-    NERDTreClose
-  elseif &modifiable 
-    NERDTree %:p:h
+
+function! s:dirvish_open() abort
+  let l:line = getline('.')
+  if l:line =~? '/$'
+    call dirvish#open('edit', 0)
   else
-    NERDTreeClose
+    call <SID>dirvish_toggle()
+    execute 'e '.l:line
   endif
 endfunction
+
+augroup dirvish_commands
+  autocmd!
+  autocmd FileType dirvish call FugitiveDetect(@%)
+  autocmd FileType dirvish nmap <buffer> q <Plug>(dirvish_quit)
+  autocmd FileType dirvish nnoremap <silent> <buffer> <C-r> :<C-u>Dirvish %<CR>
+  autocmd FileType dirvish nnoremap <silent> <buffer> q :<C-u> call <SID>dirvish_toggle()<CR>
+  autocmd FileType dirvish unmap <silent> <buffer> <CR>
+  autocmd FileType dirvish nnoremap <silent> <buffer> <CR> :<C-u> call <SID>dirvish_open()<CR>
+  autocmd FileType dirvish setlocal norelativenumber statusline=%F
+  autocmd FileType dirvish silent! keeppatterns g@\v/\.[^\/]+/?$@d
+  autocmd FileType dirvish execute ':sort r /[^\/]$/'
+augroup END
+" let g:dirvish_mode = ':silent keeppatterns g@\v/\.[^\/]+/?$@d _'
+
+
+" Plug 'lambdalisue/fern.vim' 
+" Plug 'antoinemadec/FixCursorHold.nvim'
+" 
+" map <silent> <leader><tab> :Fern . -drawer<cr>
+
+"NERDTree                                                                                                       
+" Plug 'jojoyuji/nerdtree-async' ", { 'on':  'NERDTreeToggle' }
+" Plug 'nerdtree-execute' ", { 'on':  'NERDTreeToggle' }
+" Plug 'MarSoft/nerdtree-grep-plugin'
+" 
+" let g:indent_guides_exclude_filetypes = ['nerdtree'] "fixes the folding issue on NERDTree
+" let NERDTreeShowBookmarks=1
+" let NERDTreeDirArrows=1
+" let NERDTreeMinimalUI=1
+" let NERDTreeChDirMode=2
+" autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" "closes nerdtree on tab
+" autocmd FileType NERDTree nmap <tab> q
+" "map <silent> <leader><tab>  :NERDTreeToggle<cr>
+" map <bs> :call RcsyncTree()<cr>
+" map <silent> <leader><tab>  :call RcsyncTree()<cr>
+" "map <silent> <bs>  :call RcsyncTree()<cr>
+" map <silent> <leader><leader><tab> <nop>
+" "allows NERDTree to change de cur dir
+" let g:NERDTreeChDirMode=2
+" " returns true iff is NERDTree open/active
+" function! RcisNTOpen()
+"   return exists("t:NERDTreeBufName")
+" endfunction
+" "calls NERDTreeFind iff NERDTree is active, current window contains a modifiable file, and we're not in vimdiff
+" function! RcsyncTree()
+"   if RcisNTOpen() == 0 && !&modifiable
+"     NERDTreClose
+"   elseif &modifiable 
+"     NERDTree %:p:h
+"   else
+"     NERDTreeClose
+"   endif
+" endfunction
 
 "Bookmarking                                                                                                    
 Plug 'MattesGroeger/vim-bookmarks'

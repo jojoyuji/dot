@@ -109,9 +109,9 @@ set modeline
 
 
 "Conditional Settings {{{
-if exists('+autochdir')"
-  set autochdir
-endif
+" if exists('+autochdir')"
+"   set autochdir
+" endif
 autocmd BufEnter * lcd %:p:h
 
 if has("nvim")
