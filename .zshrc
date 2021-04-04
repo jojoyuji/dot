@@ -15,9 +15,6 @@ function upvim(){
   if [[ $OS == 'OSX' ]]; then
     echo 'nvim:osx'
     curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz
-    # https://github.com/neovim/neovim/releases/nightly/download/nvim-macos.tar.gz
-    # https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.bz2
-    # tar -xf nvim-macos.tar.bz2
     tar -xf nvim-macos.tar.gz
     mv ./nvim-osx64/bin/nvim /usr/local/bin/
   fi
@@ -105,8 +102,6 @@ fi
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en1"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
-# Enhanced WHOIS lookups
-alias whois="whois -h whois-servers.net"
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache"
 # View HTTP traffic
@@ -115,8 +110,6 @@ alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 # Shortcuts
 alias v="nvim"
-# File size
-alias fs="stat -f \"%z bytes\""
 # ROT13-encode text. Works for decoding, too! ;)
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 # Empty the Trash on all mounted volumes and the main HDD
@@ -138,10 +131,9 @@ fi
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 	alias "$method"="lwp-request -m '$method'"
 done
-alias server="history-server ."
-alias m="musikcube"
 alias mux='tmuxinator'
 alias server='http-server -p 4000 -i true'
+
 alias gitDeleteLocalBranches='git branch | grep -v "master" | xargs git branch -D'
 alias gitReset='git checkout -- .'
 alias gitUndoMerge='git reset --merge'
@@ -182,9 +174,6 @@ alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup 
 
 ### Added by the Heroku Toolbelt
 [ -f ~/.secrets.zsh ] && source ~/.secrets
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='ag -g ""'
 # Prezto
 [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]] && source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
@@ -197,12 +186,7 @@ zplug "djui/alias-tips"
 zplug "arzzen/calc.plugin.zsh"
 zplug "akoenig/npm-run.plugin.zsh"
 
-# zplug "b4b4r07/enhancd", use:init.sh
 zplug load
-if zplug check b4b4r07/enhancd; then
-  # setting if enhancd is available
-  export ENHANCD_FILTER=fzf-tmux
-fi
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
 [[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh

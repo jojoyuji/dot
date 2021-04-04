@@ -179,15 +179,13 @@ endif
 " makes vim follow transparency
 hi Normal guibg=NONE ctermbg=NONE 
 
-
-
 lua<< EOF
 require('plugins')
 require('telescope-config')
+require('nvimtree')
 
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.vuels.setup{}
-
 
 EOF
 
@@ -198,11 +196,3 @@ highlight! link LspDiagnosticsUnderlineError CocErrorHighlight
 highlight! link LspDiagnosticsUnderlineHint CocHintHighlight
 highlight! link LspDiagnosticsUnderlineInfo CocInfoHighlight
 highlight! link LspDiagnosticsUnderlineWarning CocWarningHighlight
-" 
-" lua <<EOF
-" require'nvim-treesitter.configs'.setup {
-"   highlight = {
-"     enable = true
-"   },
-" }
-" EOF

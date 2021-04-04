@@ -77,6 +77,7 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>pf <esc>:lua require'telescope-gitfallback'.project_files()<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>mr <cmd>Telescope frecency<cr>
+nnoremap <leader>ps <cmd>Telescope live_grep<cr>
 " nnoremap <leader>gh <cmd>Telescope git_status<cr>         
 
 "FZF                                                                                                
@@ -152,60 +153,6 @@ endfunction
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
 "Nerdtree removal
-Plug 'justinmk/vim-dirvish' 
-Plug 'kristijanhusak/vim-dirvish-git'
-" Highlight dirvish modified files with blue color
-
-" map <silent> <leader><tab>  <Plug>(dirvish_toggle)<cr>
-
-" nmap <C-o> <Plug>(dirvish-toggle)
- nmap <leader><tab> <Plug>(dirvish-toggle)
-nnoremap <silent> <Plug>(dirvish-toggle) :<C-u>call <SID>dirvish_toggle()<CR>
-
-function! s:dirvish_toggle() abort
-  let l:last_buffer = bufnr('$')
-  let l:i = 1
-  let l:dirvish_already_open = 0
-
-  while l:i <= l:last_buffer
-    if bufexists(l:i) && bufloaded(l:i) && getbufvar(l:i, '&filetype') ==? 'dirvish'
-      let l:dirvish_already_open = 1
-      execute ':'.l:i.'bd!'
-    endif
-    let l:i += 1
-  endwhile
-
-  set nosplitright
-  if !l:dirvish_already_open
-    30vsp +Dirvish
-  endif
-  set splitright
-endfunction
-
-function! s:dirvish_open() abort
-  let l:line = getline('.')
-  if l:line =~? '/$'
-    call dirvish#open('edit', 0)
-  else
-    call <SID>dirvish_toggle()
-    execute 'e '.l:line
-  endif
-endfunction
-
-augroup dirvish_commands
-  autocmd!
-  autocmd FileType dirvish call FugitiveDetect(@%)
-  autocmd FileType dirvish nmap <buffer> q <Plug>(dirvish_quit)
-  autocmd FileType dirvish nnoremap <silent> <buffer> <C-r> :<C-u>Dirvish %<CR>
-  autocmd FileType dirvish nnoremap <silent> <buffer> q :<C-u> call <SID>dirvish_toggle()<CR>
-  autocmd FileType dirvish unmap <silent> <buffer> <CR>
-  autocmd FileType dirvish nnoremap <silent> <buffer> <CR> :<C-u> call <SID>dirvish_open()<CR>
-  autocmd FileType dirvish setlocal norelativenumber statusline=%F
-  autocmd FileType dirvish silent! keeppatterns g@\v/\.[^\/]+/?$@d
-  autocmd FileType dirvish execute ':sort r /[^\/]$/'
-augroup END
-" let g:dirvish_mode = ':silent keeppatterns g@\v/\.[^\/]+/?$@d _'
-
 
 " Plug 'lambdalisue/fern.vim' 
 " Plug 'antoinemadec/FixCursorHold.nvim'
@@ -660,4 +607,9 @@ endfunction
 
 command! -complete=help -nargs=? Todo call FloatingWindowHelp(<q-args>)
 nmap <F12> <esc>:Todo ~/Google Drive/NOTAS/todo.txt<cr>
+
+function Rand()
+   return str2nr(matchstr(reltimestr(reltime()), '\v\.@<=\d+')[1:])
+endfunction
+
 " vim:  ft=vim 
