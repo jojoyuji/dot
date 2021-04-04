@@ -4,7 +4,6 @@ let g:configpath = expand('<sfile>:h')
 set synmaxcol=120
 set nocursorcolumn
 set nocursorline
-syntax sync minlines=200
 
 "Settings
 set nocompatible
@@ -67,7 +66,6 @@ set nowrap
 
 set autoread " refresh changed files automatically
 " Trigger autoread when changing buffers or coming back to vim.
-au FocusGained,BufEnter * :silent! !
 
 set ignorecase " stuff for searching
 set smartcase
@@ -107,11 +105,8 @@ set autoread
 set undolevels=100
 set modeline
 
+set background=dark
 
-"Conditional Settings {{{
-" if exists('+autochdir')"
-"   set autochdir
-" endif
 autocmd BufEnter * lcd %:p:h
 
 if has("nvim")
@@ -122,15 +117,7 @@ if has("persistent_undo")
   set undodir = "./undodir"
   set undofile
   set history=1000    " remember more commands and search history
-
   set undolevels=1000 " use many muchos levels of undo
-endif
-
-if has("autocmd") && exists("+omnifunc")
-  autocmd Filetype *
-        \	if &omnifunc == "" |
-        \		setlocal omnifunc=syntaxcomplete#Complete |
-        \	endif
 endif
 
 "keep of splits when resized
@@ -142,15 +129,11 @@ au BufReadPost *
       \     execute 'normal! g`"zvzz' |
       \ endif
 
-autocmd BufEnter *.md set filetype=markdown
 
+lua require('settings')
+lua require('plugins')
+lua require('lsp')
 
-set background=dark
-"Load externals{{{1
-exe ('so '.g:configpath.'/pluginsrc')
-exe ('so '.g:configpath.'/mappingsrc')
-"}}}
-"
 
 try
   silent! colorscheme gruvbox8_hard
@@ -158,38 +141,7 @@ catch /^Vim\%((\a\+)\)\=:E185/
   " deal with it
 endtry
 
-
-
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-else
-  let &t_Co=256
-  let t_Co=256
-endif
-
-if has("autocmd") && exists("+omnifunc")
-  autocmd Filetype *
-        \ if &omnifunc == "" |
-        \   setlocal omnifunc=syntaxcomplete#Complete |
-        \ endif
-endif
-
-" makes vim follow transparency
 hi Normal guibg=NONE ctermbg=NONE 
-
-lua<< EOF
-require('plugins')
-require('telescope-config')
-require('nvimtree')
-
-require'lspconfig'.tsserver.setup{}
-require'lspconfig'.vuels.setup{}
-
-EOF
-
-autocmd BufWritePost plugins.lua PackerCompile
 
 " lsp syntax highlight fix colors
 highlight! link LspDiagnosticsUnderlineError CocErrorHighlight

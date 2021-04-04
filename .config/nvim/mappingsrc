@@ -3,7 +3,7 @@ nnoremap \ ;
 
 "removes trailing spaces and indent
 nnoremap Q gg=G``zz <esc> :%s/\s\+$//e<esc>:echo ""<esc>``zz
-nnoremap Q gg=G``zz 
+" nnoremap Q gg=G``zz 
 
 nnoremap go :OpenURL<cr>
 
@@ -101,19 +101,11 @@ function! s:Filter_lines(cmd, filter)
 endfunction
 command! -nargs=? Scriptnames call s:Filter_lines('scriptnames', <q-args>)
 
-map <leader><leader>` <esc>:set guifont=*<cr>
-
 "abre por outros apps
 "nmap <leader>oi :!open -a preview.app % <cr>
-nmap <leader>of :!open -a firefox.app % <cr>
 nmap <leader>og :!open -a "google chrome"  %<cr>
 
-"windows manager tabbing
-imap <a-tab> <esc>:wincmd w<cr>
-nmap <a-tab> :wincmd w<cr>
-
 "folding
-
 nnoremap zr zR
 nnoremap zm zM 
 
