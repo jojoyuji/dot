@@ -165,10 +165,6 @@ nnoremap <silent> ( :exe "vertical resize " . (winwidth(0) - 5)<CR>
 nmap <silent> <c-d> <c-d>zz
 nmap <silent> <c-e> <c-u>zz
 
-map <F1> <esc>:redraw!<cr>
-map <leader>w <esc>:w<cr>
-map <c-s> <esc>:w<cr>
-
 "Utilities {{{
 
 fun! LoadingMsg(message)

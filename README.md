@@ -47,5 +47,7 @@ https://github.com/sorin-ionescu/prezto
 
 >  ``` git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm```
 
+after installing tpm, open tmux and run <prefix> + I to install
+
 https://github.com/tmux-plugins/tpm
 
