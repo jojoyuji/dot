@@ -78,11 +78,35 @@ return require('packer').startup(function()
   -- bookmarks
   use {'MattesGroeger/vim-bookmarks', config = function() require('config/vim-bookmarks') end}
  
-
-
   -- utilities
   use 'airblade/vim-rooter'
+  use 'ap/vim-css-color'
+  use 'mattn/emmet-vim'
+  use 'Raimondi/delimitMate' -- pairing
+  use {'junegunn/vim-easy-align', config = function() require('config/vim-easy-align') end}
+  use {'wellle/targets.vim', config = function() require('config/targets') end }
 
+  -- textobjects
+  use 'kana/vim-textobj-user'
+  use 'michaeljsmith/vim-indent-object'
+  use 'glts/vim-textobj-comment'
+  use 'hchbaw/textobj-motionmotion.vim'
+  use 'kana/vim-textobj-lastpat'
+
+  -- syntax
+  use {'dense-analysis/ale', config = function() require('config/ale') end}
+  use 'elzr/vim-json' 
+
+  -- COC
+  use {'neoclide/coc.nvim', branch = 'release', config = function() require('config/coc') end }
+  use {'iamcco/coc-tailwindcss', run = 'yarn install --frozen-lockfile && yarn run build' }
+  use 'rafcamlet/coc-nvim-lua'
+
+  -- inutilities :)
+  use 'jojoyuji/megaman-vim'
+  use 'jojoyuji/nyancat-vim'
+  use {'dbeniamine/todo.txt-vim', config = function() require('config/todo') end }
+  
   -- use {
   --   'fhill2/telescope-ultisnips.nvim',
   --   config = function()

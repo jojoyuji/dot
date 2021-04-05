@@ -210,8 +210,8 @@ function! HLNext ()
   redraw
 endfunction
 map <leader>vv :execute("e $MYVIMRC")<cr><c-w>
-map <leader>vmp :execute("e ~/.config/nvim/lua/mappingsrc")<cr><c-w>
-map <leader>vp :execute("e ~/.config/nvim/lua/pluginsrc")<cr><c-w>
+map <leader>vmp :execute("e ~/.config/nvim/lua/mappingsrc.vim")<cr><c-w>
+map <leader>vp :execute("e ~/.config/nvim/lua/pluginsrc.vim")<cr><c-w>
 map <leader>vz :execute("e $HOME/.zshrc")<cr><c-w>
 
 "edit e reload rápido
