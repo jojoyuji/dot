@@ -376,30 +376,10 @@ autocmd FileType scss setl iskeyword+=@-@
 Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
 " Remap for do codeAction of selected region
 
-
-"coc-snippets
-" imap <tab> <Plug>(coc-snippets-expand-jump)
-" vmap <tab> <Plug>(coc-snippets-select)
-
-
 " To make completion works like VSCode
 inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
 let g:coc_snippet_next = '<TAB>'
 let g:coc_snippet_prev = '<S-TAB>'
-
-" let g:coc_snippet_next = '<c-j>'
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<S-tab>'
-" inoremap <silent><expr> <TAB>
-"      \ pumvisible() ? coc#_select_confirm() :
-"      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-"      \ <SID>check_back_space() ? "\<TAB>" :
-"      \ coc#refresh()
-" 
-" function! s:check_back_space() abort
-"   let col = col('.') - 1
-"   return !col || getline('.')[col - 1]  =~# '\s'
-" endfunction
 
 " let g:coc_snippet_next = '<tab>'
 nmap <leader>\ :CocCommand snippets.editSnippets<cr>
@@ -454,7 +434,10 @@ command! -complete=help -nargs=? Todo call FloatingWindowHelp(<q-args>)
 nmap <F12> <esc>:Todo ~/Google Drive/NOTAS/todo.txt<cr>
 
 function Rand()
-   return str2nr(matchstr(reltimestr(reltime()), '\v\.@<=\d+')[1:])
+   let rs =  str2nr(matchstr(reltimestr(reltime()), '\v\.@<=\d+')[1:]) / line('$')
+   execute(rs)
+   normal V
 endfunction
+
 
 " vim:  ft=vim 
