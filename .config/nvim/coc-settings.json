@@ -1,6 +1,12 @@
 {
  "suggest.enablePreselect": false,
  "suggest.noselect": false,
+  "coc.source.emoji.filetypes": [
+    "markdown",
+    "gitcommit",
+    "txt",
+    "javascript"
+  ],
   "languageserver": {
     "go": {
       "command": "gopls",

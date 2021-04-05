@@ -1,3 +1,13 @@
-vim.fn.eval("execute ('so ~/.config/nvim/lua/pluginsrc')")
-vim.fn.eval("execute ('so ~/.config/nvim/lua/config')")
-vim.fn.eval("execute ('so ~/.config/nvim/lua/mappingsrc')")
+-- vim.cmd("set termguicolors")
+local o = vim.o
+local wo = vim.wo
+local bo = vim.bo
+
+-- global options
+o.termguicolors = true
+o.background = 'dark'
+
+-- window options
+
+-- buffer options
+
