@@ -86,6 +86,11 @@ return require('packer').startup(function()
   use {'junegunn/vim-easy-align', config = function() require('config/vim-easy-align') end}
   use {'wellle/targets.vim', config = function() require('config/targets') end }
 
+  use{'tyru/caw.vim', 
+    requires = 'Shougo/context_filetype.vim', 
+    config = function() require('config/caw') end
+  }
+
   -- textobjects
   use 'kana/vim-textobj-user'
   use 'michaeljsmith/vim-indent-object'

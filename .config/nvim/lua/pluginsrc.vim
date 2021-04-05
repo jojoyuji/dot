@@ -1,14 +1,5 @@
 call plug#begin('~/.config/nvim/bundle')
 
-
-"completion mapping
-imap <c-j> <c-n>
-imap <c-k> <c-p>
-
-Plug 'tyru/caw.vim'
-map <leader>cc gcc
-Plug 'Shougo/context_filetype.vim'
-
 "Utilities
 "
 Plug 'pechorin/any-jump.vim'
@@ -94,34 +85,34 @@ set omnifunc=emoji#complete
 
 "Complete 
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" let g:coc_node_path = '/usr/local/bin/node'
-let g:coc_global_extensions = [
-    \'coc-css',
-    \'coc-html',
-    \'coc-vetur',
-    \'coc-emmet',
-    \'coc-snippets',
-    \'coc-yank',
-    \'coc-eslint',
-    \'coc-markdownlint'
-    \]
-autocmd FileType scss setl iskeyword+=@-@
-
-Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
-" Remap for do codeAction of selected region
-
-" To make completion works like VSCode
-inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
-let g:coc_snippet_next = '<TAB>'
-let g:coc_snippet_prev = '<S-TAB>'
-
-" let g:coc_snippet_next = '<tab>'
-nmap <leader>\ :CocCommand snippets.editSnippets<cr>
-vmap <tab> <Plug>(coc-snippets-select)
-
-
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" 
+" " let g:coc_node_path = '/usr/local/bin/node'
+" let g:coc_global_extensions = [
+"     \'coc-css',
+"     \'coc-html',
+"     \'coc-vetur',
+"     \'coc-emmet',
+"     \'coc-snippets',
+"     \'coc-yank',
+"     \'coc-eslint',
+"     \'coc-markdownlint'
+"     \]
+" autocmd FileType scss setl iskeyword+=@-@
+" 
+" Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
+" " Remap for do codeAction of selected region
+" 
+" " To make completion works like VSCode
+" inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
+" let g:coc_snippet_next = '<TAB>'
+" let g:coc_snippet_prev = '<S-TAB>'
+" 
+" " let g:coc_snippet_next = '<tab>'
+" nmap <leader>\ :CocCommand snippets.editSnippets<cr>
+" vmap <tab> <Plug>(coc-snippets-select)
+" 
+" 
 call plug#end()
 
 nnoremap <leader>vu :call LoadingMsg('Updating plugins...')<cr>:so $MYVIMRC<CR>:PlugUpdate
@@ -176,6 +167,5 @@ function Rand()
 endfunction
 
 command! Rand call Rand()
-
 
 " vim:  ft=vim 
