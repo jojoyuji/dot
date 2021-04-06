@@ -66,7 +66,6 @@ let g:vrc_curl_opts = {
       \ '-k': '',
       \}
 
-
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'wellle/tmux-complete.vim'
 Plug 'christoomey/vim-tmux-navigator'
