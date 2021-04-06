@@ -211,12 +211,16 @@ function! HLNext ()
 endfunction
 map <leader>vv :execute("e $MYVIMRC")<cr><c-w>
 map <leader>vmp :execute("e ~/.config/nvim/lua/mappingsrc.vim")<cr><c-w>
-map <leader>vp :execute("e ~/.config/nvim/lua/pluginsrc.vim")<cr><c-w>
+map <leader>vp :execute("e ~/.config/nvim/lua/plugins.lua")<cr><c-w>
 map <leader>vz :execute("e $HOME/.zshrc")<cr><c-w>
 
 "edit e reload rápido
 " nnoremap  <leader>so :call LoadingMsg("Loading vimrc...")<cr>:so $MYVIMRC<cr>
 "}}}
+"
+nnoremap <leader>vu :call LoadingMsg('Updating plugins...')<cr>:Reload<CR>:PackerUpdate
+nnoremap <leader>vi :call LoadingMsg('Installing plugins...')<cr>:Reload<cr>:PackerInstall<cr>
+nnoremap <leader>vc :call LoadingMsg('Cleaning plugins...')<cr>:Reload<CR>:PackerClean<cr>
 
 function! ClipboardYank()
   call system('pbcopy', @@)

@@ -102,6 +102,7 @@ o.backup = false
 o.writebackup = false
 -- set noswapfile
 bo.swapfile = false
+o.swapfile = false
 -- set nolist
 wo.list = false
 -- set copyindent

@@ -34,4 +34,9 @@ snippet local "local x = 1"
 local ${1:x} = ${0:1}
 endsnippet
 
+snippet map "nvim mapping" b
+local bind = vim.api.nvim_set_keymap
+bind('n', '', '', {})
+endsnippet
+
 # vim:ft=snippets:

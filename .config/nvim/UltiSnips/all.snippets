@@ -25,21 +25,6 @@ endsnippet
 ##################
 
 
-# {{{ JQUERY SNIPPETS
-snippet ajax
-	$.ajax({
-	type: "POST",
-	url: "${1:url.php}",
-	cached: ${2:true},
-	${3:data: { name: "John", location: "Boston" }},
-	statusCode:{404: function(){ alert('404');}}
-	})
-	.done(function( msg ) {
-	  ${4:alert( "Data Saved: " + msg );}
-	})
-	.fail(function() { alert("error"); });
-endsnippet
-
 snippet jsdoc "JSDoc comment" b
 /**
 * ${1:Description here}

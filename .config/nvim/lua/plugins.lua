@@ -20,7 +20,6 @@ return require('packer').startup(function()
   use 'neovim/nvim-lspconfig'
   use 'anott03/nvim-lspinstall'
 
-  -- use 'kyazdani42/nvim-web-devicons'
   -- telescope stuff
 
   use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
@@ -33,7 +32,7 @@ return require('packer').startup(function()
   }
   use {
     'nvim-telescope/telescope-frecency.nvim',
-    requires = { {'tami5/sql.nvim'} },
+    requires = {'tami5/sql.nvim'},
     config = function() require'telescope'.load_extension('frecency') end
   }
 
@@ -113,6 +112,7 @@ return require('packer').startup(function()
   use 'jojoyuji/megaman-vim'
   use 'jojoyuji/nyancat-vim'
   use {'dbeniamine/todo.txt-vim', config = function() require('config/todo') end}
+
   
   -- questionable...
   use {'pechorin/any-jump.vim', config = function() require('config/any-jump') end}
@@ -135,7 +135,6 @@ return require('packer').startup(function()
   use 'lambdalisue/vim-gista'
 
   use { 'diepm/vim-rest-console', config = function() require('config/vim-rest-console') end} 
-  -- let g:vrc_curl_opts = { '--connect-timeout' : 10, '-L': '', '-sS': '', '-i': '', '--max-time': 60, '--ipv4': '', '-k': '', }
 
   -- " tmux
   use 'tmux-plugins/vim-tmux-focus-events'
@@ -147,10 +146,9 @@ return require('packer').startup(function()
 
   -- use {
   --   'fhill2/telescope-ultisnips.nvim',
-  --   config = function()
-  --     require('telescope').setup()
+  --     setup = function()
   --     require'telescope'.load_extension('ultisnips')
-  --   end
+  --    end
   -- }
 
   -- Simple plugins can be specified as strings

@@ -66,6 +66,7 @@ require('telescope').setup{
   }
 }
 
+
 vim.api.nvim_set_keymap('n', '<leader>pf', '<CMD>lua require\'config/telescope-gitfallback\'.project_files()<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>mr', '<CMD>Telescope frecency<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>b', '<CMD>Telescope buffers<CR>', {noremap = true})
