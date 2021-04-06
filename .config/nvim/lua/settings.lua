@@ -64,6 +64,7 @@ bo.softtabstop = 1
 -- set tabstop=1
 bo.tabstop=1
 -- set shiftwidth=2
+o.shiftwidth=2
 bo.shiftwidth=2
 -- set cinkeys=0{,0},0[,0]
 bo.cinkeys='0{,0},0[,0]'

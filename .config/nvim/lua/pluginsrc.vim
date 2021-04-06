@@ -1,85 +1,66 @@
-call plug#begin('~/.config/nvim/bundle')
+" call plug#begin('~/.config/nvim/bundle')
 
 "Utilities
 "
-Plug 'pechorin/any-jump.vim'
-let g:any_jump_disable_default_keybindings = 1
-nnoremap gd :AnyJump<CR>
-
-
-Plug 'romainl/vim-qf'
-Plug 'tommcdo/vim-exchange'
-
-Plug 'tpope/vim-scriptease'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-abolish'
-Plug 'splitjoin.vim'
 
 "Switch                                                                                                         
-Plug 'jojoyuji/switch.vim'
-nnoremap - :Switch<cr>
-let g:switch_custom_definitions =
-      \ [
-      \   ['addClass', 'removeClass'],
-      \   ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'] ,
-      \   ['get', 'set'] ,
-      \   ['left', 'right', 'center'] ,
-      \   ['width', 'height'] ,
-      \   ['error', 'success', 'warning'] ,
-      \   ['show', 'hide'] ,
-      \   ['const', 'let', 'var'] ,
-      \   ['after', 'before'] ,
-      \   ['padding', 'margin'] ,
-      \   ['top', 'bottom'] ,
-      \   ['relative', 'absolute', 'fixed', 'static'] ,
-      \   ['setTimeout', '$timeout', 'setInterval'] ,
-      \   ['$scope', '$rootScope'],
-      \   ['$emit', '$broadcast'],
-      \   ['console.log', 'alert'],
-      \   ['radio', 'checkbox'],
-      \   ['min', 'max'],
-      \   ['unshift', 'push'],
-      \   {
-      \     '"\(\k\+\)"':                '''\1''',
-      \     '''\(\k\+\)''':              '"\1"\2',
-      \   }
-      \ ]
-Plug 'vim-scripts/Gundo'
-Plug 'tpope/vim-unimpaired'
-Plug 'caglartoklu/launchassociated.vim'
-Plug 'vim-scripts/matchit.zip'
-Plug '29decibel/vim-stringify'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'mattn/webapi-vim'
-"Plug 'mattn/gist-vim'
-Plug 'lambdalisue/vim-gista'
-"Plug 'lambdalisue/vim-gista-ctrlp'
-Plug 'diepm/vim-rest-console' 
+" Plug 'jojoyuji/switch.vim'
+" nnoremap - :Switch<cr>
+" let g:switch_custom_definitions =
+"      \ [
+"      \   ['addClass', 'removeClass'],
+"      \   ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'] ,
+"      \   ['get', 'set'] ,
+"      \   ['left', 'right', 'center'] ,
+"      \   ['width', 'height'] ,
+"      \   ['error', 'success', 'warning'] ,
+"      \   ['show', 'hide'] ,
+"      \   ['const', 'let', 'var'] ,
+"      \   ['after', 'before'] ,
+"      \   ['padding', 'margin'] ,
+"      \   ['top', 'bottom'] ,
+"      \   ['relative', 'absolute', 'fixed', 'static'] ,
+"      \   ['setTimeout', '$timeout', 'setInterval'] ,
+"      \   ['$scope', '$rootScope'],
+"      \   ['$emit', '$broadcast'],
+"      \   ['console.log', 'alert'],
+"      \   ['radio', 'checkbox'],
+"      \   ['min', 'max'],
+"      \   ['unshift', 'push'],
+"      \   {
+"      \     '"\(\k\+\)"':                '''\1''',
+"      \     '''\(\k\+\)''':              '"\1"\2',
+"      \   }
+"      \ ]
 
-let g:vrc_curl_opts = {
-      \ '--connect-timeout' : 10,
-      \ '-L': '',
-      \ '-sS': '',
-      \ '-i': '',
-      \ '--max-time': 60,
-      \ '--ipv4': '',
-      \ '-k': '',
-      \}
+" Plug 'vim-scripts/Gundo'
+" Plug 'tpope/vim-unimpaired'
+" Plug 'caglartoklu/launchassociated.vim'
+" Plug 'vim-scripts/matchit.zip'
+" Plug '29decibel/vim-stringify'
+" Plug 'editorconfig/editorconfig-vim'
+" Plug 'mattn/webapi-vim'
+" Plug 'lambdalisue/vim-gista'
+" 
+" " tmux
+" Plug 'tmux-plugins/vim-tmux-focus-events'
+" Plug 'wellle/tmux-complete.vim'
+" Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'wellle/tmux-complete.vim'
-Plug 'christoomey/vim-tmux-navigator'
+" Plug 'diepm/vim-rest-console' 
+" let g:vrc_curl_opts = { '--connect-timeout' : 10, '-L': '', '-sS': '', '-i': '', '--max-time': 60, '--ipv4': '', '-k': '', }
+
 
 "Vimux 
-Plug 'benmills/vimux'
-map <leader>nt :call VimuxRunCommand("clear; npm test")<CR>
-map <leader>x :VimuxPromptCommand<CR>
+" Plug 'benmills/vimux'
+" map <leader>nt :call VimuxRunCommand("clear; npm test")<CR>
+" map <leader>x :VimuxPromptCommand<CR>
 
 
-Plug 'junegunn/vim-emoji'
-command! Emoji %s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g
+" Plug 'junegunn/vim-emoji'
+" command! Emoji %s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g
 " set completefunc=emoji#complete
-set omnifunc=emoji#complete
+" set omnifunc=emoji#complete
 
 
 "Complete 
@@ -112,11 +93,12 @@ set omnifunc=emoji#complete
 " vmap <tab> <Plug>(coc-snippets-select)
 " 
 " 
-call plug#end()
+" call plug#end()
 
 nnoremap <leader>vu :call LoadingMsg('Updating plugins...')<cr>:so $MYVIMRC<CR>:PlugUpdate
 nnoremap <leader>vi :call LoadingMsg('Installing plugins...')<cr>:Reload<cr>:PlugInstall<cr>
 nnoremap <leader>vc :call LoadingMsg('Cleaning plugins...')<cr>:Reload<CR>:PlugClean<cr>
+
 
 function! CreateCenteredFloatingWindow() abort
   let height = float2nr((&lines - 2) / 1.5)
@@ -159,8 +141,13 @@ endfunction
 command! -complete=help -nargs=? Todo call FloatingWindowHelp(<q-args>)
 nmap <F12> <esc>:Todo ~/Google Drive/NOTAS/todo.txt<cr>
 
+" ((n % m) + m) % m` or `((-10 % 3) + 3) % 3` returns `2` 
+function! Mod(n,m)
+  return ((a:n % a:m) + a:m) % a:m
+endfunction
+
 function Rand()
-   let rs =  str2nr(matchstr(reltimestr(reltime()), '\v\.@<=\d+')[1:]) / line('$')
+   let rs =  Mod(str2nr(matchstr(reltimestr(reltime()), '\v\.@<=\d+')[1:]), line('$'))
    echo rs
    execute(rs)
 endfunction

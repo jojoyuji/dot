@@ -82,9 +82,11 @@ return require('packer').startup(function()
   use 'airblade/vim-rooter'
   use 'ap/vim-css-color'
   use 'mattn/emmet-vim'
+  use 'maksimr/vim-jsbeautify'
   use 'Raimondi/delimitMate' -- pairing
   use {'junegunn/vim-easy-align', config = function() require('config/vim-easy-align') end}
-  use {'wellle/targets.vim', config = function() require('config/targets') end }
+  use {'wellle/targets.vim', config = function() require('config/targets') end}
+  use {'jojoyuji/switch.vim', config = function() require('config/switch') end}
 
   use{'tyru/caw.vim', 
     requires = 'Shougo/context_filetype.vim', 
@@ -110,8 +112,39 @@ return require('packer').startup(function()
   -- inutilities :)
   use 'jojoyuji/megaman-vim'
   use 'jojoyuji/nyancat-vim'
-  use {'dbeniamine/todo.txt-vim', config = function() require('config/todo') end }
+  use {'dbeniamine/todo.txt-vim', config = function() require('config/todo') end}
   
+  -- questionable...
+  use {'pechorin/any-jump.vim', config = function() require('config/any-jump') end}
+  use 'junegunn/vim-emoji'
+
+  use 'tommcdo/vim-exchange'
+  use 'tpope/vim-scriptease'
+  use 'tpope/vim-repeat'
+  use 'tpope/vim-abolish'
+  use 'AndrewRadev/splitjoin.vim'
+
+
+  use 'vim-scripts/Gundo'
+  use 'tpope/vim-unimpaired'
+  use 'caglartoklu/launchassociated.vim'
+  use 'vim-scripts/matchit.zip'
+  use '29decibel/vim-stringify'
+  use 'editorconfig/editorconfig-vim'
+  use 'mattn/webapi-vim'
+  use 'lambdalisue/vim-gista'
+
+  use { 'diepm/vim-rest-console', config = function() require('config/vim-rest-console') end} 
+  -- let g:vrc_curl_opts = { '--connect-timeout' : 10, '-L': '', '-sS': '', '-i': '', '--max-time': 60, '--ipv4': '', '-k': '', }
+
+  -- " tmux
+  use 'tmux-plugins/vim-tmux-focus-events'
+  use 'wellle/tmux-complete.vim'
+  use 'christoomey/vim-tmux-navigator'
+  use {'benmills/vimux', config = function() require('config/vimux') end}
+
+  -- PATCH
+
   -- use {
   --   'fhill2/telescope-ultisnips.nvim',
   --   config = function()
