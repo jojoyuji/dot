@@ -14,16 +14,14 @@ return require('packer').startup(function()
     requires = 'kyazdani42/nvim-web-devicons',
     config = function() require('config/nvimtree') end
   }
-   
 
   -- lsp stuff
   use 'neovim/nvim-lspconfig'
   use 'anott03/nvim-lspinstall'
 
+  -- use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
+  
   -- telescope stuff
-
-  use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
-
   use 'tami5/sql.nvim'
   use {
     'nvim-telescope/telescope.nvim',
@@ -61,8 +59,11 @@ return require('packer').startup(function()
   -- git plugins
   use {'tpope/vim-fugitive',setup = function() require('config/fugitive') end}
   use {'aacunningham/vim-fuzzy-stash', setup = function() require('config/vim-fuzzy-stash') end }
-  use 'mhinz/vim-signify'
-
+  -- use 'mhinz/vim-signify'
+  use {
+    'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
+    config = function() require('gitsigns').setup() end
+  }
 
   -- movement
   use 'tpope/vim-surround'
@@ -78,14 +79,15 @@ return require('packer').startup(function()
   use {'MattesGroeger/vim-bookmarks', config = function() require('config/vim-bookmarks') end}
  
   -- utilities
-  use 'airblade/vim-rooter'
-  use 'ap/vim-css-color'
+  -- use 'airblade/vim-rooter'
+  use {'norcalli/nvim-colorizer.lua', config = function() require'colorizer'.setup() end}
   use 'mattn/emmet-vim'
   use 'maksimr/vim-jsbeautify'
   use 'Raimondi/delimitMate' -- pairing
   use {'junegunn/vim-easy-align', config = function() require('config/vim-easy-align') end}
   use {'wellle/targets.vim', config = function() require('config/targets') end}
   use {'jojoyuji/switch.vim', config = function() require('config/switch') end}
+  -- use 'yamatsum/nvim-cursorline'
 
   use{'tyru/caw.vim', 
     requires = 'Shougo/context_filetype.vim', 
@@ -103,7 +105,11 @@ return require('packer').startup(function()
   use {'dense-analysis/ale', config = function() require('config/ale') end}
   use 'elzr/vim-json' 
 
-  -- COC
+  -- snipets
+  -- use {'hrsh7th/vim-vsnip', config = function() require('config/vsnip') end}
+
+  -- Completion
+  -- use {'hrsh7th/nvim-compe', config = function() require('config/compe') end}
   use {'neoclide/coc.nvim', branch = 'release', config = function() require('config/coc') end }
   use {'iamcco/coc-tailwindcss', run = 'yarn install --frozen-lockfile && yarn run build' }
   use 'rafcamlet/coc-nvim-lua'
@@ -112,9 +118,13 @@ return require('packer').startup(function()
   use 'jojoyuji/megaman-vim'
   use 'jojoyuji/nyancat-vim'
   use {'dbeniamine/todo.txt-vim', config = function() require('config/todo') end}
+  -- game
+  use 'ThePrimeagen/vim-be-good'
 
   
   -- questionable...
+  --
+  use 'alec-gibson/nvim-tetris'
   use {'pechorin/any-jump.vim', config = function() require('config/any-jump') end}
   use 'junegunn/vim-emoji'
 
@@ -123,7 +133,6 @@ return require('packer').startup(function()
   use 'tpope/vim-repeat'
   use 'tpope/vim-abolish'
   use 'AndrewRadev/splitjoin.vim'
-
 
   use 'vim-scripts/Gundo'
   use 'tpope/vim-unimpaired'
@@ -143,13 +152,15 @@ return require('packer').startup(function()
   use {'benmills/vimux', config = function() require('config/vimux') end}
 
   -- PATCH
+  --
 
   -- use {
   --   'fhill2/telescope-ultisnips.nvim',
-  --     setup = function()
+  --     config = function()
   --     require'telescope'.load_extension('ultisnips')
   --    end
   -- }
+  -- vim.api.nvim_command('packadd telescope-ultisnips.nvim')
 
   -- Simple plugins can be specified as strings
   -- use '9mm/vim-closer'
@@ -191,16 +202,10 @@ return require('packer').startup(function()
   -- use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
 
   -- Post-install/update hook with neovim command
-  -- use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   -- Post-install/update hook with call of vimscript function with argument
   -- use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
-
-  -- Use specific branch, dependency and run lua file after load
-  -- use {
-  --   'glepnir/galaxyline.nvim', branch = 'main', config = function() require'statusline' end,
-  --   requires = {'kyazdani42/nvim-web-devicons'}
-  -- }
 
   -- Use dependency and run lua function after load
   -- use {

@@ -1,4 +1,8 @@
 {
+ "snippets.ultisnips.directories": [
+  "UltiSnips" 
+ ],
+ "snippets.userSnippetsDirectory": "~/.config/nvim/UltiSnips",
  "suggest.enablePreselect": false,
  "suggest.noselect": false,
   "coc.source.emoji.filetypes": [

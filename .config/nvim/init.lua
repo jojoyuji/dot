@@ -50,7 +50,9 @@ else
   vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]])
 end
 
-vim.cmd[[ autocmd BufEnter * lcd %:p:h ]]
+
+
+-- vim.cmd[[ autocmd BufWinEnter * lcd %:p:h ]]
 
 -- keep of splits when resized
 vim.cmd[[au VimResized * exe "normal! \<c-w>="]]

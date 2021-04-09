@@ -55,51 +55,7 @@ noremap <leader>sf :set filetype=
 noremap <leader>sfj :set filetype=javascript
 
 map <leader>q <esc>:call FecharBuffer()<cr>
-function! FecharBuffer()
-  let todelbufNr = bufnr("%")
-  let newbufNr = bufnr("#")
-  if ((newbufNr != -1) && (newbufNr != todelbufNr) && buflisted(newbufNr))
-    exe "b".newbufNr
-  else
-    bnext
-  endif
 
-  if (bufnr("%") == todelbufNr)
-    new
-  endif
-  exe "bd".todelbufNr
-endfunction
-
-
-""""""""""""""""""""""""""""""""
-"  ScriptNames buffer listing  "
-""""""""""""""""""""""""""""""""
-
-"Execute 'cmd' while redirecting output.
-" Delete all lines that do not match regex 'filter' (if not empty).
-" Delete any blank lines.
-" Delete '<whitespace><number>:<whitespace>' from start of each line.
-" Display result in a scratch buffer.
-function! s:Filter_lines(cmd, filter)
-  let save_more = &more
-  set nomore
-  redir => lines
-  silent execute a:cmd
-  redir END
-  let &more = save_more
-  new
-  setlocal buftype=nofile bufhidden=hide noswapfile
-  put =lines
-  g/^\s*$/d
-  %s/^\s*\d\+:\s*//e
-  if !empty(a:filter)
-    execute 'v/' . a:filter . '/d'
-  endif
-  0
-endfunction
-command! -nargs=? Scriptnames call s:Filter_lines('scriptnames', <q-args>)
-
-"abre por outros apps
 "nmap <leader>oi :!open -a preview.app % <cr>
 nmap <leader>og :!open -a "google chrome"  %<cr>
 
@@ -129,7 +85,6 @@ vnoremap < <<CR>gv
 noremap <S-enter> :!
 
 "open a quickfix window for the last search
-nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<cr>:copen<cr>
 nnoremap <silent> <leader>co :copen<cr>
 
 
@@ -162,33 +117,11 @@ fun! LoadingMsg(message)
   sleep 3m
 endf
 
-"Improvements FTW {{{1
-
 " Super useful! From an idea by Michael Naumann
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
-function! VisualSelection(direction) range
-  let l:saved_reg = @"
-  execute "normal! vgvy"
 
-  let l:pattern = escape(@", '\\/.*$^~[]')
-  let l:pattern = substitute(l:pattern, "\n$", "", "")
-
-  if a:direction == 'b'
-    execute "normal ?" . l:pattern . "^M"
-  elseif a:direction == 'gv'
-    call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
-  elseif a:direction == 'replace'
-    call CmdLine("%s" . '/'. l:pattern . '/')
-  elseif a:direction == 'f'
-    execute "normal /" . l:pattern . "^M"
-  endif
-
-  let @/ = l:pattern
-  let @" = l:saved_reg
-endfunction
-"}}}
-"Star overer selection highlights it {{{
+"Star overer selection highlights it 
 "AlignReplaceQuotedSpaceslows * on visualmode for searching selected stuff FTW
 vnoremap <silent> * :<C-U>
       \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
@@ -196,28 +129,12 @@ vnoremap <silent> * :<C-U>
       \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
       \gV:call setreg('"', old_reg, old_regtype)<CR>
 
-"}}}
-"Blink next search! {{{
-nnoremap <silent> n   n:call HLNext()<cr>zz
-nnoremap <silent> N   N:call HLNext()<cr>zz
-" OR ELSE just highlight the match in red...
-function! HLNext ()
-  let [bufnum, lnum, col, off] = getpos('.')
-  let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
-  let target_pat = '\c\%#'.@/
-  redraw
-  exec 'sleep ' . float2nr(120) . 'm'
-  redraw
-endfunction
 map <leader>vv :execute("e $MYVIMRC")<cr><c-w>
 map <leader>vmp :execute("e ~/.config/nvim/lua/mappingsrc.vim")<cr><c-w>
 map <leader>vp :execute("e ~/.config/nvim/lua/plugins.lua")<cr><c-w>
 map <leader>vz :execute("e $HOME/.zshrc")<cr><c-w>
+map <leader>vs :execute("e ~/.config/nvim/lua/settings.lua")<cr><c-w>
 
-"edit e reload rápido
-" nnoremap  <leader>so :call LoadingMsg("Loading vimrc...")<cr>:so $MYVIMRC<cr>
-"}}}
-"
 nnoremap <leader>vu :call LoadingMsg('Updating plugins...')<cr>:Reload<CR>:PackerUpdate
 nnoremap <leader>vi :call LoadingMsg('Installing plugins...')<cr>:Reload<cr>:PackerInstall<cr>
 nnoremap <leader>vc :call LoadingMsg('Cleaning plugins...')<cr>:Reload<CR>:PackerClean<cr>
@@ -235,4 +152,4 @@ vnoremap <silent> x d:call ClipboardYank()<cr>
 nnoremap <silent> p :call ClipboardPaste()<cr>p
 
 
-" vim: ts=2 fdm=marker fdl=0 ft=vim
+" vim: ts=2  fdl=0 ft=vim

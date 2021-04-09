@@ -26,11 +26,12 @@ o.ttimeout = false
 -- set notimeout
 o.timeout = false
 -- set foldmethod=indent
-wo.foldmethod = 'indent'
+wo.foldmethod = 'manual'
 -- set pastetoggle=<F6>
 o.pastetoggle = '<F6>'
 -- set number               " mostra numero linhas
 wo.number = true
+wo.relativenumber = true
 -- set numberwidth=5        " margin-left between frame and line number
 wo.numberwidth=5
 -- set visualbell           " don't beep
@@ -95,7 +96,7 @@ bo.infercase = true
 -- set completeopt+=menuone,longest
 o.completeopt='longest,menu,menuone'
 -- set ofu=syntaxcomplete#complete
-bo.omnifunc='syntaxcomplete#complete'
+-- bo.omnifunc='syntaxcomplete#complete'
 -- set nobackup
 o.backup = false
 -- set nowb
@@ -113,3 +114,4 @@ o.shiftround = true
 bo.modeline = true
 -- set noshowcmd
 o.showcmd = false
+-- o.autochdir = true

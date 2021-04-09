@@ -1,6 +1,10 @@
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
+
+-- vim.api.nvim_set_keymap('n', '<leader><tab>', ':Nvimtreetogglecustom<cr>', { noremap = true, silent = true } )
 vim.api.nvim_set_keymap('n', '<leader><tab>', ':NvimTreeToggle<cr>', { noremap = true, silent = true } )
+
+-- vim.cmd[[highlight NvimTreeFolderIcon guibg=blue]]
 
 vim.g.nvim_tree_bindings = {
   -- ["<CR>"] = ":YourVimFunction()<cr>",
@@ -28,7 +32,7 @@ vim.g.nvim_tree_bindings = {
   ["r"]              = tree_cb("rename"),
   ["<C-r>"]          = tree_cb("full_rename"),
   ["x"]              = tree_cb("cut"),
-  ["c"]              = tree_cb("copy"),
+  ["y"]              = tree_cb("copy"),
   ["p"]              = tree_cb("paste"),
   ["[c"]             = tree_cb("prev_git_item"),
   ["]c"]             = tree_cb("next_git_item"),
