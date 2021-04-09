@@ -55,7 +55,6 @@ return require('packer').startup(function()
   -- Load on specific commands
   use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
 
-
   -- git plugins
   use {'tpope/vim-fugitive',setup = function() require('config/fugitive') end}
   use {'aacunningham/vim-fuzzy-stash', setup = function() require('config/vim-fuzzy-stash') end }
@@ -105,11 +104,11 @@ return require('packer').startup(function()
   use {'dense-analysis/ale', config = function() require('config/ale') end}
   use 'elzr/vim-json' 
 
-  -- snipets
+  -- snipets / compe
   -- use {'hrsh7th/vim-vsnip', config = function() require('config/vsnip') end}
-
-  -- Completion
   -- use {'hrsh7th/nvim-compe', config = function() require('config/compe') end}
+
+  -- coc
   use {'neoclide/coc.nvim', branch = 'release', config = function() require('config/coc') end }
   use {'iamcco/coc-tailwindcss', run = 'yarn install --frozen-lockfile && yarn run build' }
   use 'rafcamlet/coc-nvim-lua'
@@ -120,10 +119,8 @@ return require('packer').startup(function()
   use {'dbeniamine/todo.txt-vim', config = function() require('config/todo') end}
   -- game
   use 'ThePrimeagen/vim-be-good'
-
   
   -- questionable...
-  --
   use 'alec-gibson/nvim-tetris'
   use {'pechorin/any-jump.vim', config = function() require('config/any-jump') end}
   use 'junegunn/vim-emoji'
@@ -133,7 +130,6 @@ return require('packer').startup(function()
   use 'tpope/vim-repeat'
   use 'tpope/vim-abolish'
   use 'AndrewRadev/splitjoin.vim'
-
   use 'vim-scripts/Gundo'
   use 'tpope/vim-unimpaired'
   use 'caglartoklu/launchassociated.vim'
@@ -142,8 +138,10 @@ return require('packer').startup(function()
   use 'editorconfig/editorconfig-vim'
   use 'mattn/webapi-vim'
   use 'lambdalisue/vim-gista'
-
   use { 'diepm/vim-rest-console', config = function() require('config/vim-rest-console') end} 
+  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
+
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   -- " tmux
   use 'tmux-plugins/vim-tmux-focus-events'
@@ -151,8 +149,6 @@ return require('packer').startup(function()
   use 'christoomey/vim-tmux-navigator'
   use {'benmills/vimux', config = function() require('config/vimux') end}
 
-  -- PATCH
-  --
 
   -- use {
   --   'fhill2/telescope-ultisnips.nvim',
@@ -162,60 +158,4 @@ return require('packer').startup(function()
   -- }
   -- vim.api.nvim_command('packadd telescope-ultisnips.nvim')
 
-  -- Simple plugins can be specified as strings
-  -- use '9mm/vim-closer'
-
-
-  -- Load on an autocommand event
-  -- use {'andymass/vim-matchup', event = 'VimEnter'}
-
-  -- Load on a combination of conditions: specific filetypes or commands
-  -- Also run code after load (see the "config" key)
-  -- use {
-  --   'w0rp/ale',
-  --   ft = {'sh', 'zsh', 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'racket', 'vim', 'tex'},
-  --   cmd = 'ALEEnable',
-  --   config = 'vim.cmd[[ALEEnable]]'
-  -- }
-
-  -- Plugins can have dependencies on other plugins
-  -- use {
-  --   'haorenW1025/completion-nvim',
-  --   opt = true,
-  --   requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}}
-  -- }
-
-  -- Plugins can also depend on rocks from luarocks.org:
-  -- use {
-  --   'my/supercoolplugin',
-  --   rocks = {'lpeg', {'lua-cjson', version = '2.1.0'}}
-  -- }
-
-  -- You can specify rocks in isolation
-  -- use_rocks 'penlight'
-  -- use_rocks {'lua-resty-http', 'lpeg'}
-  --
-  -- Local plugins can be included
-  -- use '~/projects/personal/hover.nvim'
-
-  -- Plugins can have post-install/update hooks
-  -- use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
-
-  -- Post-install/update hook with neovim command
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-
-  -- Post-install/update hook with call of vimscript function with argument
-  -- use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
-
-  -- Use dependency and run lua function after load
-  -- use {
-  --   'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
-  --   config = function() require('gitsigns').setup() end
-  -- }
-
-  -- You can specify multiple plugins in a single call
-  -- use {'tjdevries/colorbuddy.vim', {'nvim-treesitter/nvim-treesitter', opt = true}}
-
-  -- You can alias plugin names
-  -- use {'dracula/vim', as = 'dracula'}
 end)
