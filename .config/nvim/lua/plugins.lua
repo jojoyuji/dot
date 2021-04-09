@@ -149,6 +149,12 @@ return require('packer').startup(function()
   use 'christoomey/vim-tmux-navigator'
   use {'benmills/vimux', config = function() require('config/vimux') end}
 
+  -- my plugins
+  use '$HOME/.config/nvim/myPlugins/rand.vim'
+  use '$HOME/.config/nvim/myPlugins/todo.vim'
+  use '$HOME/.config/nvim/myPlugins/close-buffer.vim'
+  use '$HOME/.config/nvim/myPlugins/clipboard-yank.vim'
+  use '$HOME/.config/nvim/myPlugins/visual-selection-search.vim'
 
   -- use {
   --   'fhill2/telescope-ultisnips.nvim',

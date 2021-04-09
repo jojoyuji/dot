@@ -52,7 +52,7 @@ end
 
 
 
--- vim.cmd[[ autocmd BufWinEnter * lcd %:p:h ]]
+vim.cmd[[ autocmd BufWinEnter * lcd %:p:h ]]
 
 -- keep of splits when resized
 vim.cmd[[au VimResized * exe "normal! \<c-w>="]]

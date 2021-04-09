@@ -139,13 +139,6 @@ nnoremap <leader>vu :call LoadingMsg('Updating plugins...')<cr>:Reload<CR>:Packe
 nnoremap <leader>vi :call LoadingMsg('Installing plugins...')<cr>:Reload<cr>:PackerInstall<cr>
 nnoremap <leader>vc :call LoadingMsg('Cleaning plugins...')<cr>:Reload<CR>:PackerClean<cr>
 
-function! ClipboardYank()
-  call system('pbcopy', @@)
-endfunction
-function! ClipboardPaste()
-  let @@ = system('pbpaste')
-endfunction
-
 vnoremap <silent> y y:call ClipboardYank()<cr>
 vnoremap <silent> d d:call ClipboardYank()<cr>
 vnoremap <silent> x d:call ClipboardYank()<cr>

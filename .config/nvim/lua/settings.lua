@@ -10,15 +10,12 @@ local bo = vim.bo
 
 -- global options
 o.termguicolors = true
-
 -- set synmaxcol=100
 bo.synmaxcol=100
-
 -- set nocursorcolumn
 wo.cursorcolumn = false
 -- set nocursorline
 wo.cursorline = false
-
 -- set clipboard=unnamed
 o.clipboard = 'unnamed'
 -- set ttimeout
