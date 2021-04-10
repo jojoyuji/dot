@@ -17,8 +17,8 @@ vim.cmd([[imap <silent><expr> <tab> compe#confirm('<CR>')]])
 
 -- imap <c-j> <c-n>
 -- imap <c-k> <c-p>
-bind('i', '<c-j>', '<c-n>', {noremap = true})
-bind('i', '<c-k>', '<c-p>', {noremap = true})
+bind('i', '<c-j>', '<c-n>', {noremap = false})
+bind('i', '<c-k>', '<c-p>', {noremap = false})
 
 require'compe'.setup {
   enabled = true;

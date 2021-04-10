@@ -1,0 +1,12 @@
+{
+  "vue": {
+    "prefix": "vue",
+    "body": "<template>\n  <div>\n    <h1> {{ hello }}</h1>\n  </div>\n</template>\n\n<script>\nexport default {\n  name: '${1:MyComponentName}',\n  data () {\n    return {\n      hello: 'This is about page'\n    }\n  },\n  methods: {\n    myMethod () {}\n  }\n}\n</script>\n<style scoped>\n</style>",
+    "description": "Vue starter"
+  },
+  "vue_store": {
+    "prefix": "vue_store",
+    "body": "const initial = () => {\n  return {\n    loading: false\n    $0\n  }\n}\n// initial state\nexport const state = ()=> initial()\nexport const mutations = {\n  RESET (state) {\n    Object.assign(state, initial())\n  }\n}\nexport const actions = {\n  reset ({ commit }) {\n    commit('RESET')\n  }\n}",
+    "description": "Vue store module (js)"
+  }
+}

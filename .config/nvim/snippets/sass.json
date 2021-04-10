@@ -1,0 +1,497 @@
+{
+  "mix": {
+    "prefix": "mix",
+    "body": "@mixin ${1:mixinName}(${2:$var})$0",
+    "description": "@mixin"
+  },
+  "i": {
+    "prefix": "i",
+    "body": "@include ${1:mixin}(${2})$0",
+    "description": "@include"
+  },
+  "imp": {
+    "prefix": "imp",
+    "body": "!important$1",
+    "description": "!important"
+  },
+  "to": {
+    "prefix": "to",
+    "body": "text-overflow: ${1:ellipsis}",
+    "description": "Text-Overflos"
+  },
+  "ws": {
+    "prefix": "ws",
+    "body": "white-space: ${1:nowrap}",
+    "description": "White-Space"
+  },
+  "ellipsis": {
+    "prefix": "ellipsis",
+    "body": "overflow: hidden\nwidth: ${1:100}${2:px}\ntext-overflow: ellipsis\nwhite-space: nowrap\ndisplay: block${3}",
+    "description": "Ellipsis Auto"
+  },
+  "arrow": {
+    "prefix": "arrow",
+    "body": "content: ''\nposition: absolute\nwidth: 0\nheight: 0\nborder-style: solid\nborder-width: ${1:10}px\nborder-color: transparent transparent transparent ${2:color}\n$3",
+    "description": "Arrow Right"
+  },
+  "cu": {
+    "prefix": "cu",
+    "body": "cursor: ${1:pointer}",
+    "description": "Cursor"
+  },
+  "a": {
+    "prefix": "a",
+    "body": "azimuth: ${1:?} ${2}",
+    "description": "Description"
+  },
+  "bs": {
+    "prefix": "bs",
+    "body": "box-shadow: ${1:${2:inset} ${3:0}px ${4:1}px ${5:0}px ${6:rgba(0,0,0,.3)} ${7}}",
+    "description": "box-shadow"
+  },
+  "bry": {
+    "prefix": "bry",
+    "body": "-webkit-border-radius:  ${1:5}px\n-moz-border-radius:  $1px\nborder-radius:  $1px",
+    "description": "Description"
+  },
+  "bra": {
+    "prefix": "bra",
+    "body": "border-radius:  ${1:5}px",
+    "description": "Description"
+  },
+  "brtl": {
+    "prefix": "brtl",
+    "body": "border-top-left-radius:  ${1:5}px ${2}",
+    "description": "Description"
+  },
+  "brtr": {
+    "prefix": "brtr",
+    "body": "border-top-right-radius:  ${1:5}px ${2}",
+    "description": "Description"
+  },
+  "brbl": {
+    "prefix": "brbl",
+    "body": "border-bottom-left-radius:  ${1:5}px ${2}",
+    "description": "Description"
+  },
+  "brbr": {
+    "prefix": "brbr",
+    "body": "border-bottom-right-radius:  ${1:5}px ${2}",
+    "description": "Description"
+  },
+  "bl": {
+    "prefix": "bl",
+    "body": "border-right: ${1:${2:1}px ${3:solid} ${4:#ccc} ${5}}",
+    "description": "border-left"
+  },
+  "br": {
+    "prefix": "br",
+    "body": "border-right: ${1:${2:1}px ${3:solid} ${4:#ccc} ${5}}",
+    "description": "border-right"
+  },
+  "bb": {
+    "prefix": "bb",
+    "body": "border-bottom: ${1:${2:1}px ${3:solid} ${4:#ccc} ${5}}",
+    "description": "border-bottom"
+  },
+  "bt": {
+    "prefix": "bt",
+    "body": "border-top: ${1:${2:1}px ${3:solid} ${4:#ccc} ${5}}",
+    "description": "border-top"
+  },
+  "b": {
+    "prefix": "b",
+    "body": "border: ${1:${2:1}px ${3:solid} ${4:#ccc} ${5}}",
+    "description": "Description"
+  },
+  "bg": {
+    "prefix": "bg",
+    "body": "background: ${1:#fff} ${2}",
+    "description": "Description"
+  },
+  "bga": {
+    "prefix": "bga",
+    "body": "background: url('${1:../images/}') ${2:no-repeat} ${3:50%} ${4:50%} ${5:transparent} ${6}",
+    "description": "Description"
+  },
+  "focus": {
+    "prefix": "focus",
+    "body": "&:focus$0",
+    "description": "&:focus"
+  },
+  "active": {
+    "prefix": "active",
+    "body": "&:active$0",
+    "description": "&:active"
+  },
+  "hover": {
+    "prefix": "hover",
+    "body": "&:hover$0",
+    "description": "&:hover"
+  },
+  "lc": {
+    "prefix": "lc",
+    "body": "&:last-child$0",
+    "description": "last-child"
+  },
+  "fc": {
+    "prefix": "fc",
+    "body": "&:first-child$0",
+    "description": "first-child"
+  },
+  "bgg": {
+    "prefix": "bgg",
+    "body": "background-color:  $1\nbackground-repeat:  repeat-x\nbackground:  -webkit-gradient(linear, 0% 0%, 0% 100%, from(${1:COR1}), to(${2:COR2}))\nbackground:  -webkit-linear-gradient(${3:top}, $1, $2)\nbackground:  -moz-linear-gradient($3, $1, $2)\nbackground:  -ms-linear-gradient($3, $1, $2)\nbackground:  -o-linear-gradient($3, $1, $2)\n${4}",
+    "description": "Description"
+  },
+  "bgi": {
+    "prefix": "bgi",
+    "body": "background-image:  url('${1:../}') ${2}",
+    "description": "Description"
+  },
+  "bgr": {
+    "prefix": "bgr",
+    "body": "background-repeat:  ${1:no-repeat} ${2}",
+    "description": "Description"
+  },
+  "bgc": {
+    "prefix": "bgc",
+    "body": "background-color: ${1:#000} ${2}",
+    "description": "Description"
+  },
+  "bos": {
+    "prefix": "bos",
+    "body": "box-sizing: ${1:border-box} ${2}",
+    "description": "Description"
+  },
+  "c": {
+    "prefix": "c",
+    "body": "color: ${1:#fc0} ${2}",
+    "description": "Description"
+  },
+  "co": {
+    "prefix": "co",
+    "body": "content: ${1:''} ${2}",
+    "description": "Description"
+  },
+  "cb": {
+    "prefix": "cb",
+    "body": "clear: ${1:both} ${2}",
+    "description": "Description"
+  },
+  "cn": {
+    "prefix": "cn",
+    "body": "clear: ${1:none} ${2}",
+    "description": "Description"
+  },
+  "cl": {
+    "prefix": "cl",
+    "body": "clear: ${1:both} ${2}",
+    "description": "Description"
+  },
+  "db": {
+    "prefix": "db",
+    "body": "display: block ${1}",
+    "description": "Description"
+  },
+  "dn": {
+    "prefix": "dn",
+    "body": "display: none ${1}",
+    "description": "Description"
+  },
+  "dtr": {
+    "prefix": "dtr",
+    "body": "display: table-row ${1}",
+    "description": "display: table-row"
+  },
+  "dtc": {
+    "prefix": "dtc",
+    "body": "display: table-cell ${1}",
+    "description": "display: table-cell"
+  },
+  "di": {
+    "prefix": "di",
+    "body": "display: inline ${1}",
+    "description": "Description"
+  },
+  "fl": {
+    "prefix": "fl",
+    "body": "float: left ${1}",
+    "description": "Description"
+  },
+  "fr": {
+    "prefix": "fr",
+    "body": "float: right ${1}",
+    "description": "Description"
+  },
+  "fn": {
+    "prefix": "fn",
+    "body": "float: none ${1}",
+    "description": "Description"
+  },
+  "fs": {
+    "prefix": "fs",
+    "body": "font-size: ${1:13}px ${2}",
+    "description": "Description"
+  },
+  "fst": {
+    "prefix": "fst",
+    "body": "font-style:  ${1:italic} ${2}",
+    "description": "Description"
+  },
+  "ff": {
+    "prefix": "ff",
+    "body": "font-family:  ${1:$var}",
+    "description": "Description"
+  },
+  "fw": {
+    "prefix": "fw",
+    "body": "font-weight: ${1:bold} ${2}",
+    "description": "Description"
+  },
+  "h": {
+    "prefix": "h",
+    "body": "height: ${1:20}${2:px}${3}",
+    "description": "height"
+  },
+  "lh": {
+    "prefix": "lh",
+    "body": "line-height: ${1:20}px ${2}",
+    "description": "Description"
+  },
+  "m": {
+    "prefix": "m",
+    "body": "margin: ${1:10}px ${2}",
+    "description": "Description"
+  },
+  "ma": {
+    "prefix": "ma",
+    "body": "margin: ${1:10}px ${2:10}px ${3:10}px ${4:10}px ${5}",
+    "description": "Description"
+  },
+  "mac": {
+    "prefix": "mac",
+    "body": "margin: ${1:10px} ${2:auto} ${3}",
+    "description": "Description"
+  },
+  "mt": {
+    "prefix": "mt",
+    "body": "margin-top: ${1:10}px ${2}",
+    "description": "Description"
+  },
+  "mr": {
+    "prefix": "mr",
+    "body": "margin-right: ${1:10}px ${2}",
+    "description": "Description"
+  },
+  "mb": {
+    "prefix": "mb",
+    "body": "margin-bottom: ${1:10}px ${2}",
+    "description": "Description"
+  },
+  "ml": {
+    "prefix": "ml",
+    "body": "margin-left: ${1:10}px ${2}",
+    "description": "Description"
+  },
+  "miw": {
+    "prefix": "miw",
+    "body": "min-width: ${1:${2:10}px}\n$0",
+    "description": "min-width"
+  },
+  "maw": {
+    "prefix": "maw",
+    "body": "max-width: ${1:${2:10}px}\n$0",
+    "description": "max-width"
+  },
+  "mih": {
+    "prefix": "mih",
+    "body": "min-height: ${1:${2:10}px}\n$0",
+    "description": "min-height"
+  },
+  "mah": {
+    "prefix": "mah",
+    "body": "max-height: ${1:${2:10}px}\n$0",
+    "description": "max-height"
+  },
+  "oa": {
+    "prefix": "oa",
+    "body": "overflow: ${1:auto} ${2}",
+    "description": "overflow: auto"
+  },
+  "ov": {
+    "prefix": "ov",
+    "body": "overflow: ${1:visible} ${2}",
+    "description": "Description"
+  },
+  "oh": {
+    "prefix": "oh",
+    "body": "overflow: ${1:hidden} ${2}",
+    "description": "Description"
+  },
+  "ox": {
+    "prefix": "ox",
+    "body": "overflow-x: ${1:hidden} ${2}",
+    "description": "Description"
+  },
+  "oy": {
+    "prefix": "oy",
+    "body": "overflow-y: ${1:hidden} ${2}",
+    "description": "Description"
+  },
+  "ou": {
+    "prefix": "ou",
+    "body": "outline: ${1:${2:1px} ${3:solid} ${4:#fc0} ${5}}",
+    "description": "outline:"
+  },
+  "p": {
+    "prefix": "p",
+    "body": "padding: ${1:10}px ${2}",
+    "description": "Description"
+  },
+  "pa": {
+    "prefix": "pa",
+    "body": "padding: ${1:10}px ${2:10}px ${3:10}px ${4:10}px ${5}",
+    "description": "Description"
+  },
+  "pt": {
+    "prefix": "pt",
+    "body": "padding-top: ${1:10}px ${2}",
+    "description": "Description"
+  },
+  "pr": {
+    "prefix": "pr",
+    "body": "padding-right: ${1:10}px ${2}",
+    "description": "Description"
+  },
+  "pb": {
+    "prefix": "pb",
+    "body": "padding-bottom: ${1:10}px ${2}",
+    "description": "Description"
+  },
+  "pl": {
+    "prefix": "pl",
+    "body": "padding-left: ${1:10}px ${2}",
+    "description": "Description"
+  },
+  "poa": {
+    "prefix": "poa",
+    "body": "position: ${1:absolute} ${2}",
+    "description": "Description"
+  },
+  "pof": {
+    "prefix": "pof",
+    "body": "position: ${1:fixed} ${2}",
+    "description": "Description"
+  },
+  "po": {
+    "prefix": "po",
+    "body": "position: ${1:relative} ${2}",
+    "description": "Description"
+  },
+  "t": {
+    "prefix": "t",
+    "body": "top: ${1:0}px ${2}",
+    "description": "Description"
+  },
+  "r": {
+    "prefix": "r",
+    "body": "right: ${1:0}px ${2}",
+    "description": "Description"
+  },
+  "bo": {
+    "prefix": "bo",
+    "body": "bottom: ${1:0}px ${2}",
+    "description": "Description"
+  },
+  "ls": {
+    "prefix": "ls",
+    "body": "list-style: ${1:none} ${2}",
+    "description": "Description"
+  },
+  "l": {
+    "prefix": "l",
+    "body": "left: ${1:0}px ${2}",
+    "description": "Description"
+  },
+  "transition": {
+    "prefix": "transition",
+    "body": "-webkit-transition:  .${1:1}s ${2:all} ${3:ease}\n-moz-transition:  .$1s $2 $3\n-o-transition:  .$1s $2 $3\ntransition:  .$1s $2 $3 ${4}",
+    "description": "Description"
+  },
+  "transf": {
+    "prefix": "transf",
+    "body": "-moz-transform: ${1:scale(${5:$scale})} ${2:rotate(${6:$rotate})} ${3:translate(${7:$trans-x}, ${8:$trans-y})} ${4:skew(${9:skew-x}, ${10:skew-y})}\n-webkit-transform: $1 $2 $3 $4\n-o-transform: $1 $2 $3 $4\n-ms-transform: $1 $2 $3 $4\ntransform: $1 $2 $3 $4",
+    "description": "Description"
+  },
+  "ts": {
+    "prefix": "ts",
+    "body": "text-shadow: ${1:0}px ${2:1}px ${3} ${4:#ccc} ${5}",
+    "description": "Description"
+  },
+  "td": {
+    "prefix": "td",
+    "body": "text-decoration: ${1:none} ${2}",
+    "description": "Description"
+  },
+  "ta": {
+    "prefix": "ta",
+    "body": "text-align: ${1:center} ${2}",
+    "description": "Description"
+  },
+  "tet": {
+    "prefix": "tet",
+    "body": "text-transform: ${1:capitalize} ${2}",
+    "description": "Description"
+  },
+  "ti": {
+    "prefix": "ti",
+    "body": "text-indent: ${1:-9999}px ${2}",
+    "description": "Description"
+  },
+  "va": {
+    "prefix": "va",
+    "body": "vertical-align: ${1:middle} ${2}",
+    "description": "Description"
+  },
+  "w": {
+    "prefix": "w",
+    "body": "width: ${1:${2:20}${3:px}${4}}",
+    "description": "width:"
+  },
+  "ha": {
+    "prefix": "ha",
+    "body": "height: auto",
+    "description": "height:auto"
+  },
+  "wa": {
+    "prefix": "wa",
+    "body": "width: auto",
+    "description": "width:auto"
+  },
+  "zi": {
+    "prefix": "zi",
+    "body": "z-index: ${1:1} ${2}",
+    "description": "Description"
+  },
+  "vh": {
+    "prefix": "vh",
+    "body": "visibility: ${1:hidden} ${2}$0",
+    "description": "visibility: hidden"
+  },
+  "bgt": {
+    "prefix": "bgt",
+    "body": "background: transparent $0",
+    "description": "background: transparent"
+  },
+  "after": {
+    "prefix": "after",
+    "body": "&:after\n${1}",
+    "description": ":after"
+  },
+  "before": {
+    "prefix": "before",
+    "body": "&:before\n${1}",
+    "description": ":before"
+  }
+}

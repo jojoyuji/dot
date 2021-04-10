@@ -28,7 +28,7 @@ wo.foldmethod = 'manual'
 o.pastetoggle = '<F6>'
 -- set number               " mostra numero linhas
 wo.number = true
-wo.relativenumber = true
+wo.relativenumber = false
 -- set numberwidth=5        " margin-left between frame and line number
 wo.numberwidth=5
 -- set visualbell           " don't beep

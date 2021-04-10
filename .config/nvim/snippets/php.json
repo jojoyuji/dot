@@ -1,0 +1,177 @@
+{
+  "array": {
+    "prefix": "array",
+    "body": "$${1:arrayName} = array('${2}' => ${3});${4}",
+    "description": "array"
+  },
+  "def": {
+    "prefix": "def",
+    "body": "define('${1}'${2});${3}",
+    "description": "def"
+  },
+  "do": {
+    "prefix": "do",
+    "body": "do {\n\t${2:// code... }\n} while (${1:/* condition */});\"",
+    "description": "do"
+  },
+  "doc_f": {
+    "prefix": "doc_f",
+    "body": "/**\n * $2\n * @return ${4:void}\n * @author ${5:`!v g:snips_author`}\n **/\n${1:public }function ${2:someFunc}(${3})\n{${6}\n}",
+    "description": "doc_f"
+  },
+  "doc_i": {
+    "prefix": "doc_i",
+    "body": "/**\n * $1\n * @package ${2:default}\n * @author ${3:`!v g:snips_author`}\n **/\ninterface ${1:someClass}\n{${4}\n} // END interface $1\"",
+    "description": "doc_i"
+  },
+  "else": {
+    "prefix": "else",
+    "body": "else {\n\t${1:// code...}\n}",
+    "description": "else"
+  },
+  "for": {
+    "prefix": "for",
+    "body": "for ($${2:i} = 0; $$2 < ${1:count}; $$2${3:++}) {\n\t${4:// code...}\n}",
+    "description": "for"
+  },
+  "foreachk": {
+    "prefix": "foreachk",
+    "body": "foreach ($${1:variable} as $${2:key} => $${3:value}){\n\t${4:// code...}\n}",
+    "description": "foreachk"
+  },
+  "get": {
+    "prefix": "get",
+    "body": "$_GET['${1}']${2}",
+    "description": "get"
+  },
+  "if": {
+    "prefix": "if",
+    "body": "if (${1:/* condition */}) {\n\t${2:// code...}\n}",
+    "description": "if"
+  },
+  "inc": {
+    "prefix": "inc",
+    "body": "include '${1:file}';${2}",
+    "description": "inc"
+  },
+  "log": {
+    "prefix": "log",
+    "body": "error_log(var_export(${1}, true));${2}",
+    "description": "log"
+  },
+  "post": {
+    "prefix": "post",
+    "body": "$_POST['${1}']${2}",
+    "description": "post"
+  },
+  "req1": {
+    "prefix": "req1",
+    "body": "require_once '${1:file}';${2}",
+    "description": "req1"
+  },
+  "session": {
+    "prefix": "session",
+    "body": "$_SESSION['${1}']${2}",
+    "description": "session"
+  },
+  "t": {
+    "prefix": "t",
+    "body": "$${1:retVal} = (${2:condition}) ? ${3:a} : ${4:b};${5}",
+    "description": "t"
+  },
+  "var": {
+    "prefix": "var",
+    "body": "var_export(${1});${2}",
+    "description": "var"
+  },
+  "getter": {
+    "prefix": "getter",
+    "body": "/*\n * Getter for $1\n */\npublic function get${1/\\w+\\s*/\\u$0/}() \n{\n    return $this->$1;$2\n}\n$4",
+    "description": "PHP Class Getter"
+  },
+  "setter": {
+    "prefix": "setter",
+    "body": "/*\n * Setter for $1\n */\npublic function set${1/\\w+\\s*/\\u$0/}($$1)\n{\n    $this->$1 = $$1;$3\n    ${4:return $this;}\n}\n$0",
+    "description": "PHP Class Setter"
+  },
+  "gs": {
+    "prefix": "gs",
+    "body": "protected $$1\n\n/*\n * Getter for $1\n */\npublic function get${1/\\w+\\s*/\\u$0/}() \n{\n    return $this->$1;$2\n}\n\n/*\n * Setter for $1\n */\npublic function set${1/\\w+\\s*/\\u$0/}($$1)\n{\n    $this->$1 = $$1;$3\n    ${4:return $this;}\n}\n$0",
+    "description": "PHP Class Getter Setter"
+  },
+  "pub": {
+    "prefix": "pub",
+    "body": "public function ${1:name}(${2:$param})\n{\n    ${VISUAL}${3:return null;}\n}\n$0",
+    "description": "Public function"
+  },
+  "pro": {
+    "prefix": "pro",
+    "body": "protected function ${1:name}(${2:$param})\n{\n    ${VISUAL}${3:return null;}\n}\n$0",
+    "description": "Protected function"
+  },
+  "pri": {
+    "prefix": "pri",
+    "body": "private function ${1:name}(${2:$param})\n{\n    ${VISUAL}${3:return null;}\n}\n$0",
+    "description": "Private function"
+  },
+  "pubs": {
+    "prefix": "pubs",
+    "body": "public static function ${1:name}(${2:$param})\n{\n    ${VISUAL}${3:return null;}\n}\n$0",
+    "description": "Public static function"
+  },
+  "pros": {
+    "prefix": "pros",
+    "body": "protected static function ${1:name}(${2:$param})\n{\n    ${VISUAL}${3:return null;}\n}\n$0",
+    "description": "Protected static function"
+  },
+  "pris": {
+    "prefix": "pris",
+    "body": "private static function ${1:name}(${2:$param})\n{\n    ${VISUAL}${3:return null;}\n}\n$0",
+    "description": "Private static function"
+  },
+  "fu": {
+    "prefix": "fu",
+    "body": "function ${1:name}(${2:$param}) \n{\n    ${VISUAL}${3:return null;}\n}\n$0",
+    "description": "Function snip"
+  },
+  "fore": {
+    "prefix": "fore",
+    "body": "foreach ($${1:variable} as $${3:value}){\n    ${VISUAL}${4}\n}\n$0",
+    "description": "Foreach loop"
+  },
+  "new": {
+    "prefix": "new",
+    "body": "$$1 = new $1($2);\n$0",
+    "description": "New class instance"
+  },
+  "ife": {
+    "prefix": "ife",
+    "body": "if (${1:/* condition */}) {\n    ${2:// code...}\n} else {\n    ${3:// code...}\n}\n$0",
+    "description": "if else"
+  },
+  "class": {
+    "prefix": "class",
+    "body": "/**\n * Class ${1:`!p snip.rv=snip.fn.capitalize().split('.')[0]`} \n * @author $2\n */\nclass $1\n{\n    public function ${3:__construct}(${4:$options})\n    {\n        ${4:// code}\n    }\n}\n$0",
+    "description": "Class declaration template"
+  },
+  "pr": {
+    "prefix": "pr",
+    "body": "echo '<pre>' . var_export($1, 1) . '</pre>';$0",
+    "description": "Dumb debug helper in HTML"
+  },
+  "pc": {
+    "prefix": "pc",
+    "body": "var_export($1);$0",
+    "description": "Dumb debug helper in cli"
+  },
+  "php": {
+    "prefix": "php",
+    "body": "<?php ${VISUAL} ${1://code here} ?>$0",
+    "description": "phpTag"
+  },
+  "sfa": {
+    "prefix": "sfa",
+    "body": "/**\n* @Route(\"/${1:route_name}\", name=\"$1\")\n* @Template()\n*/\npublic function $1Action($2)\n{\n    $3\n    return ${4:array();}$0\n}",
+    "description": "Symfony 2 Controller action"
+  }
+}

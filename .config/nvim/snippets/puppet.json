@@ -1,0 +1,57 @@
+{
+  "define": {
+    "prefix": "define",
+    "body": "define ${1:`!p snip.rv = get_module_namespace_and_basename()`} {\n  ${0:# body}\n}\n",
+    "description": "Definition"
+  },
+  "class": {
+    "prefix": "class",
+    "body": "class ${1:`!p snip.rv = get_module_namespace_and_basename()`} {\n  ${0:# body}\n}",
+    "description": "Class declaration"
+  },
+  "File": {
+    "prefix": "File",
+    "body": "File {\n  owner => ${1:username},\n  group => ${2:groupname},\n}",
+    "description": "Defaults for file"
+  },
+  "package": {
+    "prefix": "package",
+    "body": "package { '${1:name}':\n  ensure => ${2:installed},\n}",
+    "description": "Package resource type"
+  },
+  "file": {
+    "prefix": "file",
+    "body": "file { '${1:name}':\n  source => \"puppet://${2:path}\",\n  mode   => ${3:mode},",
+    "description": "File resource type"
+  },
+  "group": {
+    "prefix": "group",
+    "body": "group { '${1:groupname}':\n  ensure => ${3:present},\n  gid    => ${2:gid},",
+    "description": "Group resource type"
+  },
+  "user": {
+    "prefix": "user",
+    "body": "group { '${1:username}':\n  ensure     => ${2:present},\n  uid        => ${3:uid},\n  gid        => ${4:gid},\n  comment    => ${5:gecos},\n  home       => ${6:homedirectory},\n  managehome => false,\n  require    => Group['${7:group'],",
+    "description": "user resource type"
+  },
+  "exec": {
+    "prefix": "exec",
+    "body": "exec { '${1:command}':\n  refreshonly => true,\n}",
+    "description": "Exec resource type"
+  },
+  "cron": {
+    "prefix": "cron",
+    "body": "cron { '${1:name}':\n  user    => ${2:user},\n  command => '${3:command}',\n  minute  => ${3:minute},\n  hour    => ${4:hour},\n}",
+    "description": "Cron resource type"
+  },
+  "mount": {
+    "prefix": "mount",
+    "body": "mount { '${1:path}':\n  device  => '${2:/dev}',\n  fstype  => '${3:filesystem}',\n  ensure  => mounted,\n  options => 'rw,errors=remount-ro',\n}",
+    "description": "Mount resource type"
+  },
+  "service": {
+    "prefix": "service",
+    "body": "service { '${1:name}':\n  hasstatus => true,\n  enable    => true,\n  ensure    => running,\n}",
+    "description": "Service resource type"
+  }
+}

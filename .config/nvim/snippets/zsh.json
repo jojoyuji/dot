@@ -1,0 +1,12 @@
+{
+  "#!": {
+    "prefix": "#!",
+    "body": "#!/bin/zsh\n",
+    "description": "shebang"
+  },
+  "!env": {
+    "prefix": "!env",
+    "body": "#!/usr/bin/env zsh\n",
+    "description": "#!/usr/bin/env (!env)"
+  }
+}

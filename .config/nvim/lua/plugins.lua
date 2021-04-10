@@ -16,8 +16,8 @@ return require('packer').startup(function()
   }
 
   -- lsp stuff
-  use 'neovim/nvim-lspconfig'
-  use 'anott03/nvim-lspinstall'
+  -- use 'neovim/nvim-lspconfig'
+  -- use 'anott03/nvim-lspinstall'
   
   -- telescope stuff
   use 'tami5/sql.nvim'
