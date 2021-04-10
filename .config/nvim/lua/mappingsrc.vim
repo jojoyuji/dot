@@ -1,3 +1,4 @@
+
 nnoremap ; :
 nnoremap \ ;
 
@@ -126,7 +127,7 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 "      \gV:call setreg('"', old_reg, old_regtype)<CR>
 
 map <leader>vv :execute("e $MYVIMRC")<cr><c-w>
-map <leader>vmp :execute("e ~/.config/nvim/lua/mappingsrc.vim")<cr><c-w>
+map <leader>vm :execute("e ~/.config/nvim/lua/mappingsrc.vim")<cr><c-w>
 map <leader>vp :execute("e ~/.config/nvim/lua/plugins.lua")<cr><c-w>
 map <leader>vz :execute("e $HOME/.zshrc")<cr><c-w>
 map <leader>vs :execute("e ~/.config/nvim/lua/settings.lua")<cr><c-w>
