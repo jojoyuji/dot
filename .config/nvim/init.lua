@@ -42,11 +42,6 @@ else
     -- TODO uncomment later 
     vim.fn.eval("execute ('so ~/.config/nvim/lua/mappingsrc.vim')")
 
-    -- Load configuration
-    -- require('config')
-
-    -- Load statusline
-    -- require('statusline')
   vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]])
 end
 

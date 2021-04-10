@@ -18,8 +18,6 @@ return require('packer').startup(function()
   -- lsp stuff
   use 'neovim/nvim-lspconfig'
   use 'anott03/nvim-lspinstall'
-
-  -- use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
   
   -- telescope stuff
   use 'tami5/sql.nvim'
@@ -58,7 +56,6 @@ return require('packer').startup(function()
   -- git plugins
   use {'tpope/vim-fugitive',setup = function() require('config/fugitive') end}
   use {'aacunningham/vim-fuzzy-stash', setup = function() require('config/vim-fuzzy-stash') end }
-  -- use 'mhinz/vim-signify'
   use {
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
     config = function() require('gitsigns').setup() end
@@ -78,7 +75,6 @@ return require('packer').startup(function()
   use {'MattesGroeger/vim-bookmarks', config = function() require('config/vim-bookmarks') end}
  
   -- utilities
-  -- use 'airblade/vim-rooter'
   use {'norcalli/nvim-colorizer.lua', config = function() require'colorizer'.setup() end}
   use 'mattn/emmet-vim'
   use 'maksimr/vim-jsbeautify'
@@ -86,7 +82,6 @@ return require('packer').startup(function()
   use {'junegunn/vim-easy-align', config = function() require('config/vim-easy-align') end}
   use {'wellle/targets.vim', config = function() require('config/targets') end}
   use {'jojoyuji/switch.vim', config = function() require('config/switch') end}
-  -- use 'yamatsum/nvim-cursorline'
 
   use{'tyru/caw.vim', 
     requires = 'Shougo/context_filetype.vim', 
@@ -104,24 +99,25 @@ return require('packer').startup(function()
   use {'dense-analysis/ale', config = function() require('config/ale') end}
   use 'elzr/vim-json' 
 
-  -- snipets / compe
-  -- use {'hrsh7th/vim-vsnip', config = function() require('config/vsnip') end}
-  -- use {'hrsh7th/nvim-compe', config = function() require('config/compe') end}
+  -- snippets / compe
+  use 'hrsh7th/vim-vsnip-integ'
+  use {'hrsh7th/vim-vsnip', config = function() require('config/vsnip') end}
+  use {'hrsh7th/nvim-compe', config = function() require('config/compe') end}
 
   -- coc
-  use {'neoclide/coc.nvim', branch = 'release', config = function() require('config/coc') end }
-  use {'iamcco/coc-tailwindcss', run = 'yarn install --frozen-lockfile && yarn run build' }
-  use 'rafcamlet/coc-nvim-lua'
+  -- use {'neoclide/coc.nvim', branch = 'release', config = function() require('config/coc') end }
+  -- use {'iamcco/coc-tailwindcss', run = 'yarn install --frozen-lockfile && yarn run build' }
+  -- use 'rafcamlet/coc-nvim-lua'
 
   -- inutilities :)
   use 'jojoyuji/megaman-vim'
   use 'jojoyuji/nyancat-vim'
   use {'dbeniamine/todo.txt-vim', config = function() require('config/todo') end}
+
   -- game
   use 'ThePrimeagen/vim-be-good'
   
   -- questionable...
-  use 'alec-gibson/nvim-tetris'
   use {'pechorin/any-jump.vim', config = function() require('config/any-jump') end}
   use 'junegunn/vim-emoji'
 
@@ -138,9 +134,10 @@ return require('packer').startup(function()
   use 'editorconfig/editorconfig-vim'
   use 'mattn/webapi-vim'
   use 'lambdalisue/vim-gista'
-  use { 'diepm/vim-rest-console', config = function() require('config/vim-rest-console') end} 
+  use {'diepm/vim-rest-console', config = function() require('config/vim-rest-console') end} 
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
 
+  -- treesitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   -- " tmux
@@ -150,11 +147,7 @@ return require('packer').startup(function()
   use {'benmills/vimux', config = function() require('config/vimux') end}
 
   -- my plugins
-  use '$HOME/.config/nvim/myPlugins/rand.vim'
-  use '$HOME/.config/nvim/myPlugins/todo.vim'
-  use '$HOME/.config/nvim/myPlugins/close-buffer.vim'
-  use '$HOME/.config/nvim/myPlugins/clipboard-yank.vim'
-  use '$HOME/.config/nvim/myPlugins/visual-selection-search.vim'
+  use '~/.config/nvim/myPlugins'
 
   -- use {
   --   'fhill2/telescope-ultisnips.nvim',

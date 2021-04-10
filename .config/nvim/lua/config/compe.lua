@@ -1,9 +1,11 @@
 local bind = vim.api.nvim_set_keymap
 vim.o.completeopt = "menuone,noselect"
 
--- vim.cmd([[ inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>" ]])
+--
+vim.cmd([[imap <silent><expr> <tab> compe#confirm('<CR>')]])
 
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+-- vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+
 -- vim.g.coc_snippet_next = '<TAB>'
 -- vim.g.coc_snippet_prev = '<S-TAB>'
 
@@ -15,8 +17,8 @@ vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 
 -- imap <c-j> <c-n>
 -- imap <c-k> <c-p>
-bind('i', '<c-j>', '<c-n>', {})
-bind('i', '<c-k>', '<c-p>', {})
+bind('i', '<c-j>', '<c-n>', {noremap = true})
+bind('i', '<c-k>', '<c-p>', {noremap = true})
 
 require'compe'.setup {
   enabled = true;
@@ -41,3 +43,4 @@ require'compe'.setup {
     vsnip = true;
   };
 }
+

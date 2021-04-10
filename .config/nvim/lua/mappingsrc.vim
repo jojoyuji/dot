@@ -26,10 +26,6 @@ vmap s S
 "remove trailing white space
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''
 
-" omnicomplete on ctrl-l
-inoremap <c-l> <c-x><c-o>
-
-
 "fix for annoying man!
 noremap K <nop>
 
@@ -123,11 +119,11 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 
 "Star overer selection highlights it 
 "AlignReplaceQuotedSpaceslows * on visualmode for searching selected stuff FTW
-vnoremap <silent> * :<C-U>
-      \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-      \gvy/<C-R><C-R>=substitute(
-      \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-      \gV:call setreg('"', old_reg, old_regtype)<CR>
+" vnoremap <silent> * :<C-U>
+"      \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+"      \gvy/<C-R><C-R>=substitute(
+"      \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+"      \gV:call setreg('"', old_reg, old_regtype)<CR>
 
 map <leader>vv :execute("e $MYVIMRC")<cr><c-w>
 map <leader>vmp :execute("e ~/.config/nvim/lua/mappingsrc.vim")<cr><c-w>
