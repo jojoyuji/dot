@@ -2,7 +2,8 @@ local bind = vim.api.nvim_set_keymap
 vim.o.completeopt = "menuone,noselect"
 
 --
-vim.cmd([[imap <silent><expr> <tab> compe#confirm('<CR>')]])
+-- vim.cmd([[imap <silent><expr> <tab> compe#confirm('<CR>')]])
+vim.cmd([[imap <tab> compe#confirm('<CR>')]])
 
 -- vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 

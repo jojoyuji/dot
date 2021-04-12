@@ -114,8 +114,9 @@ return require('packer').startup(function()
   use 'jojoyuji/nyancat-vim'
   use {'dbeniamine/todo.txt-vim', config = function() require('config/todo') end}
 
-  -- game
+  -- gamee
   use 'ThePrimeagen/vim-be-good'
+  use 'alec-gibson/nvim-tetris'
   
   -- questionable...
   use {'pechorin/any-jump.vim', config = function() require('config/any-jump') end}
@@ -148,13 +149,5 @@ return require('packer').startup(function()
 
   -- my plugins
   use '~/.config/nvim/myPlugins'
-
-  -- use {
-  --   'fhill2/telescope-ultisnips.nvim',
-  --     config = function()
-  --     require'telescope'.load_extension('ultisnips')
-  --    end
-  -- }
-  -- vim.api.nvim_command('packadd telescope-ultisnips.nvim')
 
 end)

@@ -36,8 +36,8 @@ bind('n', 'K', "<nop>", {noremap = true})
 bind('n', '<leader>z', "zmzvzz", {noremap = true})
 
 -- substitute
-bind('n', '<leader><leader>s', ":%s//<left>", {})
-vim.cmd([[ vmap <leader><leader>s :s/\%V//<left><left> ]])
+bind('n', '<leader>ss', ":%s//<left>", {})
+vim.cmd([[ vmap <leader>ss :s/\%V//<left><left> ]])
 
 -- Bubble single lines
 bind('n', '<c-a-j>', ']e', {})
@@ -48,9 +48,9 @@ bind('v', '<c-a-k>', ']egv', {})
 bind('v', '<c-a-j>', '[egv', {})
 
 -- clear last highlight
-bind('n', '<silent> <leader><space>', ':silent noh<cr>', {})
+bind('n', '<silent> <leader><leader>', ':silent noh<cr>', {})
 
-bind('n', '<leader>sf', ':set filetype', {noremap = true})
+bind('n', '<leader>sft', ':set filetype=', {noremap = true})
 bind('n', '<leader>sfj', ':set filetype=javascript', {noremap = true})
 
 bind('', '<leader>q', '<esc>:call FecharBuffer()<cr>', {})

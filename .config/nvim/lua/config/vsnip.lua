@@ -2,7 +2,10 @@ local bind = vim.api.nvim_set_keymap
 vim.g.vsnip_snippet_dir = '~/.config/nvim/snippets'
 
 vim.cmd([[ nmap <leader>\ :VsnipOpenEdit<cr> ]])
-
+vim.cmd([[ 
+let g:vsnip_filetypes = {}
+let g:vsnip_filetypes.vue = ['javascript', 'html', 'vue', 'css']
+]])
 
 vim.cmd([[ imap <expr> <tab>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<tab>' ]])
 vim.cmd([[ smap <expr> <tab>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<tab>' ]])
@@ -15,9 +18,6 @@ vim.cmd([[smap <expr> <c-]> vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'     
 vim.cmd([[imap <expr> <c-[> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<c-[>']])
 vim.cmd([[smap <expr> <c-[> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<c-[>']])
 
--- vim.cmd([[ inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>" ]])
--- vim.cmd([[ imap <expr> <tab>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<tab>' ]])
--- vim.cmd([[ smap <expr> <tab>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<tab>' ]])
 
 vim.cmd([[ nmap  <tab>  <Plug>(vsnip-cut-text) ]])
 vim.cmd([[ xmap  <tab>  <Plug>(vsnip-cut-text) ]])

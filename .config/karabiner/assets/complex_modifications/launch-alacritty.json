@@ -30,7 +30,7 @@
           },
           "to": [
             {
-              "shell_command": " osascript -e 'tell application \"Finder\"' -e 'set visible of process \"kitty\" to false' -e 'end tell' "
+              "shell_command": "osascript -e 'tell application \"Finder\"' -e 'set visible of process \"alacritty\" to false' -e 'end tell' "
             }
           ],
           "conditions": [
