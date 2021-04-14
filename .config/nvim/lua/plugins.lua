@@ -100,14 +100,14 @@ return require('packer').startup(function()
   use 'elzr/vim-json' 
 
   -- snippets / compe
-  use 'hrsh7th/vim-vsnip-integ'
-  use {'hrsh7th/vim-vsnip', config = function() require('config/vsnip') end}
-  use {'hrsh7th/nvim-compe', config = function() require('config/compe') end}
+  -- use 'hrsh7th/vim-vsnip-integ'
+  -- use {'hrsh7th/vim-vsnip', config = function() require('config/vsnip') end}
+  -- use {'hrsh7th/nvim-compe', config = function() require('config/compe') end}
 
   -- coc
-  -- use {'neoclide/coc.nvim', branch = 'release', config = function() require('config/coc') end }
-  -- use {'iamcco/coc-tailwindcss', run = 'yarn install --frozen-lockfile && yarn run build' }
-  -- use 'rafcamlet/coc-nvim-lua'
+  use {'neoclide/coc.nvim', branch = 'release', config = function() require('config/coc') end }
+  use {'iamcco/coc-tailwindcss', run = 'yarn install --frozen-lockfile && yarn run build' }
+  use 'rafcamlet/coc-nvim-lua'
 
   -- inutilities :)
   use 'jojoyuji/megaman-vim'

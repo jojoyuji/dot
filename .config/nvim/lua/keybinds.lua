@@ -48,8 +48,7 @@ bind('v', '<c-a-k>', ']egv', {})
 bind('v', '<c-a-j>', '[egv', {})
 
 -- clear last highlight
-bind('n', '<silent> <leader><leader>', ':silent noh<cr>', {})
-
+bind('n', '<leader><leader>', ':silent noh<cr>', {silent = true})
 bind('n', '<leader>sft', ':set filetype=', {noremap = true})
 bind('n', '<leader>sfj', ':set filetype=javascript', {noremap = true})
 
@@ -80,7 +79,7 @@ bind('v', '>', '><CR>gv', {noremap=true})
 bind('v', '<', '<<CR>gv', {noremap=true})
 
 -- open a quickfix window for the last search
-bind('n', '<silent> <leader>co', ':copen', {noremap=true})
+bind('n', '<leader>co', ':copen', {noremap=true})
 
 
 -- window management
@@ -90,21 +89,21 @@ bind('n', 'L', '<c-w>l', {noremap=true})
 bind('n', '<leader>sfi', ':set fdm=indent<cr>', {noremap=true})
 bind('n', '<leader>sfm', ':set fdm=marker<cr>', {noremap=true})
 
-bind('n', '<silent> <leader>]', ':bnext', {noremap=true})
-bind('n', '<silent> <leader>[', ':bprev', {noremap=true})
+bind('n', '<leader>]', ':bnext<cr>', {noremap=true})
+bind('n', '<leader>[', ':bprev<cr>', {noremap=true})
 
-bind('n', '<silent> +', ':exe "resize " . (winheight(0) + 5)<CR>', {noremap=true})
-bind('n', '<silent> _', ':exe "resize " . (winheight(0) - 5)<CR>', {noremap=true})
+bind('n', '+', ':exe "resize " . (winheight(0) + 5)<CR>', {noremap=true})
+bind('n', '_', ':exe "resize " . (winheight(0) - 5)<CR>', {noremap=true})
 
-bind('n', '<silent> )', ':exe "vertical resize " . (winwidth(0) + 5)<CR>', {noremap=true})
-bind('n', '<silent> (', ':exe "vertical resize " . (winwidth(0) - 5)<CR>', {noremap=true})
+bind('n', ')', ':exe "vertical resize " . (winwidth(0) + 5)<CR>', {noremap=true})
+bind('n', '(', ':exe "vertical resize " . (winwidth(0) - 5)<CR>', {noremap=true})
 
-bind('n', '<silent> <c-d>', '<c-d>zz', {})
-bind('n', '<silent> <c-e>', '<c-u>zz', {})
+bind('n', '<c-d>', '<c-d>zz', {})
+bind('n', '<c-e>', '<c-u>zz', {})
 
 -- Super useful! From an idea by Michael Naumann
-bind('v', '<silent> *', ':call VisualSelection("f")<CR>', {noremap=true})
-bind('v', '<silent> #', ':call VisualSelection("b")<CR>', {noremap=true})
+bind('v', '*', ':call VisualSelection("f")<CR>', {noremap=true})
+bind('v', '#', ':call VisualSelection("b")<CR>', {noremap=true})
 
 bind('n', '<leader>vv', ':e $MYVIMRC<cr><c-w>', {})
 bind('n', '<leader>vm', ':e ~/.config/nvim/lua/keybinds.lua<cr><c-w>', {})
@@ -116,8 +115,8 @@ bind('n', '<leader>vu', ':Reload<cr>:PackerUpdate', {noremap=true})
 bind('n', '<leader>vi', ':Reload<cr>:PackerInstall<cr>', {noremap=true})
 bind('n', '<leader>vc', ':Reload<cr>:PackerClean<cr>', {noremap=true})
 
-bind('v', '<silent> y', 'y:call ClipboardYank()<cr>', {noremap=true})
-bind('v', '<silent> d', 'd:call ClipboardYank()<cr>', {noremap=true})
-bind('v', '<silent> x', 'd:call ClipboardYank()<cr>', {noremap=true})
-bind('n', '<silent> p', ':call ClipboardPaste()<cr>p', {noremap=true})
+bind('v', 'y', 'y:call ClipboardYank()<cr>', {noremap=true})
+bind('v', 'd', 'd:call ClipboardYank()<cr>', {noremap=true})
+bind('v', 'x', 'd:call ClipboardYank()<cr>', {noremap=true})
+bind('n', 'p', ':call ClipboardPaste()<cr>p', {noremap=true})
 

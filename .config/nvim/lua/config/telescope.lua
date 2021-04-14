@@ -71,3 +71,28 @@ vim.api.nvim_set_keymap('n', '<leader>pf', '<CMD>lua require\'config/telescope-g
 vim.api.nvim_set_keymap('n', '<leader>mr', '<CMD>Telescope frecency<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>b', '<CMD>Telescope buffers<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>ps', '<CMD>Telescope live_grep<cr>', {noremap = true})
+
+
+local action_state = require('telescope.actions.state')
+local actions = require('telescope.actions')
+
+m = {}
+
+m.my_buffer = function()
+  require'telescope.builtin'.buffers{
+    attach_mappings = function(prompt_bufnr, map)
+      local delete_buf = function()
+        local selection = action_state.get_selected_entry()
+        actions.close(prompt_bufnr)
+        vim.api.nvim_buf_delete(selection.bufnr, { force = true })
+      end
+
+      map('i', '<c-d>', delete_buf)
+      return true
+    end
+  }
+end
+
+vim.api.nvim_set_keymap('n', '<leader>b', ":lua m.my_buffer()<cr>", {noremap = true})
+
+

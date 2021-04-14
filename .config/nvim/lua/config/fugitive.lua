@@ -9,17 +9,19 @@ vim.cmd [[autocmd FileType fugitive noremap <buffer> q :q<cr>]]
 vim.cmd [[highlight diffadded guifg=#00bf00]]
 vim.cmd [[highlight diffremoved guifg=#bf0000]]
 
+vim.cmd([[command! -bang -bar -nargs=* Gpush execute 'Dispatch<bang> -dir=' .  fnameescape(FugitiveGitDir()) 'git push origin HEAD' <q-args>]])
+
 -- nnoremap <leader>gs :Gstatus
-bind('n', '<leader>gs', ':Gstatus', { noremap = true } )
+bind('n', '<leader>gs', ':Git', { noremap = true } )
 -- nnoremap <leader>gd :Gdiff
-bind('n', '<leader>gd', ':Gdiff', { noremap = true } )
+bind('n', '<leader>gd', ':Git diff', { noremap = true } )
 -- nnoremap <leader>gb :Gblame
 bind('n', '<leader>gb', ':Gblame', { noremap = true } )
 -- nnoremap <leader>gr :Gread
-bind('n', '<leader>gr', ':Gread', { noremap = true } )
+bind('n', '<leader>gr', ':Git checkout %', { noremap = true } )
 -- nnoremap <leader>gw :Gwrite
 bind('n', '<leader>gw', ':Gwrite', { noremap = true } )
 -- nnoremap <leader>gp :Dispatch Git push origin HEAD
-bind('n', '<leader>gp', ':Git push origin HEAD', { noremap = true } )
+bind('n', '<leader>gp', ':Gpush', { noremap = true } )
 -- nnoremap <leader>gl :Gpull
-bind('n', '<leader>gl', ':Gpull', { noremap = true } )
+bind('n', '<leader>gl', ':Git pull origin HEAD', { noremap = true } )
