@@ -49,7 +49,7 @@ bind('v', '<c-a-j>', '[egv', {})
 
 -- clear last highlight
 bind('n', '<leader><leader>', ':silent noh<cr>', {silent = true})
-bind('n', '<leader>sft', ':set filetype=', {noremap = true})
+bind('n', '<leader>sf', ':set filetype=', {noremap = true})
 bind('n', '<leader>sfj', ':set filetype=javascript', {noremap = true})
 
 bind('', '<leader>q', '<esc>:call FecharBuffer()<cr>', {})

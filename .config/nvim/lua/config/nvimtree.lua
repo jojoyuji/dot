@@ -3,6 +3,7 @@ local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
 -- vim.api.nvim_set_keymap('n', '<leader><tab>', ':Nvimtreetogglecustom<cr>', { noremap = true, silent = true } )
 vim.api.nvim_set_keymap('n', '<leader><tab>', ':NvimTreeToggle<cr>', { noremap = true, silent = true } )
+vim.api.nvim_set_keymap('n', '<leader>f', ':NvimTreeFindFile<cr>', { noremap = true, silent = true } )
 
 -- vim.cmd[[highlight NvimTreeFolderIcon guibg=blue]]
 

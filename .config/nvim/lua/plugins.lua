@@ -10,10 +10,18 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   -- file tree explorer
-  use {'kyazdani42/nvim-tree.lua', 
-    requires = 'kyazdani42/nvim-web-devicons',
-    config = function() require('config/nvimtree') end
-  }
+  
+  -- use {'kyazdani42/nvim-tree.lua', 
+  --   requires = 'kyazdani42/nvim-web-devicons',
+  --   config = function() require('config/nvimtree') end
+  -- }
+
+  use 'mcchrish/nnn.vim'
+  vim.cmd([[ let g:nnn#layout = { 'left': '~30%' } " or right, up, down ]])
+  --vim.cmd([[ let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } } ]])
+  vim.cmd([[ nnoremap <leader><tab> :NnnPicker %:p:h<CR><leader> ]])
+
+
 
   -- lsp stuff
   use 'neovim/nvim-lspconfig'
@@ -149,5 +157,9 @@ return require('packer').startup(function()
 
   -- my plugins
   use '~/.config/nvim/myPlugins'
+
+  -- firenvim
+  -- use { 'glacambre/firenvim', config = function() 
+  --   vim.cmd([[:call firenvim#install()]]) end }
 
 end)
