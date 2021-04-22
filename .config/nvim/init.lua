@@ -5,12 +5,6 @@ local cmd = vim.cmd
 cmd[[ command! Reload lua require("utils").Reload() ]]
 cmd[[ command! Restart lua require("utils").Restart() ]]
 
--- Set mapleader to space
-vim.g.mapleader = ' '
-
--- Set localleader to comma
-vim.g.maplocalleader = ' '
-
 -- Sensible defaults
 require('settings')
 
