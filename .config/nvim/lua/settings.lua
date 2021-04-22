@@ -7,6 +7,12 @@ local bo = vim.bo
 -- " set fillchars+=stl:\ ,stlnc:\
 -- " set fillchars+=vert:\ "spacing
 -- " set shortmess+=filmnrxoOtT
+--
+-- Set mapleader to space
+vim.g.mapleader = ' '
+
+-- Set localleader to comma
+vim.g.maplocalleader = ' '
 
 -- global options
 o.termguicolors = true

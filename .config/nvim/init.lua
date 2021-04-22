@@ -39,9 +39,6 @@ else
     -- Load keybinds
     require('keybinds')
 
-    -- TODO uncomment later 
-    -- vim.fn.eval("execute ('so ~/.config/nvim/lua/mappingsrc.vim')")
-
   vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]])
 end
 
