@@ -18,9 +18,11 @@ return require('packer').startup(function()
 
   use 'mcchrish/nnn.vim'
   vim.cmd([[ let g:nnn#layout = { 'left': '~30%' } " or right, up, down ]])
-  --vim.cmd([[ let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } } ]])
+  -- vim.cmd([[ let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } } ]])
   vim.cmd([[ nnoremap <leader><tab> :NnnPicker %:p:h<CR><leader> ]])
 
+  -- use 'ms-jpq/chadtree'
+  -- vim.cmd([[ nnoremap <leader><tab> :CHADopen<cr> ]])
 
 
   -- lsp stuff
@@ -106,6 +108,7 @@ return require('packer').startup(function()
   -- syntax
   use {'dense-analysis/ale', config = function() require('config/ale') end}
   use 'elzr/vim-json' 
+  use 'nicwest/vim-http'
 
   -- snippets / compe
   -- use 'hrsh7th/vim-vsnip-integ'

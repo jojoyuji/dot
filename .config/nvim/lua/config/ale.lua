@@ -1,7 +1,9 @@
+
 local bind = vim.api.nvim_set_keymap
 
-vim.cmd([[ let g:ale_fixers = { 'javascript': ['eslint'], 'vue': ['eslint', 'stylelint'] } ]])
-vim.cmd([[ let g:ale_linters = { 'javascript': ['eslint'] } ]])
+vim.cmd([[ let g:ale_fixers = { 'javascript': ['eslint'], 'vue': ['eslint', 'stylelint'], 'markdown': ['prettier'] } ]])
+vim.cmd([[ let g:ale_linters = { 'javascript': ['eslint'], 'markdown': ['prettier'] } ]])
+ 
 
 vim.g.ale_sign_column_always = 1
 vim.g.ale_linters_explicit = 1
@@ -10,6 +12,7 @@ vim.g.ale_set_quickfix = 1
 vim.g.ale_lint_on_text_changed = 'never'
 vim.g.ale_lint_on_enter = 0
 vim.g.ale_open_list = 1
+vim.g.ale_virtualenv_dir_names = []
 
 -- Set this if you want to.
 -- This can be useful if you are combining ALE with
