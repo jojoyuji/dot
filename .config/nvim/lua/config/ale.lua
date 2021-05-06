@@ -12,7 +12,8 @@ vim.g.ale_set_quickfix = 1
 vim.g.ale_lint_on_text_changed = 'never'
 vim.g.ale_lint_on_enter = 0
 vim.g.ale_open_list = 1
-vim.g.ale_virtualenv_dir_names = []
+vim.g.ale_linters_explicit = 1
+vim.cmd([[ let g:ale_virtualenv_dir_names = [] ]])
 
 -- Set this if you want to.
 -- This can be useful if you are combining ALE with

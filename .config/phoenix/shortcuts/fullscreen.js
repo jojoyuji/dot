@@ -7,6 +7,7 @@ setHandler ( 'm', HYPER_SHIFT, () => {
 
   if ( !window ) return;
 
+    // window.maximise()
   window.setFullScreen ( !window.isFullScreen () );
 
 });

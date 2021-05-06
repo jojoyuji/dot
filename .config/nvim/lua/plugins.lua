@@ -10,7 +10,7 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   -- file tree explorer
-  
+
   -- use {'kyazdani42/nvim-tree.lua', 
   --   requires = 'kyazdani42/nvim-web-devicons',
   --   config = function() require('config/nvimtree') end
@@ -28,7 +28,7 @@ return require('packer').startup(function()
   -- lsp stuff
   use 'neovim/nvim-lspconfig'
   use 'anott03/nvim-lspinstall'
-  
+
   -- telescope stuff
   use 'tami5/sql.nvim'
   use {
@@ -83,7 +83,7 @@ return require('packer').startup(function()
 
   -- bookmarks
   use {'MattesGroeger/vim-bookmarks', config = function() require('config/vim-bookmarks') end}
- 
+
   -- utilities
   use {'norcalli/nvim-colorizer.lua', config = function() require'colorizer'.setup() end}
   use 'mattn/emmet-vim'
@@ -128,7 +128,7 @@ return require('packer').startup(function()
   -- gamee
   use 'ThePrimeagen/vim-be-good'
   use 'alec-gibson/nvim-tetris'
-  
+
   -- questionable...
   use {'pechorin/any-jump.vim', config = function() require('config/any-jump') end}
   use 'junegunn/vim-emoji'
@@ -141,10 +141,12 @@ return require('packer').startup(function()
   use 'vim-scripts/Gundo'
   use 'tpope/vim-unimpaired'
   use 'caglartoklu/launchassociated.vim'
-  use 'vim-scripts/matchit.zip'
+  -- use 'vim-scripts/matchit.zip'
+  use 'andymass/vim-matchup'
   use '29decibel/vim-stringify'
   use 'editorconfig/editorconfig-vim'
   use 'mattn/webapi-vim'
+  use 'posva/vim-vue'
   use 'lambdalisue/vim-gista'
   use {'diepm/vim-rest-console', config = function() require('config/vim-rest-console') end} 
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
