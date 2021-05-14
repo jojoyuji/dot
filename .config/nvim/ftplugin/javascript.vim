@@ -1,4 +1,5 @@
 "noremap Q :Esformatter<cr>
+set fdm=indent
 "vnoremap Q :EsformatterVisual<cr>
 "au FileWritePre, BufWritePre *.js :Esformatter  % <cr>
 "
