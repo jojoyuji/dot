@@ -1,12 +1,16 @@
 local fn = vim.fn
 local cmd = vim.cmd
 
+cmd[[ hi SignColumn ctermbg=NONE guibg=NONE ]]
+
 -- Add commands for reload and restart
 cmd[[ command! Reload lua require("utils").Reload() ]]
 cmd[[ command! Restart lua require("utils").Restart() ]]
 
 -- Sensible defaults
 require('settings')
+
+require('lsp/index')
 
 -- If Packer is not installed, download it and all plugins and reload config
 -- If Packer is installed, load configuration as usual

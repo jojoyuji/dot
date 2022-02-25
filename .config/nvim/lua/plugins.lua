@@ -1,3 +1,15 @@
+--
+-- #Check these plugins not updating:
+-- folke/todo-comments.nvim
+-- hrsh7th/cmp-path
+-- pechorin/any-jump.vim
+-- wellle/tmux-complete.vim
+-- michaeljsmith/vim-indent-object
+-- evanleck/vim-svelte
+-- dense-analysis/ale
+-- nvim-lua/popup.nvim
+-- tami5/sql.nvim
+
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
 -- Only required if you have packer configured as `opt`
@@ -10,24 +22,22 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   -- file tree explorer
-
-  -- use {'kyazdani42/nvim-tree.lua', 
-  --   requires = 'kyazdani42/nvim-web-devicons',
-  --   config = function() require('config/nvimtree') end
-  -- }
-
   use 'mcchrish/nnn.vim'
-  vim.cmd([[ let g:nnn#layout = { 'left': '~30%' } " or right, up, down ]])
+  vim.cmd([[ let g:nnn#layout = { 'left': '~40%' } " or right, up, down ]])
   -- vim.cmd([[ let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } } ]])
   vim.cmd([[ nnoremap <leader><tab> :NnnPicker %:p:h<CR><leader> ]])
 
-  -- use 'ms-jpq/chadtree'
-  -- vim.cmd([[ nnoremap <leader><tab> :CHADopen<cr> ]])
+  
+  use 'nvim-lua/popup.nvim' -- An implementation of the Popup API from vim in Neovim
+  use 'nvim-lua/plenary.nvim' -- Useful lua functions used ny lots of plugins
 
+  -- treesitter
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function() require('config/treesitter') end}
 
   -- lsp stuff
   use 'neovim/nvim-lspconfig'
-  use 'anott03/nvim-lspinstall'
+  -- use 'anott03/nvim-lspinstall'
+  use 'williamboman/nvim-lsp-installer'
 
   -- telescope stuff
   use 'tami5/sql.nvim'
@@ -43,22 +53,74 @@ return require('packer').startup(function()
   }
 
   -- statusline
-  use { 'glepnir/galaxyline.nvim', branch = 'main',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true},
-    config = function() require'config/galaxyline' end,
-  }
+  use {'datwaft/bubbly.nvim', config = function()
+    -- Here you can add the configuration for the plugin
+    vim.g.bubbly_palette = {
+      background = "#34343c",
+      foreground = "#c5cdd9",
+      black = "#3e4249",
+      red = "#ec7279",
+      green = "#a0c980",
+      yellow = "#deb974",
+      blue = "#6cb6eb",
+      purple = "#d38aea",
+      cyan = "#5dbbc1",
+      white = "#c5cdd9",
+      lightgrey = "#57595e",
+      darkgrey = "#404247",
+    }
+    vim.g.bubbly_statusline = {
+      'mode',
+      'truncate',
+      'path',
+      'branch',
+      'signify',
+      'gitsigns',
+      'coc',
+      'divisor',
+      'filetype',
+      'progress',
+    }
+  end}
 
+  -- use {
+  --   'nvim-lualine/lualine.nvim',
+  --   setup =  function() require('lualine').setup() end,
+  --   requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  -- }
+  -- 
   -- colorschemes
   use 'drewtempelmeyer/palenight.vim'
-  use { 'sainnhe/edge', setup = function() vim.g.edge_style = 'neon' end}
-  use {
-    'lifepillar/vim-gruvbox8',
-    setup = function()
-      vim.g.gruvbox_contrast_dark='hard'
-      vim.cmd([[colorscheme gruvbox8_hard]])
+  use { 'sainnhe/edge', config = function() 
+      vim.g.edge_style = 'neon' 
+        -- vim.cmd([[colorscheme edge]])
+        -- vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]])
+    end
+  }
+
+  use { 
+    'ellisonleao/gruvbox.nvim',
+    config = function() 
+      vim.cmd([[colorscheme gruvbox]])
       vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]])
     end
   }
+
+
+  use { 
+    'rebelot/kanagawa.nvim',
+    config = function() 
+        -- vim.cmd([[colorscheme kanagawa]])
+        -- vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]])
+    end
+  }
+  -- use 'eddyekofo94/gruvbox-flat.nvim'
+  -- use 'ellisonleao/gruvbox.nvim'
+
+  use 'folke/tokyonight.nvim'
+  -- use 'tiagovla/tokyodark.nvim '
+  use 'wojciechkepka/bogster'
+
   -- Lazy loading:
   -- Load on specific commands
   use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
@@ -68,8 +130,14 @@ return require('packer').startup(function()
   use {'aacunningham/vim-fuzzy-stash', setup = function() require('config/vim-fuzzy-stash') end }
   use {
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
-    config = function() require('gitsigns').setup() end
+    config = function() 
+      require('config/gitsigns') end
   }
+  --
+  -- use {
+  --   'lewis6991/gitsigns.nvim',
+  --   config = function() require('gitsigns').setup() end
+  -- }
 
   -- movement
   use 'tpope/vim-surround'
@@ -92,8 +160,9 @@ return require('packer').startup(function()
   use {'junegunn/vim-easy-align', config = function() require('config/vim-easy-align') end}
   use {'wellle/targets.vim', config = function() require('config/targets') end}
   use {'jojoyuji/switch.vim', config = function() require('config/switch') end}
+  use { 'evanleck/vim-svelte' }
 
-  use{'tyru/caw.vim', 
+  use {'tyru/caw.vim', 
     requires = 'Shougo/context_filetype.vim', 
     config = function() require('config/caw') end
   }
@@ -110,15 +179,18 @@ return require('packer').startup(function()
   use 'elzr/vim-json' 
   use 'nicwest/vim-http'
 
-  -- snippets / compe
-  -- use 'hrsh7th/vim-vsnip-integ'
-  -- use {'hrsh7th/vim-vsnip', config = function() require('config/vsnip') end}
-  -- use {'hrsh7th/nvim-compe', config = function() require('config/compe') end}
-
-  -- coc
-  use {'neoclide/coc.nvim', branch = 'release', config = function() require('config/coc') end }
-  use {'iamcco/coc-tailwindcss', run = 'yarn install --frozen-lockfile && yarn run build' }
-  use 'rafcamlet/coc-nvim-lua'
+  -- completion
+  use 'hrsh7th/cmp-nvim-lua'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use "hrsh7th/cmp-buffer" -- buffer completions
+  use "hrsh7th/cmp-path" -- path completions
+  use "hrsh7th/cmp-cmdline" -- cmdline completions
+  use { "hrsh7th/nvim-cmp", config = function() require('config/cmp') end } -- The completion plugin
+  use "saadparwaiz1/cmp_luasnip" -- snippet completions
+ 
+  -- snippets
+  use "L3MON4D3/LuaSnip" --snippet engine
+  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- inutilities :)
   use 'jojoyuji/megaman-vim'
@@ -127,13 +199,13 @@ return require('packer').startup(function()
 
  use {
   'folke/todo-comments.nvim',
-  config = function()
-    require('todo-comments').setup {
+  -- config = function()
+    -- require('todo-comments').setup {
       -- your configuration comes here
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
-    }
-  end
+    -- }
+  -- end
   }
   use {
     'folke/trouble.nvim',
@@ -163,7 +235,6 @@ return require('packer').startup(function()
   use 'vim-scripts/Gundo'
   use 'tpope/vim-unimpaired'
   use 'caglartoklu/launchassociated.vim'
-  -- use 'vim-scripts/matchit.zip'
   use 'andymass/vim-matchup'
   use '29decibel/vim-stringify'
   use 'editorconfig/editorconfig-vim'
@@ -173,9 +244,6 @@ return require('packer').startup(function()
   use {'diepm/vim-rest-console', config = function() require('config/vim-rest-console') end} 
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
 
-  -- treesitter
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-
   -- " tmux
   use 'tmux-plugins/vim-tmux-focus-events'
   use 'wellle/tmux-complete.vim'
@@ -184,9 +252,8 @@ return require('packer').startup(function()
 
   -- my plugins
   use '~/.config/nvim/myPlugins'
-
-  -- firenvim
-  -- use { 'glacambre/firenvim', config = function() 
-  --   vim.cmd([[:call firenvim#install()]]) end }
+  -- 
+  -- -- firenvim
+  -- use { 'glacambre/firenvim', config = function() vim.cmd([[:call firenvim#install()]]) end }
 
 end)

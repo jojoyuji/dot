@@ -16,7 +16,7 @@ function upvim(){
     echo 'nvim:osx'
     curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz
     tar -xf nvim-macos.tar.gz
-    mv ./nvim-osx64/bin/nvim /usr/local/bin/
+    # mv ./nvim-osx64/bin/nvim /usr/local/bin/
   fi
   if [[ $OS == 'linux' ]]; then
     echo 'nvim:linux'
@@ -70,6 +70,7 @@ alias lg="lazygit"
 
 
 alias im='nvim'
+alias nvim='~/nvim-osx64/bin/nvim'
 alias v='~/nvim-osx64/bin/nvim'
 alias stat='gotop -c monokai'
 alias irc= 'weechat';

@@ -120,3 +120,9 @@ bind('v', 'd', 'd:call ClipboardYank()<cr>', {noremap=true})
 bind('v', 'x', 'd:call ClipboardYank()<cr>', {noremap=true})
 bind('n', 'p', ':call ClipboardPaste()<cr>p', {noremap=true})
 
+-- ctrl+j/ctrl+i to iterate in list
+bind('i', '<c-j>', '<c-n>', {})
+bind('i', '<c-k>', '<c-p>', {})
+
+bind('c', '<c-j>', '<c-n>', {})
+bind('c', '<c-k>', '<c-p>', {})

@@ -1,7 +1,7 @@
 -- vim.cmd("set termguicolors")
-local o = vim.o
-local wo = vim.wo
-local bo = vim.bo
+local o = vim.opt
+local wo = vim.opt
+local bo = vim.opt
 
 -- " NOT SURE IF ITS OK
 -- " set fillchars+=stl:\ ,stlnc:\
@@ -14,10 +14,12 @@ vim.g.mapleader = ' '
 -- Set localleader to comma
 vim.g.maplocalleader = ' '
 
+-- set number               " mostra numero linhas
+wo.number=true
 -- global options
 o.termguicolors = true
 -- set synmaxcol=100
-bo.synmaxcol=100
+bo.synmaxcol=80
 -- set nocursorcolumn
 wo.cursorcolumn = false
 -- set nocursorline
@@ -32,8 +34,6 @@ o.timeout = false
 wo.foldmethod = 'manual'
 -- set pastetoggle=<F6>
 o.pastetoggle = '<F6>'
--- set number               " mostra numero linhas
-wo.number = true
 wo.relativenumber = false
 -- set numberwidth=5        " margin-left between frame and line number
 wo.numberwidth=5
@@ -97,7 +97,9 @@ o.wildmode='list:longest,full'
 bo.infercase = true
 -- set completeopt=longest,menu,menuone
 -- set completeopt+=menuone,longest
-o.completeopt='longest,menu,menuone'
+-- o.completeopt='longest,menu,menuone'
+
+vim.opt.completeopt = { "menuone", "noselect" }
 -- set ofu=syntaxcomplete#complete
 -- bo.omnifunc='syntaxcomplete#complete'
 -- set nobackup
