@@ -39,7 +39,7 @@ function! FloatingWindowHelp(query) abort
 endfunction
 
 command! -complete=help -nargs=? Todo call FloatingWindowHelp(<q-args>)
-nmap <F12> <esc>:Todo ~/Google Drive/NOTAS/todo.txt<cr>
+nmap <F12> <esc>:Todo ~/Google Drive/Meu Drive/NOTAS/todo.txt<cr>
 
 
 

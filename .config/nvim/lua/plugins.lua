@@ -126,7 +126,7 @@ return require('packer').startup(function()
   use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
 
   -- git plugins
-  use {'tpope/vim-fugitive',setup = function() require('config/fugitive') end}
+  use {'tpope/vim-fugitive', setup = function() require('config/fugitive') end}
   use {'aacunningham/vim-fuzzy-stash', setup = function() require('config/vim-fuzzy-stash') end }
   use {
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
