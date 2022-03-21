@@ -25,7 +25,8 @@ return require('packer').startup(function()
   use 'mcchrish/nnn.vim'
   vim.cmd([[ let g:nnn#layout = { 'left': '~40%' } " or right, up, down ]])
   -- vim.cmd([[ let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } } ]])
-  vim.cmd([[ nnoremap <leader><tab> :NnnPicker %:p:h<CR><leader> ]])
+  -- vim.cmd([[ nnoremap <leader><tab> :NnnPicker %:p:h<CR><leader>]])
+  vim.api.nvim_set_keymap('n', '<leader><tab>',':NnnPicker %:p:h<CR>',  { noremap = true })
 
   
   use 'nvim-lua/popup.nvim' -- An implementation of the Popup API from vim in Neovim
