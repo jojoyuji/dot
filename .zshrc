@@ -221,7 +221,14 @@ export PATH=/usr/local/bin:$PATH
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/.local/bin:$PATH"
 export PATH="/usr/local/heroku/bin:$PATH"
+export PNPM_HOME="/Users/jojo/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
 if [ -d "/usr/local/opt/ruby/bin" ]; then
   export PATH=/usr/local/opt/ruby/bin:$PATH
   export PATH=`gem environment gemdir`/bin:$PATH
 fi
+# pnpm
+export PNPM_HOME="/Users/jojo/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end

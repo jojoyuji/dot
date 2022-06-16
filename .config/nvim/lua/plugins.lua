@@ -1,15 +1,4 @@
 --
--- #Check these plugins not updating:
--- folke/todo-comments.nvim
--- hrsh7th/cmp-path
--- pechorin/any-jump.vim
--- wellle/tmux-complete.vim
--- michaeljsmith/vim-indent-object
--- evanleck/vim-svelte
--- dense-analysis/ale
--- nvim-lua/popup.nvim
--- tami5/sql.nvim
-
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
 -- Only required if you have packer configured as `opt`
@@ -45,7 +34,9 @@ return require('packer').startup(function()
   use {
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
-    config = function() require('config/telescope') end
+    config = function() 
+      require('config/telescope') 
+    end
   }
   use {
     'nvim-telescope/telescope-frecency.nvim',
@@ -180,18 +171,32 @@ return require('packer').startup(function()
   use 'elzr/vim-json' 
   use 'nicwest/vim-http'
 
+
+  -- snippets
+  -- use { "L3MON4D3/LuaSnip", config = function() end } 
+  -- 
+  -- use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  -- use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  -- --
+  use { 'hrsh7th/vim-vsnip', config = function() require('config/vsnip') end }
+
+
   -- completion
   use 'hrsh7th/cmp-nvim-lua'
   use 'hrsh7th/cmp-nvim-lsp'
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use { "hrsh7th/nvim-cmp", config = function() require('config/cmp') end } -- The completion plugin
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
- 
-  -- snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  use {'hrsh7th/cmp-vsnip' }
+
+  use {
+      "hrsh7th/nvim-cmp",
+      -- event = "InsertEnter", -- for lazyload
+      config = function()
+        require('config/cmp')
+      end,
+    }
+
 
   -- inutilities :)
   use 'jojoyuji/megaman-vim'
@@ -253,6 +258,7 @@ return require('packer').startup(function()
 
   -- my plugins
   use '~/.config/nvim/myPlugins'
+
   -- 
   -- -- firenvim
   -- use { 'glacambre/firenvim', config = function() vim.cmd([[:call firenvim#install()]]) end }

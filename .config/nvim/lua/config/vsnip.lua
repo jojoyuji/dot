@@ -10,13 +10,13 @@ let g:vsnip_filetypes.vue = ['javascript', 'html', 'vue', 'css']
 vim.cmd([[ imap <expr> <tab>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<tab>' ]])
 vim.cmd([[ smap <expr> <tab>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<tab>' ]])
 
-vim.cmd([[imap <expr> <c-]> vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<c-]>']])
-vim.cmd([[smap <expr> <c-]> vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<c-]>']])
+vim.cmd([[imap <expr> <tab> vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<tab>']])
+vim.cmd([[smap <expr> <tab> vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<tab>']])
 
-vim.cmd([[imap <expr> <c-]> vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<c-]>']])
-vim.cmd([[smap <expr> <c-]> vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<c-]>']])
-vim.cmd([[imap <expr> <c-[> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<c-[>']])
-vim.cmd([[smap <expr> <c-[> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<c-[>']])
+vim.cmd([[imap <expr> <tab> vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<tab>']])
+vim.cmd([[smap <expr> <tab> vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<tab>']])
+vim.cmd([[imap <expr> <s-tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<s-tab>']])
+vim.cmd([[smap <expr> <s-tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<s-tab>']])
 
 
 vim.cmd([[ nmap  <tab>  <Plug>(vsnip-cut-text) ]])

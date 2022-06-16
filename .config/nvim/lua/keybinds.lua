@@ -2,7 +2,7 @@ local bind = vim.api.nvim_set_keymap
 
 
 bind('n', '<leader>so', ':Restart<cr>', { noremap = true, silent = false } )
-bind('n', '<leader>nt',':e ~/Google Drive/Meu Drive/NOTAS/stuff.md<cr>',  { noremap = true })
+bind('n', '<leader>nt',':e ~/Google Drive/Meu Drive/AOOP/boti/logs<cr>',  { noremap = true })
 
 bind('n', '<leader>so', ':Restart<cr>', { noremap = true, silent = false } )
 
