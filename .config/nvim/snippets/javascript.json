@@ -118,7 +118,7 @@
   },
   "log": {
     "prefix": "log",
-    "body": "console.log(${$TM_SELECTED_TEXT}${1:'${2:value}'});",
+    "body": "console.log($TM_SELECTED_TEXT${1:'${2:value}'});",
     "description": "console.log"
   },
   "logy": {

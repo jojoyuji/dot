@@ -51,3 +51,9 @@ after installing tpm, open tmux and run <prefix> + I to install
 
 https://github.com/tmux-plugins/tpm
 
+### neovim ALEs
+
+- luafmt, eslint, prettier
+
+>  ``` pnpm install -g lua-fmt eslint prettier ```
+

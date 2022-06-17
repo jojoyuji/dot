@@ -3,8 +3,8 @@ vim.g.vsnip_snippet_dir = '~/.config/nvim/snippets'
 
 vim.cmd([[ nmap <leader>\ :VsnipOpenEdit<cr> ]])
 vim.cmd([[ 
-let g:vsnip_filetypes = {}
-let g:vsnip_filetypes.vue = ['javascript', 'html', 'vue', 'css']
+let g:vsnip_filetypes = {} 
+let g:vsnip_filetypes.vue = ['javascript', 'html', 'vue', 'css'] 
 ]])
 
 vim.cmd([[ imap <expr> <tab>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<tab>' ]])
