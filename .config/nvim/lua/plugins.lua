@@ -17,7 +17,7 @@ end
 return require("packer").startup({
 	function(use)
 		vim.cmd([[packadd packer.nvim]])
-		vim.cmd([[ autocmd BufWritePost plugins.lua echo 'Compiling Packer...' | PackerCompile ]])
+		-- vim.cmd([[ autocmd BufWritePost plugins.lua echo 'Compiling Packer...' | PackerCompile ]])
 		-- Packer can manage itself
 		use("wbthomason/packer.nvim")
 
@@ -30,15 +30,23 @@ return require("packer").startup({
 		})
 		use({
 			"neovim/nvim-lspconfig",
+			-- after = "nvim-lsp-installer",
 			config = function()
 				require("lsp/config")
 			end,
 		})
 
 		-- file tree explorer
-		use("mcchrish/nnn.vim")
-		vim.cmd([[ let g:nnn#layout = { 'left': '~40%' } " or right, up, down ]])
-		vim.api.nvim_set_keymap("n", "<leader><tab>", ":NnnPicker %:p:h<CR>", { noremap = true })
+		use({
+			"kyazdani42/nvim-tree.lua",
+			requires = {
+				"kyazdani42/nvim-web-devicons", -- optional, for file icon
+			},
+			tag = "nightly", -- optional, updated every week. (see issue #1193)
+			config = function()
+				require("config/nvimtree")
+			end,
+		})
 
 		-- treesitter
 		use({
