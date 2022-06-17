@@ -1,5 +1,4 @@
-local bind = vim.api.nvim_set_keymap
-vim.g.vsnip_snippet_dir = '~/.config/nvim/snippets'
+vim.g.vsnip_snippet_dir = "~/.config/nvim/snippets"
 
 vim.cmd([[ nmap <leader>\ :VsnipOpenEdit<cr> ]])
 vim.cmd([[ 
@@ -18,10 +17,8 @@ vim.cmd([[smap <expr> <tab> vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'     
 vim.cmd([[imap <expr> <s-tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<s-tab>']])
 vim.cmd([[smap <expr> <s-tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<s-tab>']])
 
-
 vim.cmd([[ nmap  <tab>  <Plug>(vsnip-cut-text) ]])
 vim.cmd([[ xmap  <tab>  <Plug>(vsnip-cut-text) ]])
-
 
 -- " Jump forward or backward
 -- vim.cmd([[ imap <expr> <c-]>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<c-]>' ]])

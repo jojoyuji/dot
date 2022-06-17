@@ -7,14 +7,14 @@ vim.g.ale_fixers = {
     javascript = {"prettier", "eslint"},
     vue = {"eslint", "stylelint"},
     markdown = {"prettier"},
-    lua = {"luafmt"},
+    lua = {"stylua"},
     html = {"prettier"}
 }
 vim.g.ale_linters = {
     javascript = {"prettier", "eslint"},
     vue = {"eslint", "stylelint"},
     markdown = {"prettier"},
-    lua = {"luafmt"},
+    lua = {"stylua"},
     html = {"prettier"}
 }
 
