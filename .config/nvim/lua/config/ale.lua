@@ -4,18 +4,20 @@ local bind = vim.api.nvim_set_keymap
 -- vim.cmd([[ let g:ale_linters = { 'javascript': ['eslint'], 'markdown': ['prettier'] } ]])
 
 vim.g.ale_fixers = {
-    javascript = {"prettier", "eslint"},
-    vue = {"eslint", "stylelint"},
-    markdown = {"prettier"},
-    lua = {"stylua"},
-    html = {"prettier"}
+	javascript = { "prettier", "eslint" },
+	json = { "dprint"},
+	vue = { "eslint", "stylelint" },
+	markdown = { "prettier" },
+	lua = { "stylua" },
+	html = { "prettier" },
 }
 vim.g.ale_linters = {
-    javascript = {"prettier", "eslint"},
-    vue = {"eslint", "stylelint"},
-    markdown = {"prettier"},
-    lua = {"stylua"},
-    html = {"prettier"}
+	javascript = { "prettier", "eslint" },
+	json = { "dprint"},
+	vue = { "eslint", "stylelint" },
+	markdown = { "prettier" },
+	lua = { "stylua" },
+	html = { "prettier" },
 }
 
 vim.g.ale_sign_column_always = 1

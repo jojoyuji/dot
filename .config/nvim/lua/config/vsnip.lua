@@ -17,7 +17,7 @@ vim.cmd([[smap <expr> <tab> vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'     
 vim.cmd([[imap <expr> <s-tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<s-tab>']])
 vim.cmd([[smap <expr> <s-tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<s-tab>']])
 
-vim.cmd([[ nmap  <tab>  <Plug>(vsnip-cut-text) ]])
+-- vim.cmd([[ nmap  <tab>  <Plug>(vsnip-cut-text) ]])
 vim.cmd([[ xmap  <tab>  <Plug>(vsnip-cut-text) ]])
 
 -- " Jump forward or backward

@@ -1,4 +1,4 @@
-vim.api.nvim_set_keymap("n", "<leader><tab>", ":NvimTreeToggle<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader><tab>", ":NvimTreeToggle ./<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>f", ":NvimTreeFindFile<cr>", { noremap = true, silent = true })
 
 require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
@@ -30,6 +30,8 @@ require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
 		mappings = {
 			custom_only = false,
 			list = {
+      { key = "u", action = "dir_up" },
+      { key = "I", action = "toggle_dotfiles" },
 				-- user mappings go here
 			},
 		},

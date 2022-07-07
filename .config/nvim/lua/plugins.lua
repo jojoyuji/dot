@@ -41,7 +41,7 @@ return require("packer").startup({
 		use({
 			"kyazdani42/nvim-tree.lua",
 			requires = {
-				"kyazdani42/nvim-web-devicons", -- optional, for file icon
+				"kyazdani42/nvim-web-devicons",
 			},
 			tag = "nightly", -- optional, updated every week. (see issue #1193)
 			config = function()
@@ -89,8 +89,6 @@ return require("packer").startup({
 			"sainnhe/edge",
 			config = function()
 				vim.g.edge_style = "neon"
-				-- vim.cmd([[colorscheme edge]])
-				-- vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]])
 			end,
 		})
 
@@ -217,18 +215,11 @@ return require("packer").startup({
 			end,
 			requires = {
 				-- not lazy-loading, so read after/plugin
+				{ "hrsh7th/cmp-vsnip" },
 				{ "hrsh7th/cmp-path" },
 				{ "hrsh7th/cmp-buffer" },
 				{ "hrsh7th/cmp-cmdline" },
-				{ "hrsh7th/cmp-vsnip" },
-				{
-					"hrsh7th/cmp-nvim-lua",
-					ft = "lua",
-					-- this is after/plugin content
-					config = function()
-						require("cmp").register_source("nvim_lua", require("cmp_nvim_lua").new())
-					end,
-				},
+				{ "hrsh7th/cmp-emoji" },
 				{
 					"hrsh7th/cmp-nvim-lsp",
 					config = function()
@@ -258,23 +249,14 @@ return require("packer").startup({
 		})
 
 		-- gamee
-		use("ThePrimeagen/vim-be-good")
 		use("alec-gibson/nvim-tetris")
 
 		-- questionable...
-		use("junegunn/vim-emoji")
-
-		use("tommcdo/vim-exchange")
-		use("tpope/vim-scriptease")
 		use("tpope/vim-repeat")
-		use("tpope/vim-abolish")
 		use("AndrewRadev/splitjoin.vim")
-		use("vim-scripts/Gundo")
 		use("tpope/vim-unimpaired")
 		use("andymass/vim-matchup")
-		use("29decibel/vim-stringify")
 		use("editorconfig/editorconfig-vim")
-		use("mattn/webapi-vim")
 		use("posva/vim-vue")
 		use("lambdalisue/vim-gista")
 		use({
