@@ -200,5 +200,10 @@
     "prefix": "req",
     "body": "const ${1} = require('${2}');${3}${0}",
     "description": "Description"
+  },
+  "express": {
+    "prefix": "express",
+    "body": " const express = require('express')\n const app = express()\n const port = 3000\n \n app.get('/', (req, res) => {\n res.send('Hello World!')\n })\n \n app.listen(port, () => {\n console.log(`Example app listening on port ${port}`)\n }) ",
+    "description": "Description"
   }
 }
