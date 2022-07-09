@@ -185,6 +185,8 @@ while ({}) {{
 ) --}}}
 cs("cl", { t("console.log("), i(1, ""), t(")") }, { "jcl", "jj" }) -- console.log
 
+cs("import", { t("import "), i(1, ""), t(" from '"), i(2,""), t("'")}, { "jcl", "jj" }) -- console.log
+
 -- End Refactoring --
 
 return snippets, autosnippets

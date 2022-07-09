@@ -146,30 +146,37 @@ table.insert(snippets, function_snippet)
 table.insert(snippets, function_snippet_func)
 
 -- Begin Refactoring --
-
-cs( -- for([%w_]+) JS For Loop snippet{{{
-	{ trig = "for([%w_]+)", regTrig = true, hidden = true },
+--
+cs( -- lorem
+	"lorem",
 	fmt(
 		[[
-for (let {} = 0; {} < {}; {}++) {{
-  {}
-}}
+Se hoje é o dia das crianças... Ontem eu disse: 
+o dia da criança é o dia da mãe, dos pais, das professoras, 
+mas também é o dia dos animais, sempre que você olha uma criança, 
+há sempre uma figura oculta, que é um cachorro atrás. 
+O que é algo muito importante!
 
-{}
-    ]],
+Não acho que quem ganhar ou quem perder, 
+nem quem ganhar nem perder, vai ganhar ou perder. 
+Vai todo mundo perder.
+
+Nós não vamos colocar uma meta. Nós vamos deixar uma meta aberta. 
+Quando a gente atingir a meta, nós dobramos a meta.
+
+Eu já entendi que você entende, pois se você não tivesse entendido 
+não entenderia que você teria entendido para ser explicado antes 
+de você entender.
+
+  ]],
 		{
-			d(1, function(_, snip)
-				return sn(1, i(1, snip.captures[1]))
-			end),
-			rep(1),
-			c(2, { i(1, "num"), sn(1, { i(1, "arr"), t(".length") }) }),
-			rep(1),
-			i(3, "// TODO:"),
-			i(4),
+			-- i(1, ""),
+			-- i(2, "// TODO:"),
 		}
 	)
 ) --}}}
-cs( -- [while] JS While Loop snippet{{{
+
+cs( -- eslint configuration
 	"eslint",
 	fmt(
 		[[

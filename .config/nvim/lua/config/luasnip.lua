@@ -10,6 +10,11 @@ local ls = require("luasnip") --{{{
 require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua-snippets/" })
 require("luasnip").config.setup({ store_selection_keys = "<A-p>" })
 
+-- require'luasnip'.filetype_extend("vue", {"vue"})
+-- 
+require("luasnip/loaders/from_vscode").lazy_load()
+
+
 vim.cmd([[command! LuaSnipEdit :lua require("luasnip.loaders.from_lua").edit_snippet_files()]]) --}}}
 
 -- Virtual Text{{{
