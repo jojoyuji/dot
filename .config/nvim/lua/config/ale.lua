@@ -5,7 +5,7 @@ local bind = vim.api.nvim_set_keymap
 
 vim.g.ale_fixers = {
 	javascript = { "prettier", "eslint" },
-	json = { "dprint"},
+	json = { "fixjson"},
 	vue = { "eslint", "stylelint" },
 	markdown = { "prettier" },
 	lua = { "stylua" },
@@ -13,7 +13,7 @@ vim.g.ale_fixers = {
 }
 vim.g.ale_linters = {
 	javascript = { "prettier", "eslint" },
-	json = { "dprint"},
+	json = { "fixjson"},
 	vue = { "eslint", "stylelint" },
 	markdown = { "prettier" },
 	lua = { "stylua" },

@@ -195,23 +195,6 @@ return require("packer").startup({
 		})
 		use("elzr/vim-json")
 
-		-- use({
-		-- 	"hrsh7th/vim-vsnip",
-		-- 	config = function()
-		-- 		require("config/vsnip")
-		-- 	end,
-		-- })
-
-		--  use {'hrsh7th/nvim-cmp', requires = {
-		--   'hrsh7th/cmp-nvim-lsp',
-		--   'hrsh7th/cmp-buffer',
-		--   'hrsh7th/cmp-vsnip',
-		--   'hrsh7th/vim-vsnip',
-		--   'hrsh7th/vim-vsnip-integ',
-		--   'rafamadriz/friendly-snippets'
-		-- }}
-		--
-
 		use({
 			"hrsh7th/nvim-cmp",
 			config = function()
@@ -231,6 +214,7 @@ return require("packer").startup({
 				require("config/cmp-nvim-lsp")
 			end,
 		})
+
 		use({
 			"L3MON4D3/LuaSnip",
 			after = "nvim-cmp",
@@ -239,37 +223,6 @@ return require("packer").startup({
 			end,
 		})
 		use("rafamadriz/friendly-snippets")
-
-		-- completion
-		-- use({
-		-- 	"hrsh7th/nvim-cmp",
-		-- 	config = function()
-		-- 		require("config/cmp")
-		-- 	end,
-		-- 	requires = {
-		-- 		-- not lazy-loading, so read after/plugin
-		--
-		-- 		{
-		-- 			"hrsh7th/vim-vsnip",
-		-- 			config = function()
-		-- 				require("config/vsnip")
-		-- 			end,
-		-- 		},
-		--
-		--
-		-- 		{ "hrsh7th/cmp-vsnip" },
-		-- 		{ "hrsh7th/cmp-path" },
-		-- 		{ "hrsh7th/cmp-buffer" },
-		-- 		{ "hrsh7th/cmp-cmdline" },
-		-- 		{ "hrsh7th/cmp-emoji" },
-		-- 		{
-		-- 			"hrsh7th/cmp-nvim-lsp",
-		-- 			config = function()
-		-- 				require("config/cmp-nvim-lsp")
-		-- 			end,
-		-- 		},
-		-- 	},
-		-- })
 
 		-- inutilities :)
 		use("jojoyuji/megaman-vim")
