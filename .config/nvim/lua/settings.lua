@@ -25,7 +25,7 @@ wo.cursorcolumn = false
 -- set nocursorline
 wo.cursorline = false
 -- set clipboard=unnamed
-o.clipboard = 'unnamed'
+vim.opt.clipboard = {'unnamed', 'unnamedplus'}
 -- set ttimeout
 o.ttimeout = false
 -- set notimeout

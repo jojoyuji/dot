@@ -58,6 +58,26 @@ return require("packer").startup({
 			end,
 		})
 
+		use({
+			"mbbill/undotree",
+			config = function()
+				vim.api.nvim_set_keymap("n", "<leader>u", ":UndotreeToggle<cr>", { noremap = true, silent = true })
+			end,
+		})
+
+		use({
+			"AckslD/nvim-neoclip.lua",
+			requires = {
+				{ "kkharji/sqlite.lua", module = "sqlite" },
+				-- you'll need at least one of these
+				{ "nvim-telescope/telescope.nvim" },
+				-- {'ibhagwan/fzf-lua'},
+			},
+			config = function()
+				require("neoclip").setup({ default_register = "+" })
+			end,
+		})
+
 		-- telescope stuff
 		use("tami5/sql.nvim")
 		use({
@@ -144,6 +164,14 @@ return require("packer").startup({
 
 		-- utilities
 		use({
+			"slarwise/vim-tmux-send",
+			config = function()
+				vim.api.nvim_set_keymap("n", "<leader>t", ":SendKeys 'pnpm\\ test ENTER'<cr>", { noremap = true, silent = false })
+				vim.api.nvim_set_keymap("n", "<leader><cr>", ":<Up><cr>", { noremap = true, silent = false })
+			end,
+		})
+
+	use({
 			"norcalli/nvim-colorizer.lua",
 			config = function()
 				require("colorizer").setup()

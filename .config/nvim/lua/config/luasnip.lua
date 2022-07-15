@@ -95,5 +95,5 @@ end, { silent = true })
 -- imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 -- smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'-
 
-vim.keymap.set("n", "<Leader><cr>", "<cmd>LuaSnipEdit<cr>", { silent = true, noremap = true })
+vim.keymap.set("n", "<Leader>\\", "<cmd>LuaSnipEdit<cr>", { silent = true, noremap = true })
 vim.cmd([[autocmd BufEnter */snippets/*.lua nnoremap <silent> <buffer> <CR> /-- End Refactoring --<CR>O<Esc>O]])

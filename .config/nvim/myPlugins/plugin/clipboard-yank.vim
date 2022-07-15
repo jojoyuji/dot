@@ -4,3 +4,4 @@ endfunction
 function! ClipboardPaste()
   let @@ = system('pbpaste')
 endfunction
+
