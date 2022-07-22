@@ -4,6 +4,8 @@ local bind = vim.api.nvim_set_keymap
 -- vim.cmd([[ let g:ale_linters = { 'javascript': ['eslint'], 'markdown': ['prettier'] } ]])
 
 vim.g.ale_fixers = {
+	svelte = { 'eslint', 'prettier', 'prettier_standard' },
+	-- svelte = { 'stylelint', 'eslint', 'tsserver' },
 	javascript = { "prettier", "eslint" },
 	json = { "fixjson"},
 	vue = { "eslint", "stylelint" },
@@ -12,6 +14,8 @@ vim.g.ale_fixers = {
 	html = { "prettier" },
 }
 vim.g.ale_linters = {
+	svelte = { 'eslint', 'prettier', 'prettier_standard' },
+	-- svelte = { 'stylelint', 'eslint', 'tsserver' },
 	javascript = { "prettier", "eslint" },
 	json = { "fixjson"},
 	vue = { "eslint", "stylelint" },
@@ -19,6 +23,7 @@ vim.g.ale_linters = {
 	lua = { "stylua" },
 	html = { "prettier" },
 }
+
 
 vim.g.ale_sign_column_always = 1
 vim.g.ale_linters_explicit = 1

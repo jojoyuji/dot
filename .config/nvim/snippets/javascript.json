@@ -1,11 +1,11 @@
 {
- "TODO snippet": {
-  "prefix": "todo",
-  "body": [
-    "// TODO ${1:texto aqui} `date +%d/%m/%Y` by Jojo - jojoyuji@gmail.com$0"
-  ],
-  "description": "TODO snippet"
-},
+  "TODO snippet": {
+    "prefix": "todo",
+    "body": [
+      "// TODO ${1:texto aqui} `date +%d/%m/%Y` by Jojo - jojoyuji@gmail.com$0"
+    ],
+    "description": "TODO snippet"
+  },
   "switch": {
     "prefix": "switch",
     "body": "switch(${1:value}){\n\tcase ${2:'${3:option}'}:\n\t\t\t\t\t ${5}\n\t\t\t\t\t break;\n\tdefault:\n\t\t\t\t\t ${4}\n}",

@@ -61,7 +61,12 @@ return require("packer").startup({
 		use({
 			"mbbill/undotree",
 			config = function()
-				vim.api.nvim_set_keymap("n", "<leader>u", ":UndotreeToggle<cr>", { noremap = true, silent = true })
+				vim.api.nvim_set_keymap(
+					"n",
+					"<leader><leader>u",
+					":UndotreeToggle<cr>",
+					{ noremap = true, silent = true }
+				)
 			end,
 		})
 
@@ -109,6 +114,14 @@ return require("packer").startup({
 			"sainnhe/edge",
 			config = function()
 				vim.g.edge_style = "neon"
+			end,
+		})
+		use({
+			"sainnhe/sonokai",
+			config = function()
+				vim.g.sonokai_style = "espresso"
+				-- vim.cmd([[colorscheme sonokai]])
+				-- vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]])
 			end,
 		})
 
@@ -163,15 +176,32 @@ return require("packer").startup({
 		})
 
 		-- utilities
+		use("dstein64/vim-startuptime")
+		use({
+			"phaazon/hop.nvim",
+			branch = "v2", -- optional but strongly recommended
+			config = function()
+				-- you can configure Hop the way you like here; see :h hop-config
+				require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
+				vim.api.nvim_set_keymap("n", "s", ":HopWordAC<cr>", { noremap = true, silent = false })
+				vim.api.nvim_set_keymap("n", "S", ":HopWordBC<cr>", { noremap = true, silent = false })
+			end,
+		})
+
 		use({
 			"slarwise/vim-tmux-send",
 			config = function()
-				vim.api.nvim_set_keymap("n", "<leader>t", ":SendKeys 'pnpm\\ test ENTER'<cr>", { noremap = true, silent = false })
+				vim.api.nvim_set_keymap(
+					"n",
+					"<leader>t",
+					":SendKeys 'pnpm\\ test ENTER'<cr>",
+					{ noremap = true, silent = false }
+				)
 				vim.api.nvim_set_keymap("n", "<leader><cr>", ":<Up><cr>", { noremap = true, silent = false })
 			end,
 		})
 
-	use({
+		use({
 			"norcalli/nvim-colorizer.lua",
 			config = function()
 				require("colorizer").setup()
@@ -225,21 +255,23 @@ return require("packer").startup({
 
 		use({
 			"hrsh7th/nvim-cmp",
+			requires = {
+				{ "saadparwaiz1/cmp_luasnip" },
+				-- { "hrsh7th/cmp-vsnip" },
+				{ "hrsh7th/cmp-path" },
+				{ "hrsh7th/cmp-buffer" },
+				{ "hrsh7th/cmp-cmdline" },
+				{ "andersevenrud/cmp-tmux" },
+		  { "hrsh7th/cmp-emoji" },
+    {
+      "hrsh7th/cmp-nvim-lsp",
+      config = function()
+        require("config/cmp-nvim-lsp")
+      end,
+    },
+			},
 			config = function()
 				require("config/cmp")
-			end,
-		})
-
-		use({ "hrsh7th/cmp-vsnip" })
-		use({ "hrsh7th/cmp-path" })
-		use({ "hrsh7th/cmp-buffer" })
-		use({ "hrsh7th/cmp-cmdline" })
-		use({ "hrsh7th/cmp-emoji" })
-		use({ "saadparwaiz1/cmp_luasnip" })
-		use({
-			"hrsh7th/cmp-nvim-lsp",
-			config = function()
-				require("config/cmp-nvim-lsp")
 			end,
 		})
 

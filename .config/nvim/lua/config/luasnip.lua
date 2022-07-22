@@ -7,13 +7,13 @@
 local ls = require("luasnip") --{{{
 
 -- require("luasnip.loaders.from_vscode").lazy_load()
-require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua-snippets/" })
-require("luasnip").config.setup({ store_selection_keys = "<A-p>" })
+require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/lua-snippets/" })
+require("luasnip").config.setup({ store_selection_keys = "<tab>" })
 
 -- require'luasnip'.filetype_extend("vue", {"vue"})
 
 require("luasnip/loaders/from_vscode").lazy_load()
-
+require("luasnip/loaders/from_vscode" ).lazy_load({ paths = "~/.config/nvim/snippets" })
 
 vim.cmd([[command! LuaSnipEdit :lua require("luasnip.loaders.from_lua").edit_snippet_files()]]) --}}}
 
@@ -88,7 +88,7 @@ end, { silent = true })
 -- end) --}}}
 
 -- More Settings --
--- imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
+-- imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
 -- inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
 -- snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
 -- snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
