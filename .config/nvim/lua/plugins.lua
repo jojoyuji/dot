@@ -128,6 +128,9 @@ return require("packer").startup({
 		use({
 			"ellisonleao/gruvbox.nvim",
 			config = function()
+				require("gruvbox").setup({
+					contrast = "hard", -- can be "hard", "soft" or empty string
+				})
 				vim.cmd([[colorscheme gruvbox]])
 				vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]])
 			end,
@@ -137,12 +140,16 @@ return require("packer").startup({
 		use("wojciechkepka/bogster")
 
 		-- git plugins
+		use("kdheepak/lazygit.nvim")
+
+		use("tpope/vim-dispatch")
 		use({
 			"tpope/vim-fugitive",
 			setup = function()
 				require("config/fugitive")
 			end,
 		})
+
 		use({
 			"aacunningham/vim-fuzzy-stash",
 			setup = function()
@@ -210,9 +217,21 @@ return require("packer").startup({
 		use("mattn/emmet-vim")
 		use("Raimondi/delimitMate") -- pairing
 		use({
-			"junegunn/vim-easy-align",
+			"kg8m/vim-simple-align",
 			config = function()
-				require("config/vim-easy-align")
+				vim.api.nvim_set_keymap("v", "aa", ":SimpleAlign ", { noremap = true, silent = false })
+				vim.api.nvim_set_keymap(
+					"v",
+					"ah",
+					":SimpleAlign  -j left<left><left><left><left><left><left><left><left>",
+					{ noremap = true, silent = false }
+				)
+				vim.api.nvim_set_keymap(
+					"v",
+					"al",
+					":SimpleAlign  -j right<left><left><left><left><left><left><left><left><left>",
+					{ noremap = true, silent = false }
+				)
 			end,
 		})
 		use({
@@ -228,6 +247,12 @@ return require("packer").startup({
 			end,
 		})
 		use({ "evanleck/vim-svelte" })
+		use({
+			"leafOfTree/vim-svelte-plugin",
+			config = function()
+				vim.g.vim_svelte_plugin_load_full_syntax = 1
+			end,
+		})
 
 		use({
 			"tyru/caw.vim",
@@ -236,6 +261,11 @@ return require("packer").startup({
 				require("config/caw")
 			end,
 		})
+
+  use('kylef/apiblueprint.vim')
+  use({ 'iamcco/markdown-preview.nvim', 
+    run = 'cd app && yarn install'
+  })
 
 		-- textobjects
 		use("kana/vim-textobj-user")
@@ -251,6 +281,28 @@ return require("packer").startup({
 				require("config/ale")
 			end,
 		})
+
+		-- use({
+		--   "jose-elias-alvarez/null-ls.nvim",
+		--   config = function()
+		--     local  null_ls_status_ok, null_ls = pcall(require, "null-ls")
+		--     if not null_ls_status_ok then
+		--       return
+		--     end
+		--
+		--     local formatting = null_ls.builtins.formatting
+		--     local diagnostics = null_ls.builtins.diagnostics
+		--     null_ls.setup({
+		--       sources = {
+		--
+		--         null_ls.builtins.diagnostics.eslint,
+		--         formatting.prettier.with({extra_args = {"--no-semi", "--single-quote"}}),
+		--         formatting.eslint.with({extra_args = {"--no-semi", "--single-quote"}}),
+		--         formatting.stylua,
+		--       },
+		--     })
+		--   end,
+		-- })
 		use("elzr/vim-json")
 
 		use({
@@ -262,13 +314,13 @@ return require("packer").startup({
 				{ "hrsh7th/cmp-buffer" },
 				{ "hrsh7th/cmp-cmdline" },
 				{ "andersevenrud/cmp-tmux" },
-		  { "hrsh7th/cmp-emoji" },
-    {
-      "hrsh7th/cmp-nvim-lsp",
-      config = function()
-        require("config/cmp-nvim-lsp")
-      end,
-    },
+				{ "hrsh7th/cmp-emoji" },
+				{
+					"hrsh7th/cmp-nvim-lsp",
+					config = function()
+						require("config/cmp-nvim-lsp")
+					end,
+				},
 			},
 			config = function()
 				require("config/cmp")
@@ -333,7 +385,7 @@ return require("packer").startup({
 		})
 
 		-- my plugins
-		use("~/.config/nvim/myPlugins")
+		use({ "~/.config/nvim/myPlugins", requires = { { "nvim-lua/plenary.nvim" } } })
 
 		-- Automatically set up your configuration after cloning packer.nvim
 		-- Put this at the end after all plugins

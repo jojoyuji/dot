@@ -74,6 +74,9 @@ alias nvim='~/nvim-osx64/bin/nvim'
 alias v='~/nvim-osx64/bin/nvim'
 alias stat='gotop -c monokai'
 alias irc= 'weechat';
+alias sharemux="gotty tmux new-session -A -s jojolitos"
+
+
 # Easier navigation: .., ..., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."
@@ -163,8 +166,8 @@ alias gb="git branch"
 alias gup="git remote update origin --prune"
 alias gf="git-flow"
 alias gco="git checkout"
-alias gcm="git checkout master"
 alias gcd="git checkout develop"
+alias gcm="git checkout master"
 alias gc='git commit -m'
 alias undopush="git push -f origin HEAD^:master" # Undo a `git push`
 alias undocommit="git reset --soft HEAD~1"

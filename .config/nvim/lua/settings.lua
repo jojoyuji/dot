@@ -3,40 +3,45 @@ local o = vim.opt
 local wo = vim.opt
 local bo = vim.opt
 
+--vim.opt.fillchars = "fold: ,vert:│,eob: ,msgsep:‾"
+
+-- o.fillchars = fold:\ ,vert:\│,eob:\ ,msgsep:‾ 
+vim.cmd [[ set fillchars=fold:\ ,vert:\│,eob:\ ,msgsep:‾ ]]
 -- " NOT SURE IF ITS OK
 -- " set fillchars+=stl:\ ,stlnc:\
 -- " set fillchars+=vert:\ "spacing
 -- " set shortmess+=filmnrxoOtT
 --
+--
 -- Set mapleader to space
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
 
 -- Set localleader to comma
-vim.g.maplocalleader = ' '
+vim.g.maplocalleader = " "
 
 -- set number               " mostra numero linhas
-wo.number=true
+wo.number = true
 -- global options
 o.termguicolors = true
 -- set synmaxcol=100
-bo.synmaxcol=80
+bo.synmaxcol = 80
 -- set nocursorcolumn
 wo.cursorcolumn = false
 -- set nocursorline
 wo.cursorline = false
 -- set clipboard=unnamed
-vim.opt.clipboard = {'unnamed', 'unnamedplus'}
+vim.opt.clipboard = { "unnamed", "unnamedplus" }
 -- set ttimeout
 o.ttimeout = false
 -- set notimeout
 o.timeout = false
 -- set foldmethod=indent
-wo.foldmethod = 'manual'
+wo.foldmethod = "manual"
 -- set pastetoggle=<F6>
-o.pastetoggle = '<F6>'
+o.pastetoggle = "<F6>"
 wo.relativenumber = false
 -- set numberwidth=5        " margin-left between frame and line number
-wo.numberwidth=5
+wo.numberwidth = 5
 -- set visualbell           " don't beep
 o.visualbell = true
 -- set noerrorbells         " don't beep
@@ -52,9 +57,9 @@ o.showmatch = true
 -- set smartindent           "quebra de linha com tab
 bo.smartindent = true
 -- set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo " These commands open folds
-o.foldopen = 'block,insert,jump,mark,percent,quickfix,search,tag,undo'
--- set virtualedit=all 
-o.virtualedit='all'
+o.foldopen = "block,insert,jump,mark,percent,quickfix,search,tag,undo"
+-- set virtualedit=all
+o.virtualedit = "all"
 -- set splitright          " Split new vertical windows right of current window.
 o.splitright = true
 -- set splitbelow          " Split new horizontal windows under current window.
@@ -66,12 +71,12 @@ bo.expandtab = true
 -- set softtabstop=1
 bo.softtabstop = 1
 -- set tabstop=1
-bo.tabstop=1
+bo.tabstop = 1
 -- set shiftwidth=2
-o.shiftwidth=2
-bo.shiftwidth=2
+o.shiftwidth = 2
+bo.shiftwidth = 2
 -- set cinkeys=0{,0},0[,0]
-bo.cinkeys='0{,0},0[,0]'
+bo.cinkeys = "0{,0},0[,0]"
 -- set lazyredraw
 o.lazyredraw = true
 -- set showmatch " Show matching brackets when text indicator is over them
@@ -92,7 +97,7 @@ o.gdefault = true
 -- set wildignore+=tags,*.bak,*.swp,*.pyc,*.o,*.obj,*.dll,*.exe,*.gif,*.png,*.jpg,*.jpeg
 -- set wildignore+=*.o,*.obj,*.pyc,*.ds_store,*.db,*.swc
 -- set wildmode=list:longest,full
-o.wildmode='list:longest,full'
+o.wildmode = "list:longest,full"
 -- set infercase
 bo.infercase = true
 -- set completeopt=longest,menu,menuone

@@ -19,7 +19,7 @@ window:
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
 
-  opacity: 0.85
+  opacity: 0.83
   dimensions:
     columns: 0
     lines: 0
@@ -142,7 +142,7 @@ font:
     #style: Italic
 
   # Point size
-  size: 16.0
+  size: 18.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -342,13 +342,17 @@ selection:
 
 
 cursor:
+  # blinking_interval: 750
   # Cursor style
   #
   # Values for `style`:
   #   - ▇ Block
   #   - _ Underline
   #   - | Beam
-  style: Block
+  style:
+    shape: Block
+    # blinking: On
+
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.

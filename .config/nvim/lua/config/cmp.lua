@@ -23,6 +23,7 @@ cmp.setup({
 	}),
 	sources = cmp.config.sources({
 		-- { name = "vsnip" }, -- For vsnip users.
+  { name = 'orgmode' },
 		{ name = "luasnip" }, -- For luasnip users.
 		{ name = "emoji" },
 		{ name = "nvim_lsp" },

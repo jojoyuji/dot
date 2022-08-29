@@ -1,4 +1,4 @@
-name: bless u!
+name: jojolitos
 root: <%= @args[0] ? @args[0]: __dir__ %>
 
 

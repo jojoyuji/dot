@@ -1,3 +1,4 @@
+echo 'hello'
 # Easier navigation: .., ..., ~ and -
 alias ..="cd .."
 alias cd..="cd .."
@@ -113,7 +114,6 @@ alias gb="git branch"
 alias gup="git remote update origin --prune"
 alias gf="git-flow"
 alias gco="git checkout"
-alias gcm="git checkout master"
 alias gcd="git checkout develop"
 alias gc='git commit -m'
 # Undo a `git push`

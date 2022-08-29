@@ -4,7 +4,7 @@ vim.g.fugitive_pty = 0
 vim.g.gitv_commitstep = 100
 vim.g.gitv_openhorizontal = 0
 
-vim.cmd [[autocmd FileType fugitive noremap <buffer> q :q<cr>]]
+-- vim.cmd([[ autocmd FileType fugitive noremap <buffer> q :q<cr> ]])
 
 vim.cmd [[highlight diffadded guifg=#00bf00]]
 vim.cmd [[highlight diffremoved guifg=#bf0000]]
