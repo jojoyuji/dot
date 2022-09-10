@@ -14,7 +14,6 @@ vim.cmd([[
   \   [ "width", "height" ],
   \   [ "error", "success", "warning" ],
   \   [ "show", "hide" ],
-  \   [ "const", "let", "var" ],
   \   [ "after", "before" ],
   \   [ "padding", "margin" ],
   \   [ "top", "bottom" ],
