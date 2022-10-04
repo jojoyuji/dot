@@ -58,8 +58,10 @@ bind("n", "<leader><leader>", ":silent noh<cr>", {silent = true})
 bind("n", "<leader>sf", ":set filetype=", {noremap = true})
 bind("n", "<leader>sfj", ":set filetype=javascript", {noremap = true})
 
-bind("", "<leader>q", "<esc>:call FecharBuffer()<cr>", {})
--- vim.cmd([[ autocmd FileType NvimTree nnoremap <leader>q :NvimTreeClose<cr> ]])
+-- bind("n", "<leader>q", "<esc>:call FecharBuffer()<cr>", {})
+vim.cmd([[ nnoremap <leader>q :call FecharBuffer()<cr> ]])
+vim.cmd([[ autocmd FileType NvimTree nnoremap <leader>q :NvimTreeClose<cr> ]])
+
 
 bind("n", "<leader>og", ':!open -a "google chrome"  %<cr>', {})
 
