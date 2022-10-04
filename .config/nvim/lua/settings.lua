@@ -36,7 +36,9 @@ o.ttimeout = false
 -- set notimeout
 o.timeout = false
 -- set foldmethod=indent
-wo.foldmethod = "manual"
+-- wo.foldmethod = "manual"
+wo.foldmethod = "expr"
+wo.foldexpr = "nvim_treesitter#foldexpr()"
 -- set pastetoggle=<F6>
 o.pastetoggle = "<F6>"
 wo.relativenumber = false

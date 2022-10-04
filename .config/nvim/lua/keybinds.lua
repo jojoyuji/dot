@@ -12,7 +12,8 @@ bind("n", "<leader>so", ":Restart<cr>", {noremap = true, silent = false})
 bind("n", ";", ":", {noremap = true})
 
 -- "removes trailing spaces and indent
-vim.cmd([[ nnoremap Q gg=G``zz <esc> :%s/\s\+$//e<esc>:echo ""<esc>``zz ]])
+-- vim.cmd([[ nnoremap Q gg=G``zz <esc> :%s/\s\+$//e<esc>:echo ""<esc>``zz ]])
+bind("n", "Q", ':lua vim.lsp.buf.format()<cr>', {noremap = true, silent = false})
 
 bind("n", "go", ":OpenURL<cr>", {noremap = true})
 
@@ -58,6 +59,7 @@ bind("n", "<leader>sf", ":set filetype=", {noremap = true})
 bind("n", "<leader>sfj", ":set filetype=javascript", {noremap = true})
 
 bind("", "<leader>q", "<esc>:call FecharBuffer()<cr>", {})
+-- vim.cmd([[ autocmd FileType NvimTree nnoremap <leader>q :NvimTreeClose<cr> ]])
 
 bind("n", "<leader>og", ':!open -a "google chrome"  %<cr>', {})
 

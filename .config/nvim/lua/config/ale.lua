@@ -4,24 +4,24 @@ local bind = vim.api.nvim_set_keymap
 -- vim.cmd([[ let g:ale_linters = { 'javascript': ['eslint'], 'markdown': ['prettier'] } ]])
 
 vim.g.ale_fixers = {
-	svelte = { 'eslint', 'prettier', 'prettier_standard' },
-	-- svelte = { 'stylelint', 'eslint', 'tsserver' },
-	javascript = { "prettier", "eslint" },
-	json = { "fixjson"},
-	vue = { "eslint", "stylelint" },
-	markdown = { "prettier" },
-	lua = { "stylua" },
-	html = { "prettier" },
+  svelte = { 'eslint', 'prettier', 'prettier_standard' },
+  -- svelte = { 'stylelint', 'eslint', 'tsserver' },
+  javascript = { "prettier", "eslint" },
+  json = { "fixjson" },
+  vue = { "eslint", "stylelint" },
+  markdown = { "prettier" },
+  lua = { "stylua" },
+  html = { "prettier" },
 }
 vim.g.ale_linters = {
-	svelte = { 'eslint', 'prettier', 'prettier_standard' },
-	-- svelte = { 'stylelint', 'eslint', 'tsserver' },
-	javascript = { "prettier", "eslint" },
-	json = { "fixjson"},
-	vue = { "eslint", "stylelint" },
-	markdown = { "prettier" },
-	lua = { "stylua" },
-	html = { "prettier" },
+  svelte = { 'eslint', 'prettier', 'prettier_standard' },
+  -- svelte = { 'stylelint', 'eslint', 'tsserver' },
+  javascript = { "prettier", "eslint" },
+  json = { "fixjson" },
+  vue = { "eslint", "stylelint" },
+  markdown = { "prettier" },
+  lua = { "stylua" },
+  html = { "prettier" },
 }
 
 
@@ -47,4 +47,4 @@ bind("n", "[[", "<Plug>(ale_previous_wrap)", {})
 bind("n", "]]", "<Plug>(ale_next_wrap)", {})
 -- map <silent> ]] <Plug>(ale_next_wrap)
 
-bind("n", "Q", ":ALEFix<cr>", {})
+-- bind("n", "Q", ":ALEFix<cr>", {})

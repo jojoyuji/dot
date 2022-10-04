@@ -1,0 +1,15 @@
+--
+-- nnoremap <leader>gs :Gstatus
+vim.api.nvim_set_keymap('n', '<leader>gs', ':LazyGit', { noremap = true } )
+-- nnoremap <leader>gd :Gdiff
+-- vim.api.nvim_set_keymap('n', '<leader>gd', ':Git diff', { noremap = true } )
+-- -- nnoremap <leader>gb :Gblame
+-- vim.api.nvim_set_keymap('n', '<leader>gb', ':Gblame', { noremap = true } )
+-- -- nnoremap <leader>gr :Gread
+-- vim.api.nvim_set_keymap('n', '<leader>gr', ':Git checkout %', { noremap = true } )
+-- -- nnoremap <leader>gw :Gwrite
+-- vim.api.nvim_set_keymap('n', '<leader>gw', ':Gwrite', { noremap = true } )
+-- -- nnoremap <leader>gp :Dispatch Git push origin HEAD
+-- vim.api.nvim_set_keymap('n', '<leader>gp', ':Gpush', { noremap = true } )
+-- -- nnoremap <leader>gl :Gpull
+-- vim.api.nvim_set_keymap('n', '<leader>gl', ':Git pull origin HEAD', { noremap = true } )
