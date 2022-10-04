@@ -122,10 +122,10 @@ bind("n", "<leader>vi", ":Reload<cr>:PackerInstall<cr>", {noremap = true})
 bind("n", "<leader>vc", ":Reload<cr>:PackerClean<cr>", {noremap = true})
 bind("n", "<leader>vs", ":Reload<cr>:PackerSync<cr>", {noremap = true})
 
-bind("v", "y", "y:call ClipboardYank()<cr>", {noremap = true})
-bind("v", "d", "d:call ClipboardYank()<cr>", {noremap = true})
-bind("v", "x", "d:call ClipboardYank()<cr>", {noremap = true})
-bind("n", "p", ":call ClipboardPaste()<cr>p", {noremap = true})
+-- bind("v", "y", "y:call ClipboardYank()<cr>", {noremap = true})
+-- bind("v", "d", "d:call ClipboardYank()<cr>", {noremap = true})
+-- bind("v", "x", "d:call ClipboardYank()<cr>", {noremap = true})
+-- bind("n", "p", ":call ClipboardPaste()<cr>p", {noremap = true})
 
 -- ctrl+j/ctrl+i to iterate in list
 bind("i", "<c-j>", "<c-n>", {})
@@ -133,3 +133,10 @@ bind("i", "<c-k>", "<c-p>", {})
 
 bind("c", "<c-j>", "<c-n>", {})
 bind("c", "<c-k>", "<c-p>", {})
+
+bind('n', '<leader>d', '\"_d', {})
+bind('v', '<leader>d', '\"_d', {})
+
+bind('x',"<leader>p", "\"_dP", {})
+
+

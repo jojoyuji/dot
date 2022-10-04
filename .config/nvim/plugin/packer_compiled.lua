@@ -566,58 +566,54 @@ time([[Setup for lazygit.nvim]], false)
 time([[packadd for lazygit.nvim]], true)
 vim.cmd [[packadd lazygit.nvim]]
 time([[packadd for lazygit.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22config/treesitter\frequire\0", "config", "nvim-treesitter")
-time([[Config for nvim-treesitter]], false)
--- Config for: vim-simple-align
-time([[Config for vim-simple-align]], true)
-try_loadstring("\27LJ\2\nÎ\2\0\0\6\0\r\0\0256\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\a\0'\4\b\0005\5\t\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\n\0'\4\v\0005\5\f\0B\0\5\1K\0\1\0\1\0\2\fnoremap\2\vsilent\1Q:SimpleAlign  -j right<left><left><left><left><left><left><left><left><left>\aal\1\0\2\fnoremap\2\vsilent\1J:SimpleAlign  -j left<left><left><left><left><left><left><left><left>\aah\1\0\2\fnoremap\2\vsilent\1\18:SimpleAlign \aaa\6v\20nvim_set_keymap\bapi\bvim\0", "config", "vim-simple-align")
-time([[Config for vim-simple-align]], false)
--- Config for: undotree
-time([[Config for undotree]], true)
-try_loadstring("\27LJ\2\n\127\0\0\6\0\a\0\t6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\1K\0\1\0\1\0\2\fnoremap\2\vsilent\2\24:UndotreeToggle<cr>\22<leader><leader>u\6n\20nvim_set_keymap\bapi\bvim\0", "config", "undotree")
-time([[Config for undotree]], false)
--- Config for: ale
-time([[Config for ale]], true)
-try_loadstring("\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15config/ale\frequire\0", "config", "ale")
-time([[Config for ale]], false)
--- Config for: vimux
-time([[Config for vimux]], true)
-try_loadstring("\27LJ\2\n,\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\17config/vimux\frequire\0", "config", "vimux")
-time([[Config for vimux]], false)
--- Config for: nvim-colorizer.lua
-time([[Config for nvim-colorizer.lua]], true)
-try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14colorizer\frequire\0", "config", "nvim-colorizer.lua")
-time([[Config for nvim-colorizer.lua]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\2\n/\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\20config/gitsigns\frequire\0", "config", "gitsigns.nvim")
-time([[Config for gitsigns.nvim]], false)
--- Config for: vim-bookmarks
-time([[Config for vim-bookmarks]], true)
-try_loadstring("\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25config/vim-bookmarks\frequire\0", "config", "vim-bookmarks")
-time([[Config for vim-bookmarks]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-try_loadstring("\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21config/telescope\frequire\0", "config", "telescope.nvim")
-time([[Config for telescope.nvim]], false)
--- Config for: nvim-lsp-installer
-time([[Config for nvim-lsp-installer]], true)
-try_loadstring("\27LJ\2\n-\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\18lsp/installer\frequire\0", "config", "nvim-lsp-installer")
-time([[Config for nvim-lsp-installer]], false)
--- Config for: gruvbox.nvim
-time([[Config for gruvbox.nvim]], true)
-try_loadstring("\27LJ\2\nÿ\2\0\0\4\0\t\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0004\3\0\0=\3\4\2B\0\2\0016\0\5\0009\0\6\0'\2\a\0B\0\2\0016\0\5\0009\0\6\0'\2\b\0B\0\2\1K\0\1\0&hi Normal guibg=NONE ctermbg=NONE\24colorscheme gruvbox\bcmd\bvim\14overrides\1\0\r\25invert_intend_guides\1\19invert_tabline\1\17invert_signs\1\21invert_selection\1\18strikethrough\2\vitalic\2\tbold\2\14underline\2\14undercurl\2\21transparent_mode\1\17dim_inactive\1\rcontrast\5\finverse\2\nsetup\fgruvbox\frequire\0", "config", "gruvbox.nvim")
-time([[Config for gruvbox.nvim]], false)
--- Config for: vim-svelte-plugin
-time([[Config for vim-svelte-plugin]], true)
-try_loadstring("\27LJ\2\nD\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1\1\0=\1\2\0K\0\1\0'vim_svelte_plugin_load_full_syntax\6g\bvim\0", "config", "vim-svelte-plugin")
-time([[Config for vim-svelte-plugin]], false)
+-- Config for: trouble.nvim
+time([[Config for trouble.nvim]], true)
+try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
+time([[Config for trouble.nvim]], false)
+-- Config for: switch.vim
+time([[Config for switch.vim]], true)
+try_loadstring("\27LJ\2\n-\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\18config/switch\frequire\0", "config", "switch.vim")
+time([[Config for switch.vim]], false)
 -- Config for: vim-tmux-send
 time([[Config for vim-tmux-send]], true)
 try_loadstring("\27LJ\2\nœ\1\0\0\6\0\n\0\0176\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\a\0'\4\b\0005\5\t\0B\0\5\1K\0\1\0\1\0\2\fnoremap\2\vsilent\1\14:<Up><cr>\17<leader><cr>\1\0\2\fnoremap\2\vsilent\1%:SendKeys 'pnpm\\ test ENTER'<cr>\14<leader>t\6n\20nvim_set_keymap\bapi\bvim\0", "config", "vim-tmux-send")
 time([[Config for vim-tmux-send]], false)
+-- Config for: vim-rest-console
+time([[Config for vim-rest-console]], true)
+try_loadstring("\27LJ\2\n7\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\28config/vim-rest-console\frequire\0", "config", "vim-rest-console")
+time([[Config for vim-rest-console]], false)
+-- Config for: nvim-colorizer.lua
+time([[Config for nvim-colorizer.lua]], true)
+try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14colorizer\frequire\0", "config", "nvim-colorizer.lua")
+time([[Config for nvim-colorizer.lua]], false)
+-- Config for: cmp-nvim-lsp
+time([[Config for cmp-nvim-lsp]], true)
+try_loadstring("\27LJ\2\n3\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\24config/cmp-nvim-lsp\frequire\0", "config", "cmp-nvim-lsp")
+time([[Config for cmp-nvim-lsp]], false)
+-- Config for: vimux
+time([[Config for vimux]], true)
+try_loadstring("\27LJ\2\n,\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\17config/vimux\frequire\0", "config", "vimux")
+time([[Config for vimux]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\2\n/\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\20config/gitsigns\frequire\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
+-- Config for: nvim-lsp-installer
+time([[Config for nvim-lsp-installer]], true)
+try_loadstring("\27LJ\2\n-\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\18lsp/installer\frequire\0", "config", "nvim-lsp-installer")
+time([[Config for nvim-lsp-installer]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+try_loadstring("\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21config/telescope\frequire\0", "config", "telescope.nvim")
+time([[Config for telescope.nvim]], false)
+-- Config for: gruvbox.nvim
+time([[Config for gruvbox.nvim]], true)
+try_loadstring("\27LJ\2\nÿ\2\0\0\4\0\t\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0004\3\0\0=\3\4\2B\0\2\0016\0\5\0009\0\6\0'\2\a\0B\0\2\0016\0\5\0009\0\6\0'\2\b\0B\0\2\1K\0\1\0&hi Normal guibg=NONE ctermbg=NONE\24colorscheme gruvbox\bcmd\bvim\14overrides\1\0\r\25invert_intend_guides\1\19invert_tabline\1\17invert_signs\1\21invert_selection\1\18strikethrough\2\vitalic\2\tbold\2\14underline\2\14undercurl\2\21transparent_mode\1\17dim_inactive\1\rcontrast\5\finverse\2\nsetup\fgruvbox\frequire\0", "config", "gruvbox.nvim")
+time([[Config for gruvbox.nvim]], false)
+-- Config for: vim-simple-align
+time([[Config for vim-simple-align]], true)
+try_loadstring("\27LJ\2\nÎ\2\0\0\6\0\r\0\0256\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\a\0'\4\b\0005\5\t\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\n\0'\4\v\0005\5\f\0B\0\5\1K\0\1\0\1\0\2\fnoremap\2\vsilent\1Q:SimpleAlign  -j right<left><left><left><left><left><left><left><left><left>\aal\1\0\2\fnoremap\2\vsilent\1J:SimpleAlign  -j left<left><left><left><left><left><left><left><left>\aah\1\0\2\fnoremap\2\vsilent\1\18:SimpleAlign \aaa\6v\20nvim_set_keymap\bapi\bvim\0", "config", "vim-simple-align")
+time([[Config for vim-simple-align]], false)
 -- Config for: nvim-lspconfig
 time([[Config for nvim-lspconfig]], true)
 try_loadstring("\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15lsp/config\frequire\0", "config", "nvim-lspconfig")
@@ -626,42 +622,42 @@ time([[Config for nvim-lspconfig]], false)
 time([[Config for hop.nvim]], true)
 try_loadstring("\27LJ\2\nû\2\0\0\6\0\14\0\0236\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\0016\0\4\0009\0\5\0009\0\6\0'\2\a\0'\3\b\0'\4\t\0005\5\n\0B\0\5\0016\0\4\0009\0\5\0009\0\6\0'\2\a\0'\3\v\0'\4\f\0005\5\r\0B\0\5\1K\0\1\0\1\0\2\fnoremap\2\vsilent\1\19:HopWordBC<cr>\6S\1\0\2\fnoremap\2\vsilent\1\19:HopWordAC<cr>\6s\6n\20nvim_set_keymap\bapi\bvim\1\0\3\22create_hl_autocmd\2\tkeys\28etovxqpdygfblzhckisuran\21uppercase_labels\1\nsetup\bhop\frequire\0", "config", "hop.nvim")
 time([[Config for hop.nvim]], false)
--- Config for: trouble.nvim
-time([[Config for trouble.nvim]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
-time([[Config for trouble.nvim]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 try_loadstring("\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15config/cmp\frequire\0", "config", "nvim-cmp")
 time([[Config for nvim-cmp]], false)
+-- Config for: ale
+time([[Config for ale]], true)
+try_loadstring("\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15config/ale\frequire\0", "config", "ale")
+time([[Config for ale]], false)
 -- Config for: nvim-neoclip.lua
 time([[Config for nvim-neoclip.lua]], true)
 try_loadstring("\27LJ\2\nO\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\21default_register\6+\nsetup\fneoclip\frequire\0", "config", "nvim-neoclip.lua")
 time([[Config for nvim-neoclip.lua]], false)
--- Config for: bubbly.nvim
-time([[Config for bubbly.nvim]], true)
-try_loadstring("\27LJ\2\n-\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\18config/bubbly\frequire\0", "config", "bubbly.nvim")
-time([[Config for bubbly.nvim]], false)
+-- Config for: targets.vim
+time([[Config for targets.vim]], true)
+try_loadstring("\27LJ\2\n.\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\19config/targets\frequire\0", "config", "targets.vim")
+time([[Config for targets.vim]], false)
+-- Config for: vim-bookmarks
+time([[Config for vim-bookmarks]], true)
+try_loadstring("\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25config/vim-bookmarks\frequire\0", "config", "vim-bookmarks")
+time([[Config for vim-bookmarks]], false)
 -- Config for: sonokai
 time([[Config for sonokai]], true)
 try_loadstring("\27LJ\2\n8\0\0\2\0\4\0\0056\0\0\0009\0\1\0'\1\3\0=\1\2\0K\0\1\0\respresso\18sonokai_style\6g\bvim\0", "config", "sonokai")
 time([[Config for sonokai]], false)
--- Config for: switch.vim
-time([[Config for switch.vim]], true)
-try_loadstring("\27LJ\2\n-\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\18config/switch\frequire\0", "config", "switch.vim")
-time([[Config for switch.vim]], false)
+-- Config for: undotree
+time([[Config for undotree]], true)
+try_loadstring("\27LJ\2\n\127\0\0\6\0\a\0\t6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\1K\0\1\0\1\0\2\fnoremap\2\vsilent\2\24:UndotreeToggle<cr>\22<leader><leader>u\6n\20nvim_set_keymap\bapi\bvim\0", "config", "undotree")
+time([[Config for undotree]], false)
+-- Config for: vim-svelte-plugin
+time([[Config for vim-svelte-plugin]], true)
+try_loadstring("\27LJ\2\nD\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1\1\0=\1\2\0K\0\1\0'vim_svelte_plugin_load_full_syntax\6g\bvim\0", "config", "vim-svelte-plugin")
+time([[Config for vim-svelte-plugin]], false)
 -- Config for: todo.txt-vim
 time([[Config for todo.txt-vim]], true)
 try_loadstring("\27LJ\2\n+\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\16config/todo\frequire\0", "config", "todo.txt-vim")
 time([[Config for todo.txt-vim]], false)
--- Config for: caw.vim
-time([[Config for caw.vim]], true)
-try_loadstring("\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15config/caw\frequire\0", "config", "caw.vim")
-time([[Config for caw.vim]], false)
--- Config for: cmp-nvim-lsp
-time([[Config for cmp-nvim-lsp]], true)
-try_loadstring("\27LJ\2\n3\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\24config/cmp-nvim-lsp\frequire\0", "config", "cmp-nvim-lsp")
-time([[Config for cmp-nvim-lsp]], false)
 -- Config for: nvim-tree.lua
 time([[Config for nvim-tree.lua]], true)
 try_loadstring("\27LJ\2\n/\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\20config/nvimtree\frequire\0", "config", "nvim-tree.lua")
@@ -670,14 +666,18 @@ time([[Config for nvim-tree.lua]], false)
 time([[Config for edge]], true)
 try_loadstring("\27LJ\2\n1\0\0\2\0\4\0\0056\0\0\0009\0\1\0'\1\3\0=\1\2\0K\0\1\0\tneon\15edge_style\6g\bvim\0", "config", "edge")
 time([[Config for edge]], false)
--- Config for: vim-rest-console
-time([[Config for vim-rest-console]], true)
-try_loadstring("\27LJ\2\n7\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\28config/vim-rest-console\frequire\0", "config", "vim-rest-console")
-time([[Config for vim-rest-console]], false)
--- Config for: targets.vim
-time([[Config for targets.vim]], true)
-try_loadstring("\27LJ\2\n.\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\19config/targets\frequire\0", "config", "targets.vim")
-time([[Config for targets.vim]], false)
+-- Config for: bubbly.nvim
+time([[Config for bubbly.nvim]], true)
+try_loadstring("\27LJ\2\n-\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\18config/bubbly\frequire\0", "config", "bubbly.nvim")
+time([[Config for bubbly.nvim]], false)
+-- Config for: caw.vim
+time([[Config for caw.vim]], true)
+try_loadstring("\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15config/caw\frequire\0", "config", "caw.vim")
+time([[Config for caw.vim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22config/treesitter\frequire\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd LuaSnip ]]
