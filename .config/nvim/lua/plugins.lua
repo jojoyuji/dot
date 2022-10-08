@@ -1,3 +1,7 @@
+-- (\ /)
+-- ( . .)
+-- o(")(")
+
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 local packer_bootstrap
@@ -21,6 +25,13 @@ return require("packer").startup({
 
     -- Packer can manage itself
     use("wbthomason/packer.nvim")
+
+    --mason
+    use {'williamboman/mason.nvim',
+      config = function()
+        require("mason").setup()
+      end
+    }
 
     -- lsp
     use({
@@ -94,13 +105,21 @@ return require("packer").startup({
         require("config/telescope")
       end,
     })
-    -- use({
-    -- 	"nvim-telescope/telescope-frecency.nvim",
-    -- 	requires = { "tami5/sql.nvim" },
-    -- 	config = function()
-    -- 		require("telescope").load_extension("frecency")
-    -- 	end,
-    -- })
+    -- harpoon
+    use({
+      'ThePrimeagen/harpoon',
+      requires = { "nvim-lua/plenary.nvim" },
+      config = function()
+        vim.api.nvim_set_keymap("n", "<leader>h", ':lua require("harpoon.mark").add_file()<cr>', { noremap = true, silent = false })
+        vim.api.nvim_set_keymap("n", "<leader><cr>",':lua require("harpoon.ui").toggle_quick_menu()<cr>', { noremap = true, silent = false })
+        vim.api.nvim_set_keymap("n", "<leader>]", ':lua require("harpoon.ui").nav_next()<cr>', { noremap = true, silent = false })
+        vim.api.nvim_set_keymap("n", "<leader>[", ':lua require("harpoon.ui").nav_prev()<cr>', { noremap = true, silent = false })
+        vim.api.nvim_set_keymap("n", "<leader>1", ':lua require("harpoon.ui").nav_file(1)<cr>', { noremap = true, silent = false })
+        vim.api.nvim_set_keymap("n", "<leader>2", ':lua require("harpoon.ui").nav_file(2)<cr>', { noremap = true, silent = false })
+        vim.api.nvim_set_keymap("n", "<leader>3", ':lua require("harpoon.ui").nav_file(3)<cr>', { noremap = true, silent = false })
+        vim.api.nvim_set_keymap("n", "<leader>4", ':lua require("harpoon.ui").nav_file(4)<cr>', { noremap = true, silent = false })
+      end,
+    })
 
     -- statusline
     use({
@@ -206,6 +225,12 @@ return require("packer").startup({
 
     -- utilities
     use("dstein64/vim-startuptime")
+    use ({
+      'szw/vim-maximizer',
+      config = function()
+        vim.api.nvim_set_keymap('n', '<leader>z', ':MaximizerToggle<cr>', {})
+      end
+    })
     use({
       "phaazon/hop.nvim",
       branch = "v2", -- optional but strongly recommended
@@ -233,7 +258,7 @@ return require("packer").startup({
           ":SendKeys 'pnpm\\ test ENTER'<cr>",
           { noremap = true, silent = false }
         )
-        vim.api.nvim_set_keymap("n", "<leader><cr>", ":<Up><cr>", { noremap = true, silent = false })
+        -- vim.api.nvim_set_keymap("n", "<leader><cr>", ":<Up><cr>", { noremap = true, silent = false })
       end,
     })
 
@@ -267,12 +292,6 @@ return require("packer").startup({
       "wellle/targets.vim",
       config = function()
         require("config/targets")
-      end,
-    })
-    use({
-      "jojoyuji/switch.vim",
-      config = function()
-        require("config/switch")
       end,
     })
     use({ "evanleck/vim-svelte" })
@@ -354,6 +373,7 @@ return require("packer").startup({
       end,
     })
 
+
     use({
       "L3MON4D3/LuaSnip",
       after = "nvim-cmp",
@@ -362,6 +382,7 @@ return require("packer").startup({
       end,
     })
     use("rafamadriz/friendly-snippets")
+
 
     -- inutilities :)
     use("jojoyuji/megaman-vim")
@@ -381,6 +402,26 @@ return require("packer").startup({
         require("trouble").setup({})
       end,
     })
+
+    -- Debug
+    --
+    -- use('Pocco81/dap-buddy.nvim') -- doesnt work
+    use({'mfussenegger/nvim-dap',
+      config = function() 
+        require('config/dap/config')
+      end,
+    })
+    use { "rcarriga/nvim-dap-ui", 
+      requires = {"mfussenegger/nvim-dap"} ,
+      config = function ()
+
+        require('config/dap/ui')
+        vim.api.nvim_set_keymap('n', '<leader>db',  ':lua require("dapui").toggle()<cr>', {} )
+        
+      end
+
+    }
+
 
     -- gamee
     use("alec-gibson/nvim-tetris")
@@ -413,6 +454,14 @@ return require("packer").startup({
 
     -- my plugins
     use({ "~/.config/nvim/myPlugins", requires = { { "nvim-lua/plenary.nvim" } } })
+
+    use({
+      "AndrewRadev/switch.vim",
+      -- "jojoyuji/switch.vim",
+      config = function()
+        require("config/switch")
+      end,
+    })
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

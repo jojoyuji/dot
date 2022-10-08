@@ -157,6 +157,8 @@ gflowBeforeFinish(){
   echo "Merging ${1} into ${curBranch}..."
   git merge $1
 }
+
+alias top='bpytop'
 alias gmm="gflowBeforeFinish master"
 alias gmd="gflowBeforeFinish develop"
 alias g="git"
@@ -173,6 +175,7 @@ alias undopush="git push -f origin HEAD^:master" # Undo a `git push`
 alias undocommit="git reset --soft HEAD~1"
 alias gs='git status' # Git Status
 alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`' # git root
+
 
 
 
@@ -234,4 +237,5 @@ fi
 # pnpm
 export PNPM_HOME="/Users/jojo/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
-# pnpm end
+export PATH="$GOPATH/bin":$PATH
+ #pnpm end

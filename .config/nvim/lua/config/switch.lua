@@ -4,7 +4,6 @@ bind("n", "-", ":Switch<CR>", { noremap = true })
  -- import teste from 'asdada';
 
 vim.cmd([[
-
  let b:switch_custom_definitions = 
   \ [
   \   [ "addClass", "removeClass" ],

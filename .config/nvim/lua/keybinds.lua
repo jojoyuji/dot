@@ -39,7 +39,7 @@ vim.cmd([[nnoremap <leader>W :%s/\s\+$//<cr>:let @/='']])
 bind("n", "K", "<nop>", {noremap = true})
 
 -- use ,z to 'focus'   the current fold
-bind("n", "<leader>z", "zmzvzz", {noremap = true})
+-- bind("n", "<leader>z", "zmzvzz", {noremap = true})
 
 -- substitute
 bind("n", "<leader>ss", ":%s//<left>", {})
@@ -58,9 +58,9 @@ bind("n", "<leader><leader>", ":silent noh<cr>", {silent = true})
 bind("n", "<leader>sf", ":set filetype=", {noremap = true})
 bind("n", "<leader>sfj", ":set filetype=javascript", {noremap = true})
 
--- bind("n", "<leader>q", "<esc>:call FecharBuffer()<cr>", {})
-vim.cmd([[ nnoremap <leader>q :call FecharBuffer()<cr> ]])
-vim.cmd([[ autocmd FileType NvimTree nnoremap <leader>q :NvimTreeClose<cr> ]])
+bind("n", "<leader>q", "<esc>:call FecharBuffer()<cr>", {})
+-- vim.cmd([[ nnoremap <leader>q :call FecharBuffer()<cr> ]])
+-- vim.cmd([[ autocmd FileType NvimTree nnoremap <leader>q :NvimTreeClose<cr> ]])
 
 
 bind("n", "<leader>og", ':!open -a "google chrome"  %<cr>', {})
@@ -97,8 +97,8 @@ bind("n", "L", "<c-w>l", {noremap = true})
 bind("n", "<leader>sfi", ":set fdm=indent<cr>", {noremap = true})
 bind("n", "<leader>sfm", ":set fdm=marker<cr>", {noremap = true})
 
-bind("n", "<leader>]", ":bnext<cr>", {noremap = true})
-bind("n", "<leader>[", ":bprev<cr>", {noremap = true})
+-- bind("n", "<leader>]", ":bnext<cr>", {noremap = true})
+-- bind("n", "<leader>[", ":bprev<cr>", {noremap = true})
 
 bind("n", "+", ':exe "resize " . (winheight(0) + 5)<CR>', {noremap = true})
 bind("n", "_", ':exe "resize " . (winheight(0) - 5)<CR>', {noremap = true})
