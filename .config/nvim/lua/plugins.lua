@@ -27,7 +27,7 @@ return require("packer").startup({
     use("wbthomason/packer.nvim")
 
     --mason
-    use {'williamboman/mason.nvim',
+    use { 'williamboman/mason.nvim',
       config = function()
         require("mason").setup()
       end
@@ -110,14 +110,22 @@ return require("packer").startup({
       'ThePrimeagen/harpoon',
       requires = { "nvim-lua/plenary.nvim" },
       config = function()
-        vim.api.nvim_set_keymap("n", "<leader>h", ':lua require("harpoon.mark").add_file()<cr>', { noremap = true, silent = false })
-        vim.api.nvim_set_keymap("n", "<leader><cr>",':lua require("harpoon.ui").toggle_quick_menu()<cr>', { noremap = true, silent = false })
-        vim.api.nvim_set_keymap("n", "<leader>]", ':lua require("harpoon.ui").nav_next()<cr>', { noremap = true, silent = false })
-        vim.api.nvim_set_keymap("n", "<leader>[", ':lua require("harpoon.ui").nav_prev()<cr>', { noremap = true, silent = false })
-        vim.api.nvim_set_keymap("n", "<leader>1", ':lua require("harpoon.ui").nav_file(1)<cr>', { noremap = true, silent = false })
-        vim.api.nvim_set_keymap("n", "<leader>2", ':lua require("harpoon.ui").nav_file(2)<cr>', { noremap = true, silent = false })
-        vim.api.nvim_set_keymap("n", "<leader>3", ':lua require("harpoon.ui").nav_file(3)<cr>', { noremap = true, silent = false })
-        vim.api.nvim_set_keymap("n", "<leader>4", ':lua require("harpoon.ui").nav_file(4)<cr>', { noremap = true, silent = false })
+        vim.api.nvim_set_keymap("n", "<leader>h", ':lua require("harpoon.mark").add_file()<cr>',
+          { noremap = true, silent = false })
+        vim.api.nvim_set_keymap("n", "<leader><cr>", ':lua require("harpoon.ui").toggle_quick_menu()<cr>',
+          { noremap = true, silent = false })
+        vim.api.nvim_set_keymap("n", "<leader>]", ':lua require("harpoon.ui").nav_next()<cr>',
+          { noremap = true, silent = false })
+        vim.api.nvim_set_keymap("n", "<leader>[", ':lua require("harpoon.ui").nav_prev()<cr>',
+          { noremap = true, silent = false })
+        vim.api.nvim_set_keymap("n", "<leader>1", ':lua require("harpoon.ui").nav_file(1)<cr>',
+          { noremap = true, silent = false })
+        vim.api.nvim_set_keymap("n", "<leader>2", ':lua require("harpoon.ui").nav_file(2)<cr>',
+          { noremap = true, silent = false })
+        vim.api.nvim_set_keymap("n", "<leader>3", ':lua require("harpoon.ui").nav_file(3)<cr>',
+          { noremap = true, silent = false })
+        vim.api.nvim_set_keymap("n", "<leader>4", ':lua require("harpoon.ui").nav_file(4)<cr>',
+          { noremap = true, silent = false })
       end,
     })
 
@@ -225,7 +233,7 @@ return require("packer").startup({
 
     -- utilities
     use("dstein64/vim-startuptime")
-    use ({
+    use({
       'szw/vim-maximizer',
       config = function()
         vim.api.nvim_set_keymap('n', '<leader>z', ':MaximizerToggle<cr>', {})
@@ -406,18 +414,16 @@ return require("packer").startup({
     -- Debug
     --
     -- use('Pocco81/dap-buddy.nvim') -- doesnt work
-    use({'mfussenegger/nvim-dap',
-      config = function() 
+    use({ 'mfussenegger/nvim-dap',
+      config = function()
         require('config/dap/config')
       end,
     })
-    use { "rcarriga/nvim-dap-ui", 
-      requires = {"mfussenegger/nvim-dap"} ,
-      config = function ()
-
+    use { "rcarriga/nvim-dap-ui",
+      requires = { "mfussenegger/nvim-dap" },
+      config = function()
         require('config/dap/ui')
-        vim.api.nvim_set_keymap('n', '<leader>db',  ':lua require("dapui").toggle()<cr>', {} )
-        
+        vim.api.nvim_set_keymap('n', '<leader>db', ':lua require("dapui").toggle()<cr>', {})
       end
 
     }
@@ -456,8 +462,8 @@ return require("packer").startup({
     use({ "~/.config/nvim/myPlugins", requires = { { "nvim-lua/plenary.nvim" } } })
 
     use({
-      "AndrewRadev/switch.vim",
-      -- "jojoyuji/switch.vim",
+      -- "AndrewRadev/switch.vim",
+      "jojoyuji/switch.vim",
       config = function()
         require("config/switch")
       end,

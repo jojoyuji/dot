@@ -1,6 +1,4 @@
-local bind = vim.api.nvim_set_keymap
-bind("n", "-", ":Switch<CR>", { noremap = true })
-
+vim.api.nvim_set_keymap("n", "-", ":Switch<CR>", { noremap = true })
  -- import teste from 'asdada';
 
 vim.cmd([[
@@ -39,5 +37,9 @@ vim.cmd([[
   \ ]
 
 ]])
+  -- '\(import\)\(.*\)\(from\s\)\([\'|"]\S.*[\'|"]\)'
+--\(import\)\(.*\)\(from\)\s*\([\'|"]\S*[\'|"]\)
+print('Switch loaded')
+
 
 
