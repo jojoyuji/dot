@@ -1,5 +1,6 @@
 vim.api.nvim_set_keymap("n", "<leader><tab>", ":NvimTreeToggle ./<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>f", ":NvimTreeFindFile<cr>", { noremap = true, silent = true })
+vim.cmd([[ autocmd FileType NvimTree nnoremap <buffer> <leader>q :NvimTreeClose<cr> ]])
 
 require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
 	auto_reload_on_write = true,

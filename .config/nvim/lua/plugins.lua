@@ -425,12 +425,10 @@ return require("packer").startup({
         require('config/dap/ui')
         vim.api.nvim_set_keymap('n', '<leader>db', ':lua require("dapui").toggle()<cr>', {})
       end
-
     }
 
-
     -- gamee
-    use("alec-gibson/nvim-tetris")
+    -- use("alec-gibson/nvim-tetris")
 
     -- questionable...
     use("tpope/vim-repeat")
