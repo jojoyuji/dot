@@ -39,7 +39,4 @@ vim.cmd([[
 ]])
   -- '\(import\)\(.*\)\(from\s\)\([\'|"]\S.*[\'|"]\)'
 --\(import\)\(.*\)\(from\)\s*\([\'|"]\S*[\'|"]\)
-print('Switch loaded')
-
-
 

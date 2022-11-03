@@ -156,6 +156,7 @@ return require("packer").startup({
 
     use({
       "ellisonleao/gruvbox.nvim",
+      commit = 'cb7a8a867cfaa7f0e8ded57eb931da88635e7007',
       config = function()
         require("gruvbox").setup({
           -- contrast = "hard", -- can be "hard", "soft" or empty string

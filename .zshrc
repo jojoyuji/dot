@@ -238,4 +238,10 @@ fi
 export PNPM_HOME="/Users/jojo/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 export PATH="$GOPATH/bin":$PATH
- #pnpm end
+#pnpm end
+
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --bind ctrl-j:down,ctrl-k:up'
+
+# export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+
+# export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}"'
