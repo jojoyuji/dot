@@ -156,7 +156,7 @@ return require("packer").startup({
 
     use({
       "ellisonleao/gruvbox.nvim",
-      commit = 'cb7a8a867cfaa7f0e8ded57eb931da88635e7007',
+      -- commit = 'cb7a8a867cfaa7f0e8ded57eb931da88635e7007',
       config = function()
         require("gruvbox").setup({
           -- contrast = "hard", -- can be "hard", "soft" or empty string
@@ -396,6 +396,7 @@ return require("packer").startup({
     -- inutilities :)
     use("jojoyuji/megaman-vim")
     use("jojoyuji/nyancat-vim")
+
     use({
       "dbeniamine/todo.txt-vim",
       config = function()
@@ -403,7 +404,18 @@ return require("packer").startup({
       end,
     })
 
-    use({ "folke/todo-comments.nvim" })
+    use({ "folke/todo-comments.nvim", 
+
+      -- TODO: hello
+      requires = "nvim-lua/plenary.nvim",
+      config = function() 
+        require("todo-comments").setup {
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+        }
+      end,
+    })
     use({
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
@@ -412,7 +424,6 @@ return require("packer").startup({
       end,
     })
 
-    -- Debug
     --
     -- use('Pocco81/dap-buddy.nvim') -- doesnt work
     use({ 'mfussenegger/nvim-dap',

@@ -70,7 +70,7 @@ alias lg="lazygit"
 
 
 alias im='nvim'
-alias nvim='~/nvim-osx64/bin/nvim'
+alias nvim='~/nvim-macos/bin/nvim'
 alias v='~/nvim-osx64/bin/nvim'
 alias stat='gotop -c monokai'
 alias irc= 'weechat';
