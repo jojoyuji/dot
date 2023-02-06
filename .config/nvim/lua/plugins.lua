@@ -29,7 +29,9 @@ return require("packer").startup({
     --mason
     use { 'williamboman/mason.nvim',
       config = function()
-        require("mason").setup()
+        require("mason").setup({
+          PATH = "prepend", -- "skip" seems to cause the spawning error
+        })
       end
     }
 
@@ -219,6 +221,7 @@ return require("packer").startup({
     use("rhysd/clever-f.vim")
     use("haya14busa/incsearch.vim")
     use("dietsche/vim-lastplace")
+    
 
     -- quickfix
     use("stefandtw/quickfix-reflector.vim")
@@ -241,8 +244,9 @@ return require("packer").startup({
       end
     })
     use({
-      "phaazon/hop.nvim",
-      branch = "v2", -- optional but strongly recommended
+      -- "phaazon/hop.nvim",
+      "aznhe21/hop.nvim",
+      branch = "fix-some-bugs", -- optional but strongly recommended
       config = function()
         -- you can configure Hop the way you like here; see :h hop-config
         require("hop").setup({
@@ -330,34 +334,39 @@ return require("packer").startup({
     use("kana/vim-textobj-lastpat")
 
     -- syntax
-    use({
-      "dense-analysis/ale",
-      config = function()
-        require("config/ale")
-      end,
-    })
-
     -- use({
-    --   "jose-elias-alvarez/null-ls.nvim",
+    --   "dense-analysis/ale",
     --   config = function()
-    --     local  null_ls_status_ok, null_ls = pcall(require, "null-ls")
-    --     if not null_ls_status_ok then
-    --       return
-    --     end
-    --
-    --     local formatting = null_ls.builtins.formatting
-    --     local diagnostics = null_ls.builtins.diagnostics
-    --     null_ls.setup({
-    --       sources = {
-    --
-    --         null_ls.builtins.diagnostics.eslint,
-    --         formatting.prettier.with({extra_args = {"--no-semi", "--single-quote"}}),
-    --         formatting.eslint.with({extra_args = {"--no-semi", "--single-quote"}}),
-    --         formatting.stylua,
-    --       },
-    --     })
+    --     require("config/ale")
     --   end,
     -- })
+    -- 
+    use({
+      "jose-elias-alvarez/null-ls.nvim",
+      config = function()
+        local  null_ls_status_ok, null_ls = pcall(require, "null-ls")
+        if not null_ls_status_ok then
+          return
+        end
+
+        local formatting = null_ls.builtins.formatting
+        -- local diagnostics = null_ls.builtins.diagnostics
+        null_ls.setup({
+          sources = {
+
+            null_ls.builtins.diagnostics.eslint,
+           -- formatting.prettier.with({extra_args = {"", "--single-quote"}}),
+            formatting.eslint,
+            formatting.prettier,
+            -- formatting.prettier.with({extra_args = {"--no-semi", "--single-quote"}}),
+            -- formatting.eslint.with({extra_args = {"--no-semi", "--single-quote"}}),
+            formatting.stylua,
+            -- formatting.fixjson,
+            formatting.jsonls,
+          },
+        })
+      end,
+    })
     use("elzr/vim-json")
 
     use({

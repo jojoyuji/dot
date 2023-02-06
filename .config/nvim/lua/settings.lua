@@ -19,6 +19,7 @@ vim.g.mapleader = " "
 -- Set localleader to comma
 vim.g.maplocalleader = " "
 
+vim.opt.undofile = true
 -- set number               " mostra numero linhas
 wo.number = true
 -- global options

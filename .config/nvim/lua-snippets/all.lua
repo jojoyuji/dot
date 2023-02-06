@@ -168,6 +168,15 @@ Eu já entendi que você entende, pois se você não tivesse entendido
 não entenderia que você teria entendido para ser explicado antes 
 de você entender.
 
+Nós somos Piratas!
+Eu amo heróis mas não quero ser um.
+Digamos que tem um pedaço de carne,
+Piratas farão um banquete e comerão a carne
+Mas heróis vão dividir a carne com outras pessoas.
+Eu quero toda a carne!
+-- Mugiwara no Luffy
+
+
   ]],
 		{
 			-- i(1, ""),
