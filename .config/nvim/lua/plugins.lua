@@ -267,7 +267,7 @@ return require("packer").startup({
       config = function()
         vim.api.nvim_set_keymap(
           "n",
-          "<leader>t",
+          "<leader><leader>t",
           ":SendKeys 'pnpm\\ test ENTER'<cr>",
           { noremap = true, silent = false }
         )
@@ -340,33 +340,33 @@ return require("packer").startup({
     --     require("config/ale")
     --   end,
     -- })
+     
+    -- use({
+    --   "jose-elias-alvarez/null-ls.nvim",
+    --   config = function()
+    --     local  null_ls_status_ok, null_ls = pcall(require, "null-ls")
+    --     if not null_ls_status_ok then
+    --       return
+    --     end
     -- 
-    use({
-      "jose-elias-alvarez/null-ls.nvim",
-      config = function()
-        local  null_ls_status_ok, null_ls = pcall(require, "null-ls")
-        if not null_ls_status_ok then
-          return
-        end
-
-        local formatting = null_ls.builtins.formatting
-        -- local diagnostics = null_ls.builtins.diagnostics
-        null_ls.setup({
-          sources = {
-
-            null_ls.builtins.diagnostics.eslint,
-           -- formatting.prettier.with({extra_args = {"", "--single-quote"}}),
-            formatting.eslint,
-            formatting.prettier,
-            -- formatting.prettier.with({extra_args = {"--no-semi", "--single-quote"}}),
-            -- formatting.eslint.with({extra_args = {"--no-semi", "--single-quote"}}),
-            formatting.stylua,
-            -- formatting.fixjson,
-            formatting.jsonls,
-          },
-        })
-      end,
-    })
+    --     local formatting = null_ls.builtins.formatting
+    --     -- local diagnostics = null_ls.builtins.diagnostics
+    --     null_ls.setup({
+    --       sources = {
+    -- 
+    --         null_ls.builtins.diagnostics.eslint,
+    --        -- formatting.prettier.with({extra_args = {"", "--single-quote"}}),
+    --         formatting.eslint,
+    --         -- formatting.prettier,
+    --         -- formatting.prettier.with({extra_args = {"--no-semi", "--single-quote"}}),
+    --         -- formatting.eslint.with({extra_args = {"--no-semi", "--single-quote"}}),
+    --         formatting.stylua,
+    --         -- formatting.fixjson,
+    --         -- formatting.jsonls,
+    --       },
+    --     })
+    --   end,
+    -- })
     use("elzr/vim-json")
 
     use({

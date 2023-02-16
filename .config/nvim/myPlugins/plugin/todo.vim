@@ -20,7 +20,7 @@ function! CreateCenteredFloatingWindow() abort
   let opts.col += 2
   let opts.width -= 4
 
-  autocmd BufEnter,BufNewFile,BufRead todo.txt noremap <buffer> <F12> :close<cr>
+  autocmd BufEnter,BufNewFile,BufRead todo.txt noremap <buffer> <leader>tt :close<cr>
   autocmd BufEnter,BufNewFile,BufRead todo.txt noremap <buffer> q :close<cr>
   autocmd BufEnter,BufNewFile,BufRead todo.txt setlocal number
 
@@ -39,7 +39,7 @@ function! FloatingWindowHelp(query) abort
 endfunction
 
 command! -complete=help -nargs=? Todo call FloatingWindowHelp(<q-args>)
-nmap <F12> <esc>:Todo ~/Google Drive/Meu Drive/NOTAS/todo.txt<cr>
+nmap <leader>tt <esc>:Todo ~/Google Drive/Meu Drive/NOTAS/todo.txt<cr>
 
 
 
