@@ -17,7 +17,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd([[Restart]])
   return vim.cmd([[PackerSync]])
 end
-
 return require("packer").startup({
   function(use)
     vim.cmd([[packadd packer.nvim]])
@@ -50,8 +49,6 @@ return require("packer").startup({
       end,
     })
 
-    -- use 'preservim/tagbar'
-    -- use 'hushicai/tagbar-javascript.vim'
     -- file tree explorer
     use({
       "kyazdani42/nvim-tree.lua",
@@ -165,7 +162,7 @@ return require("packer").startup({
           undercurl = true,
           underline = true,
           bold = true,
-          italic = true,
+          -- italic = true,
           strikethrough = true,
           invert_selection = false,
           invert_signs = false,
@@ -194,6 +191,13 @@ return require("packer").startup({
       end,
     })
 
+    use({
+      "f-person/git-blame.nvim", 
+      config = function()
+        vim.api.nvim_set_keymap('n', '<leader>gb', ':GitBlameToggle<cr>', {})
+      end,
+    })
+
     use("tpope/vim-dispatch")
     -- use({
     --   "tpope/vim-fugitive",
@@ -217,6 +221,16 @@ return require("packer").startup({
     })
 
     -- movement
+    -- use("tpope/vim-surround")
+ use({
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+})
     use("tpope/vim-surround")
     use("rhysd/clever-f.vim")
     use("haya14busa/incsearch.vim")
@@ -334,39 +348,6 @@ return require("packer").startup({
     use("kana/vim-textobj-lastpat")
 
     -- syntax
-    -- use({
-    --   "dense-analysis/ale",
-    --   config = function()
-    --     require("config/ale")
-    --   end,
-    -- })
-     
-    -- use({
-    --   "jose-elias-alvarez/null-ls.nvim",
-    --   config = function()
-    --     local  null_ls_status_ok, null_ls = pcall(require, "null-ls")
-    --     if not null_ls_status_ok then
-    --       return
-    --     end
-    -- 
-    --     local formatting = null_ls.builtins.formatting
-    --     -- local diagnostics = null_ls.builtins.diagnostics
-    --     null_ls.setup({
-    --       sources = {
-    -- 
-    --         null_ls.builtins.diagnostics.eslint,
-    --        -- formatting.prettier.with({extra_args = {"", "--single-quote"}}),
-    --         formatting.eslint,
-    --         -- formatting.prettier,
-    --         -- formatting.prettier.with({extra_args = {"--no-semi", "--single-quote"}}),
-    --         -- formatting.eslint.with({extra_args = {"--no-semi", "--single-quote"}}),
-    --         formatting.stylua,
-    --         -- formatting.fixjson,
-    --         -- formatting.jsonls,
-    --       },
-    --     })
-    --   end,
-    -- })
     use("elzr/vim-json")
 
     use({
@@ -379,12 +360,12 @@ return require("packer").startup({
         { "hrsh7th/cmp-cmdline" },
         { "andersevenrud/cmp-tmux" },
         { "hrsh7th/cmp-emoji" },
-        {
-          "hrsh7th/cmp-nvim-lsp",
-          config = function()
-            require("config/cmp-nvim-lsp")
-          end,
-        },
+        -- {
+        --   "hrsh7th/cmp-nvim-lsp",
+        --   config = function()
+        --     require("config/cmp-nvim-lsp")
+        --   end,
+        -- },
       },
       config = function()
         require("config/cmp")
@@ -415,7 +396,6 @@ return require("packer").startup({
 
     use({ "folke/todo-comments.nvim", 
 
-      -- TODO: hello
       requires = "nvim-lua/plenary.nvim",
       config = function() 
         require("todo-comments").setup {

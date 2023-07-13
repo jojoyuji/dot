@@ -37,8 +37,18 @@ lspconfig.jsonls.setup({
 lspconfig.eslint.setup({
 	on_attach = on_attach,
 })
+lspconfig.volar.setup({
+	on_attach = on_attach,
+  filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'},
+	init_options = {
+		provideFormatter = true,
+	},
+})
 lspconfig.vuels.setup({
 	on_attach = on_attach,
+	init_options = {
+		provideFormatter = true,
+	},
 })
 lspconfig.pyright.setup({
 	on_attach = on_attach,
@@ -56,7 +66,7 @@ lspconfig.golangci_lint_ls.setup({
 	on_attach = on_attach,
 })
 
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
 	on_attach = on_attach,
 	settings = {
 		lua = {
@@ -66,3 +76,14 @@ lspconfig.sumneko_lua.setup({
 		},
 	},
 })
+
+-- lspconfig.sumneko_lua.setup({
+-- 	on_attach = on_attach,
+-- 	settings = {
+-- 		lua = {
+-- 			diagnostics = {
+-- 				globals = { "vim" },
+-- 			},
+-- 		},
+-- 	},
+-- })
