@@ -85,7 +85,7 @@ return require("packer").startup({
     use({
       "AckslD/nvim-neoclip.lua",
       requires = {
-        { "kkharji/sqlite.lua", module = "sqlite" },
+        { "kkharji/sqlite.lua",           module = "sqlite" },
         -- you'll need at least one of these
         { "nvim-telescope/telescope.nvim" },
         -- {'ibhagwan/fzf-lua'},
@@ -169,7 +169,7 @@ return require("packer").startup({
           invert_tabline = false,
           invert_intend_guides = false,
           inverse = true, -- invert background for search, diffs, statuslines and errors
-          contrast = "", -- can be "hard", "soft" or empty string
+          contrast = "",  -- can be "hard", "soft" or empty string
           overrides = {},
           dim_inactive = false,
           transparent_mode = false,
@@ -192,7 +192,7 @@ return require("packer").startup({
     })
 
     use({
-      "f-person/git-blame.nvim", 
+      "f-person/git-blame.nvim",
       config = function()
         vim.api.nvim_set_keymap('n', '<leader>gb', ':GitBlameToggle<cr>', {})
       end,
@@ -222,20 +222,19 @@ return require("packer").startup({
 
     -- movement
     -- use("tpope/vim-surround")
- use({
-    "kylechui/nvim-surround",
-    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-    config = function()
+    use({
+      "kylechui/nvim-surround",
+      tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+      config = function()
         require("nvim-surround").setup({
-            -- Configuration here, or leave empty to use defaults
+          -- Configuration here, or leave empty to use defaults
         })
-    end
-})
+      end
+    })
     use("tpope/vim-surround")
     use("rhysd/clever-f.vim")
     use("haya14busa/incsearch.vim")
     use("dietsche/vim-lastplace")
-    
 
     -- quickfix
     use("stefandtw/quickfix-reflector.vim")
@@ -250,6 +249,16 @@ return require("packer").startup({
     })
 
     -- utilities
+    use("vimwiki/vimwiki")
+    use({
+      "rcarriga/nvim-notify",
+      config = function()
+        vim.notify = require('notify')
+        require("notify").setup({
+          background_colour = "#000000",
+        })
+      end
+    })
     use("dstein64/vim-startuptime")
     use({
       'szw/vim-maximizer',
@@ -257,6 +266,10 @@ return require("packer").startup({
         vim.api.nvim_set_keymap('n', '<leader>z', ':MaximizerToggle<cr>', {})
       end
     })
+
+    -- use({
+    --   'folke/flash.nvim'
+    -- })
     use({
       -- "phaazon/hop.nvim",
       "aznhe21/hop.nvim",
@@ -275,7 +288,13 @@ return require("packer").startup({
         -- vim.api.nvim_set_keymap("n", "s", ":HopLineStart<cr>", { noremap = true, silent = false })
       end,
     })
-
+    
+    -- use ({ 'ggandor/leap.nvim', 
+    -- config = function() 
+    --   require('leap').add_default_mappings()
+    --   end
+    -- })
+    -- 
     use({
       "slarwise/vim-tmux-send",
       config = function()
@@ -394,10 +413,11 @@ return require("packer").startup({
       end,
     })
 
-    use({ "folke/todo-comments.nvim", 
+    use({
+      "folke/todo-comments.nvim",
 
       requires = "nvim-lua/plenary.nvim",
-      config = function() 
+      config = function()
         require("todo-comments").setup {
           -- your configuration comes here
           -- or leave it empty to use the default settings
@@ -415,7 +435,8 @@ return require("packer").startup({
 
     --
     -- use('Pocco81/dap-buddy.nvim') -- doesnt work
-    use({ 'mfussenegger/nvim-dap',
+    use({
+      'mfussenegger/nvim-dap',
       config = function()
         require('config/dap/config')
       end,
