@@ -41,8 +41,8 @@ require("lazy").setup({
   "aznhe21/hop.nvim",
   -- textobjects,
   "kana/vim-textobj-user",
-  { "michaeljsmith/vim-indent-object",lazy = true },
-  { "glts/vim-textobj-comment", lazy = true },
+  { "michaeljsmith/vim-indent-object", lazy = true },
+  { "glts/vim-textobj-comment",        lazy = true },
   { "hchbaw/textobj-motionmotion.vim", lazy = true },
   -- { "kana/vim-textobj-lastpat", lazy = true },
   -- operations,
@@ -61,10 +61,11 @@ require("lazy").setup({
   --  "kdheepak/lazygit.nvim",
   "tpope/vim-fugitive",
   "f-person/git-blame.nvim",
-  -- {
-  --   "lewis6991/gitsigns.nvim",
-  --   dependencies = "nvim-lua/plenary.nvim"
-  -- },
+  {
+    "lewis6991/gitsigns.nvim",
+    dependencies = "nvim-lua/plenary.nvim",
+    lazy = true,
+  },
   -- comments
   {
     "tyru/caw.vim",

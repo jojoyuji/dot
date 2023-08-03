@@ -119,11 +119,6 @@ bind("n", "<leader>vp", ":e ~/.config/nvim/lua/plugins.lua<cr><c-w>", {})
 bind("n", "<leader>vo", ":e ~/.config/nvim/lua/settings.lua<cr><c-w>", {})
 bind("n", "<leader>vz", ":e $HOME/.zshrc<cr><c-w>", {})
 
-bind("n", "<leader>vu", ":Reload<cr>:PackerUpdate", {noremap = true})
-bind("n", "<leader>vi", ":Reload<cr>:PackerInstall<cr>", {noremap = true})
-bind("n", "<leader>vc", ":Reload<cr>:PackerClean<cr>", {noremap = true})
-bind("n", "<leader>vs", ":Reload<cr>:PackerSync<cr>", {noremap = true})
-
 -- bind("v", "y", "y:call ClipboardYank()<cr>", {noremap = true})
 -- bind("v", "d", "d:call ClipboardYank()<cr>", {noremap = true})
 -- bind("v", "x", "d:call ClipboardYank()<cr>", {noremap = true})
