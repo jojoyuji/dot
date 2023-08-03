@@ -1,3 +1,4 @@
+-- local lfs =  require "luafilesystem"
 local pickers = require "telescope.pickers"
 local finders = require "telescope.finders"
 local conf = require("telescope.config").values
@@ -9,7 +10,7 @@ vim.cmd([[command! CNPJ :let @+ = system('node ./node/geradorCNPJ.js') | echo 'C
 
 vim.api.nvim_create_user_command('Hello', function(input)
   -- local cpf = os.execute('node ./node/geradorCPF.js')
-  vim.notify("hello")
+  -- vim.notify(lfs.currentdit())
 end, { nargs = '*' }
 )
 
