@@ -23,6 +23,7 @@
                                     {
                                         "bundle_identifiers": [
                                             "^io\\.alacritty$",
+                                            "^org\\.alacritty$",
                                             "^com\\.apple\\.Terminal$",
                                             "^net\\.kovidgoyal\\.kitty$"
                                         ],
@@ -44,6 +45,7 @@
                                     {
                                         "bundle_identifiers": [
                                             "^io\\.alacritty$",
+                                            "^org\\.alacritty$",
                                             "^com\\.apple\\.Terminal$",
                                             "^net\\.kovidgoyal\\.kitty$"
                                         ],
@@ -69,7 +71,8 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^io\\.alacritty$"
+                                            "^io\\.alacritty$",
+                                            "^org\\.alacritty$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -88,7 +91,8 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^io\\.alacritty$"
+                                            "^io\\.alacritty$",
+                                            "^org\\.alacritty$"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
@@ -112,7 +116,8 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^io\\.alacritty$"
+                                            "^io\\.alacritty$",
+                                            "^org\\.alacritty$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -131,7 +136,8 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^io\\.alacritty$"
+                                            "^io\\.alacritty$",
+                                            "^org\\.alacritty$"
                                         ],
                                         "type": "frontmost_application_if"
                                     }

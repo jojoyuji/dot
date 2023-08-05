@@ -13,28 +13,28 @@ require("luasnip").config.setup({ store_selection_keys = "<tab>" })
 -- require'luasnip'.filetype_extend("vue", {"vue"})
 
 require("luasnip/loaders/from_vscode").lazy_load()
-require("luasnip/loaders/from_vscode" ).lazy_load({ paths = "~/.config/nvim/snippets" })
+require("luasnip/loaders/from_vscode").lazy_load({ paths = "~/.config/nvim/snippets" })
 
 vim.cmd([[command! LuaSnipEdit :lua require("luasnip.loaders.from_lua").edit_snippet_files()]]) --}}}
 
 -- Virtual Text{{{
 local types = require("luasnip.util.types")
 ls.config.set_config({
-	history = true, --keep around last snippet local to jump back
-	updateevents = "TextChanged,TextChangedI", --update changes as you type
-	enable_autosnippets = true,
-	ext_opts = {
-		[types.choiceNode] = {
-			active = {
-				virt_text = { { "●", "GruvboxOrange" } },
-			},
-		},
-		-- [types.insertNode] = {
-		-- 	active = {
-		-- 		virt_text = { { "●", "GruvboxBlue" } },
-		-- 	},
-		-- },
-	},
+  history = true,                           --keep around last snippet local to jump back
+  updateevents = "TextChanged,TextChangedI", --update changes as you type
+  enable_autosnippets = true,
+  ext_opts = {
+    [types.choiceNode] = {
+      active = {
+        virt_text = { { "●", "GruvboxOrange" } },
+      },
+    },
+    -- [types.insertNode] = {
+    -- 	active = {
+    -- 		virt_text = { { "●", "GruvboxBlue" } },
+    -- 	},
+    -- },
+  },
 }) --}}}
 
 -- Key Mapping --{{{
@@ -43,9 +43,9 @@ vim.keymap.set({ "i", "s" }, "<c-s>", "<Esc>:w<cr>")
 vim.keymap.set({ "i", "s" }, "<c-u>", '<cmd>lua require("luasnip.extras.select_choice")()<cr><C-c><C-c>')
 
 vim.keymap.set({ "i", "s" }, "<a-p>", function()
-	if ls.expand_or_jumpable() then
-		ls.expand()
-	end
+  if ls.expand_or_jumpable() then
+    ls.expand()
+  end
 end, { silent = true })
 -- vim.keymap.set({ "i", "s" }, "<C-k>", function()
 -- 	if ls.expand_or_jumpable() then
@@ -61,14 +61,14 @@ end, { silent = true })
 vim.keymap.set({ "i", "s" }, "<A-y>", "<Esc>o", { silent = true })
 
 vim.keymap.set({ "i", "s" }, "<tab>", function()
-	if ls.jumpable(1) then
-		ls.jump(1)
-	end
+  if ls.jumpable(1) then
+    ls.jump(1)
+  end
 end, { silent = true })
 vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
-	if ls.jumpable(-1) then
-		ls.jump(-1)
-	end
+  if ls.jumpable(-1) then
+    ls.jump(-1)
+  end
 end, { silent = true })
 
 -- vim.keymap.set({ "i", "s" }, "<c-l>", function()

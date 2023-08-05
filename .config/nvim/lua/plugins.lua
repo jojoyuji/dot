@@ -13,8 +13,11 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
+
 require("lazy").setup({
   -- completion
+  "nvim-treesitter/nvim-treesitter",
+  "nvim-treesitter/nvim-treesitter-context",
   'williamboman/mason.nvim',
   "williamboman/nvim-lsp-installer",
   "neovim/nvim-lspconfig",
@@ -44,7 +47,7 @@ require("lazy").setup({
   { "michaeljsmith/vim-indent-object", lazy = true },
   { "glts/vim-textobj-comment",        lazy = true },
   { "hchbaw/textobj-motionmotion.vim", lazy = true },
-  -- { "kana/vim-textobj-lastpat", lazy = true },
+  { "kana/vim-textobj-lastpat",        lazy = true },
   -- operations,
   "kylechui/nvim-surround",
   "rhysd/clever-f.vim",
@@ -116,9 +119,13 @@ require("lazy").setup({
   "diepm/vim-rest-console",
   "jojoyuji/switch.vim",
   "tpope/vim-dispatch",
-  "nvim-treesitter/nvim-treesitter",
   -- my plugins
-  -- ({ "~/.config/nvim/myPlugins", dependencies = { "nvim-lua/plenary.nvim" } }),
+  {
+    name = "myPlugins",
+    dev = true,
+    dir = "~/.config/nvim/myPlugins",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
   -- file tree explorer
   {
     "kyazdani42/nvim-tree.lua",

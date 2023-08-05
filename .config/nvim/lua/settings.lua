@@ -1,11 +1,9 @@
--- vim.cmd("set termguicolors")
 local o = vim.opt
 local wo = vim.opt
 local bo = vim.opt
 
 --vim.opt.fillchars = "fold: ,vert:│,eob: ,msgsep:‾"
-
--- o.fillchars = fold:\ ,vert:\│,eob:\ ,msgsep:‾ 
+-- o.fillchars = fold:\ ,vert:\│,eob:\ ,msgsep:‾
 vim.cmd [[ set fillchars=fold:\ ,vert:\│,eob:\ ,msgsep:‾ ]]
 -- " NOT SURE IF ITS OK
 -- " set fillchars+=stl:\ ,stlnc:\
@@ -41,14 +39,14 @@ o.timeout = false
 wo.foldmethod = "expr"
 wo.foldexpr = "nvim_treesitter#foldexpr()"
 -- set pastetoggle=<F6>
-o.pastetoggle = "<F6>"
+-- o.pastetoggle = "<F6>"
 wo.relativenumber = false
 -- set numberwidth=5        " margin-left between frame and line number
 wo.numberwidth = 5
 -- set visualbell           " don't beep
 o.visualbell = true
 -- set noerrorbells         " don't beep
-o.errorbells = false
+o.errorbells = true
 -- set noswapfile
 bo.swapfile = false
 -- set hidden               " u can have an unwritten file to open a new one
