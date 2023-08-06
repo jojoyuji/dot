@@ -18,6 +18,7 @@ require("lazy").setup({
   -- completion
   "nvim-treesitter/nvim-treesitter",
   "nvim-treesitter/nvim-treesitter-context",
+  { "folke/neodev.nvim", opts = {} }, -- autocomplete & utilities for nvim dev
   'williamboman/mason.nvim',
   "williamboman/nvim-lsp-installer",
   "neovim/nvim-lspconfig",

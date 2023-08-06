@@ -7,6 +7,7 @@ require 'conf.colorscheme.gruvbox'
 
 require 'conf.treesitter'
 require 'conf.nvim-treesitter-context'
+require 'conf.neodev'
 require 'conf.mason'
 require 'conf.bubbly'
 require 'conf.harpoon'
