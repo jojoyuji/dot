@@ -30,6 +30,7 @@ lspconfig.tsserver.setup({
 })
 lspconfig.jsonls.setup({
   on_attach = on_attach,
+  filetypes = { 'json' },
   init_options = {
     provideFormatter = true,
   },
@@ -39,7 +40,7 @@ lspconfig.eslint.setup({
 })
 lspconfig.volar.setup({
   on_attach = on_attach,
-  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' },
+  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
   init_options = {
     provideFormatter = true,
   },
