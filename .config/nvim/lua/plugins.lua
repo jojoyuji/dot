@@ -18,7 +18,7 @@ require("lazy").setup({
   -- completion
   "nvim-treesitter/nvim-treesitter",
   "nvim-treesitter/nvim-treesitter-context",
-  { "folke/neodev.nvim", opts = {} }, -- autocomplete & utilities for nvim dev
+  { "folke/neodev.nvim",               opts = {} }, -- autocomplete & utilities for nvim dev
   'williamboman/mason.nvim',
   "williamboman/nvim-lsp-installer",
   "neovim/nvim-lspconfig",
@@ -33,7 +33,8 @@ require("lazy").setup({
   "andersevenrud/cmp-tmux",
   "hrsh7th/cmp-emoji",
   -- statusline
-  "datwaft/bubbly.nvim",
+  "nvim-lualine/lualine.nvim",
+  -- "datwaft/bubbly.nvim",
   -- colorschemes,
   "drewtempelmeyer/palenight.vim",
   "sainnhe/edge",
@@ -84,8 +85,17 @@ require("lazy").setup({
     dependencies = "kyazdani42/nvim-web-devicons",
   },
   -- utilities,
+  {
+    'glacambre/firenvim',
+
+    -- Lazy load firenvim
+    -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
+    lazy = not vim.g.started_by_firenvim,
+    build = function()
+      vim.fn["firenvim#install"](0)
+    end
+  },
   "vimwiki/vimwiki",
-  "rcarriga/nvim-notify",
   "dstein64/vim-startuptime",
   'szw/vim-maximizer',
   "slarwise/vim-tmux-send",

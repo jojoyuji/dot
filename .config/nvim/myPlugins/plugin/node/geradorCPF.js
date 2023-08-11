@@ -56,6 +56,6 @@ const gerarCPF = (mask, placeholder = 'x') => {
 	return mask;
 };
 
-console.log(gerarCPF());
+console.log(gerarCPF() + '');
 
 module.exports = gerarCPF;
