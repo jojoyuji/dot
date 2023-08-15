@@ -1,6 +1,3 @@
--- (\ /)
--- ( . .)
--- o(")(")
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -85,6 +82,9 @@ require("lazy").setup({
     dependencies = "kyazdani42/nvim-web-devicons",
   },
   -- utilities,
+  'sk1418/HowMuch',
+  "lukas-reineke/indent-blankline.nvim",
+  { 'kevinhwang91/nvim-ufo',        dependencies = 'kevinhwang91/promise-async' },
   {
     'glacambre/firenvim',
 
