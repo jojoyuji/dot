@@ -114,11 +114,13 @@ bind("v", "*", ':call VisualSelection("f")<CR>', {noremap = true})
 bind("v", "#", ':call VisualSelection("b")<CR>', {noremap = true})
 
 bind("n", "<leader>vv", ":e $MYVIMRC<cr><c-w>", {})
-bind("n", "<leader>vm", ":e ~/.config/nvim/lua/keybinds.lua<cr><c-w>", {})
+bind("n", "<leader>vm", ":e ~/.config/nvim/lua/mappings.lua<cr><c-w>", {})
 bind("n", "<leader>vp", ":e ~/.config/nvim/lua/plugins.lua<cr><c-w>", {})
 bind("n", "<leader>vo", ":e ~/.config/nvim/lua/settings.lua<cr><c-w>", {})
 bind("n", "<leader>vz", ":e $HOME/.zshrc<cr><c-w>", {})
 
+
+bind("n", "<leader>vs", "<esc>:vsplit<cr>", {})
 -- bind("v", "y", "y:call ClipboardYank()<cr>", {noremap = true})
 -- bind("v", "d", "d:call ClipboardYank()<cr>", {noremap = true})
 -- bind("v", "x", "d:call ClipboardYank()<cr>", {noremap = true})

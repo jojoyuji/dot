@@ -48,6 +48,12 @@ function upprezto(){
   cd -
 }
 
+function nfy() {
+  if [[ $OS == 'OSX' ]]; then
+    osascript -e 'display notification "'$1'" with title "'$2'" subtitle "'$3'" sound name "Submarine"'
+  fi
+}
+
 # RUST verification
 if ! exists rustup; then
   # install rust
@@ -114,8 +120,6 @@ alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 # Shortcuts
 alias v="nvim"
-# ROT13-encode text. Works for decoding, too! ;)
-alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 # Empty the Trash on all mounted volumes and the main HDD
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
 if [[ $OS == 'OSX' ]]; then

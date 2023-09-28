@@ -2,13 +2,6 @@
 vim.cmd([[ command! Reload lua require("utils").Reload() ]])
 vim.cmd([[ command! Restart lua require("utils").Restart() ]])
 
--- vim.cmd [[
---  augroup lightline_color
---     autocmd!
---     autocmd ColorScheme * hi Normal guibg=NONE ctermbg=NONE
---     autocmd ColorScheme * hi SignColumn ctermbg=NONE guibg=NONE
--- augroup END
--- ]]
 vim.cmd([[ autocmd BufWinEnter * lcd %:p:h ]])
 -- keep of splits when resized
 vim.cmd([[au VimResized * exe "normal! \<c-w>="]])

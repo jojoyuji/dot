@@ -1,0 +1,25 @@
+ -- Função para gerar um dígito verificador para o CNPJ
+-- local function gerarDigitoVerificador(cnpjParcial)
+--     local mult = {5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2}
+--     local soma = 0
+--     for i = 1, #cnpjParcial do
+--         soma = soma + tonumber(cnpjParcial:sub(i, i)) * mult[i]
+--     end
+--     local resto = soma % 11
+--     return resto < 2 and 0 or 11 - resto
+-- end
+-- 
+-- -- Função para gerar um CNPJ fictício
+-- local function gerarCNPJFicticio()
+--     math.randomseed(os.time())
+--     local cnpjParcial = string.format("%08d", math.random(99999999))
+--     cnpjParcial = cnpjParcial .. "0001"
+--     local digito1 = gerarDigitoVerificador(cnpjParcial)
+--     local digito2 = gerarDigitoVerificador(cnpjParcial .. digito1)
+--     return cnpjParcial .. digito1 .. digito2
+-- end
+-- 
+-- -- Gerar um CNPJ fictício e imprimir
+-- local cnpjFicticio = gerarCNPJFicticio()
+-- print("CNPJ Fictício Gerado:", cnpjFicticio)
+

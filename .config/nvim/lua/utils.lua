@@ -13,11 +13,11 @@ end
 function M.UnloadAllModules()
   -- Lua patterns for the modules to unload
   local unload_modules = {
-    --'^config',
-    --'^keybinds$',
-    '^plugins$',
-    '^settings$',
+    --'^mappings$',
+    '^options$',
     --'^statusline$',
+    '^plugins$',
+    '^plugins_config$',
     '^utils$'
   }
 

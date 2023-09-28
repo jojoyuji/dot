@@ -30,8 +30,7 @@ require("lazy").setup({
   "andersevenrud/cmp-tmux",
   "hrsh7th/cmp-emoji",
   -- statusline
-  "nvim-lualine/lualine.nvim",
-  -- "datwaft/bubbly.nvim",
+  'ojroques/nvim-hardline',
   -- colorschemes,
   "drewtempelmeyer/palenight.vim",
   "sainnhe/edge",
@@ -83,7 +82,7 @@ require("lazy").setup({
   },
   -- utilities,
   'sk1418/HowMuch',
-  "lukas-reineke/indent-blankline.nvim",
+  -- "lukas-reineke/indent-blankline.nvim",
   { 'kevinhwang91/nvim-ufo',        dependencies = 'kevinhwang91/promise-async' },
   {
     'glacambre/firenvim',
@@ -121,7 +120,15 @@ require("lazy").setup({
   "elzr/vim-json",
   -- questionable...
   "tpope/vim-repeat",
-  "AndrewRadev/splitjoin.vim",
+  -- "AndrewRadev/splitjoin.vim",
+  {
+    'Wansmer/treesj',
+    keys = { 'J', 'J', 'L' },
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      require('treesj').setup({})
+    end,
+  },
   "tpope/vim-unimpaired",
   "andymass/vim-matchup",
   "editorconfig/editorconfig-vim",
