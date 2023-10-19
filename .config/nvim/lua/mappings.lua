@@ -4,7 +4,7 @@ local bind = vim.api.nvim_set_keymap
 vim.cmd [[ inoremap <expr> <cr> getline(".")[col(".")-2:col(".")-1]=="{}" ? "<cr><esc>O" : "<cr>" ]]
 
 bind("n", "<leader>so", ":Restart<cr>", {noremap = true, silent = false})
-bind("n", "<leader>nt", ":e ~/Google Drive/Meu Drive/AOOP/boti/logs<cr>", {noremap = true})
+bind("n", "<leader>nt", ":e ~/GDrive/AOOP/boti/logs<cr>", {noremap = true})
 
 bind("n", "<leader>so", ":Restart<cr>", {noremap = true, silent = false})
 
