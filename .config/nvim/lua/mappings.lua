@@ -5,6 +5,7 @@ vim.cmd [[ inoremap <expr> <cr> getline(".")[col(".")-2:col(".")-1]=="{}" ? "<cr
 
 bind("n", "<leader>so", ":Restart<cr>", {noremap = true, silent = false})
 bind("n", "<leader>nt", ":e ~/GDrive/AOOP/boti/logs<cr>", {noremap = true})
+-- bind("n", "<leader>tt", ":e ~/GDrive/NOTAS/TODO/todo.txt<cr>", {noremap = true})
 
 bind("n", "<leader>so", ":Restart<cr>", {noremap = true, silent = false})
 

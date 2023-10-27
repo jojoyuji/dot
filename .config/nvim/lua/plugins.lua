@@ -141,7 +141,6 @@ require("lazy").setup({
   {
     name = "myPlugins",
     dev = true,
-    dir = "~/.config/nvim/myPlugins",
     dependencies = { "nvim-lua/plenary.nvim" },
   },
   -- file tree explorer
@@ -169,4 +168,14 @@ require("lazy").setup({
       { "nvim-telescope/telescope.nvim" },
     },
   },
-})
+}, {
+
+  dev = {
+    -- directory where you store your local plugin projects
+    path = "~/.config/nvim/",
+    ---@type string[] plugins that match these patterns will use your local versions instead of being fetched from GitHub
+    patterns = {}, -- For example {"folke"}
+    fallback = false, -- Fallback to git when local plugin doesn't exist
+  },
+  }
+)

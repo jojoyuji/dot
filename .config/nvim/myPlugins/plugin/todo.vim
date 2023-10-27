@@ -1,5 +1,9 @@
 scriptencoding utf-8
 
+let g:TodoTxtStripDoneItemPriority=1
+let g:Todo_fold_char='+'
+let g:Todo_update_fold_on_sort=0
+
 function! CreateCenteredFloatingWindow() abort
   let height = float2nr((&lines - 2) / 1.5)
   let row = float2nr((&lines - height) / 2)
