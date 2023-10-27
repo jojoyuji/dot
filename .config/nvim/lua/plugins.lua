@@ -140,6 +140,7 @@ require("lazy").setup({
   -- my plugins
   {
     name = "myPlugins",
+    dir = "~/.config/nvim/myPlugins",
     dev = true,
     dependencies = { "nvim-lua/plenary.nvim" },
   },
