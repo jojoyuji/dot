@@ -1,30 +1,39 @@
 vim.api.nvim_set_keymap("n", "-", ":Switch<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>/", ":e ~/.config/nvim/lua/conf/switch.lua<CR>", { noremap = true })
 
---  \   switch#NormalizedCase(['one', 'two']),
+-- Samples
+-- \   switch#NormalizedCase(['one', 'two']),
 -- \   switch#Words(['three', 'four']),
 -- \   switch#NormalizedCaseWords(['five', 'six']),
 
 vim.cmd[[
  let g:switch_custom_definitions = 
   \ [
+  \   switch#NormalizedCase(['on', 'off']),
+  \   switch#NormalizedCase(['true', 'false']),
+  \   switch#NormalizedCase(['yes', 'no']),
+  \   switch#NormalizedCase(['sim', 'não']),
+  \   switch#NormalizedCase(['show', 'hide']),
+  \   switch#NormalizedCase(['after', 'before']),
+  \   switch#NormalizedCase(['next', 'previous']),
+  \   [ "min", "max" ],
+  \   
+  \   
   \   [ "addClass", "removeClass" ],
   \   [ "GET", "POST", "PUT", "DELETE", "PATCH" ],
   \   [ "get", "set" ],
   \   [ "left", "right", "center" ],
   \   [ "width", "height" ],
   \   [ "error", "success", "warning" ],
-  \   [ "show", "hide" ],
-  \   [ "after", "before" ],
   \   [ "padding", "margin" ],
   \   [ "top", "bottom" ],
   \   [ "relative", "absolute", "fixed", "static" ],
-  \   [ "setTimeout", "setInterval" ],
-  \   [ "$scope", "$rootScope" ],
-  \   [ "$emit", "$broadcast" ],
-  \   [ "console.log", "alert" ],
   \   [ "radio", "checkbox", "hidden" ],
-  \   [ "min", "max" ],
+  \
+  \   [ "setTimeout", "setInterval" ],
+  \   [ "console.log", "alert" ],
   \   [ "unshift", "push" ],
+  \
   \   { 
   \     '\<[a-z0-9]\+_\k\+\>': {
   \       '_\(.\)': '\U\1'
@@ -38,6 +47,5 @@ vim.cmd[[
   \     '\(const\|var\|let\)\(.*\)\(=.*require(\)\(.*\)\()\)': 'import\2from \4'
   \   },
   \ ]
-
 ]]
 

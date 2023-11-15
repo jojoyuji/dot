@@ -17,7 +17,7 @@ require("lazy").setup({
   -- completion
   "nvim-treesitter/nvim-treesitter",
   "nvim-treesitter/nvim-treesitter-context",
-  { "folke/neodev.nvim",               opts = {} }, -- autocomplete & utilities for nvim dev
+  { "folke/neodev.nvim", opts = {} }, -- autocomplete & utilities for nvim dev
   -- "williamboman/nvim-lsp-installer",
   "neovim/nvim-lspconfig",
   'williamboman/mason.nvim',
@@ -54,20 +54,6 @@ require("lazy").setup({
   "rhysd/clever-f.vim",
   "haya14busa/incsearch.vim",
   "dietsche/vim-lastplace",
-   {
-    "michaelb/sniprun",
-    branch = "master",
-
-    build = "sh install.sh",
-    -- do 'sh install.sh 1' if you want to force compile locally
-    -- (instead of fetching a binary from the github release). Requires Rust >= 1.65
-
-    config = function()
-      require("sniprun").setup({
-      -- your options
-      })
-    end,
-  },
   -- quickfix,
   "stefandtw/quickfix-reflector.vim",
   -- "romainl/vim-qf",
