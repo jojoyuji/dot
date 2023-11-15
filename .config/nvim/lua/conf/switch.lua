@@ -1,8 +1,11 @@
 vim.api.nvim_set_keymap("n", "-", ":Switch<CR>", { noremap = true })
- -- import teste from 'asdada';
 
-vim.cmd([[
- let b:switch_custom_definitions = 
+--  \   switch#NormalizedCase(['one', 'two']),
+-- \   switch#Words(['three', 'four']),
+-- \   switch#NormalizedCaseWords(['five', 'six']),
+
+vim.cmd[[
+ let g:switch_custom_definitions = 
   \ [
   \   [ "addClass", "removeClass" ],
   \   [ "GET", "POST", "PUT", "DELETE", "PATCH" ],
@@ -15,11 +18,11 @@ vim.cmd([[
   \   [ "padding", "margin" ],
   \   [ "top", "bottom" ],
   \   [ "relative", "absolute", "fixed", "static" ],
-  \   [ "setTimeout", "$timeout", "setInterval" ],
+  \   [ "setTimeout", "setInterval" ],
   \   [ "$scope", "$rootScope" ],
   \   [ "$emit", "$broadcast" ],
   \   [ "console.log", "alert" ],
-  \   [ "radio", "checkbox" ],
+  \   [ "radio", "checkbox", "hidden" ],
   \   [ "min", "max" ],
   \   [ "unshift", "push" ],
   \   { 
@@ -36,7 +39,5 @@ vim.cmd([[
   \   },
   \ ]
 
-]])
-  -- '\(import\)\(.*\)\(from\s\)\([\'|"]\S.*[\'|"]\)'
---\(import\)\(.*\)\(from\)\s*\([\'|"]\S*[\'|"]\)
+]]
 

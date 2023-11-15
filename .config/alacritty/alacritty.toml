@@ -49,8 +49,7 @@ render_timer = false
 TERM = "screen-256color"
 
 [font]
-size = 16.0
-# use_thin_strokes = true
+size = 18.0
 
 [font.bold]
 family = "JetBrainsMono Nerd Font Mono"

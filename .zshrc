@@ -75,9 +75,13 @@ alias cls="clear"
 alias lg="lazygit"
 
 
+alias nv='nvim'
 alias im='nvim'
+alias im='nvim'
+alias vim='nvim'
+alias v='nvim'
 alias nvim='~/nvim-macos/bin/nvim'
-alias v='~/nvim-osx64/bin/nvim'
+
 alias stat='gotop -c monokai'
 alias irc= 'weechat';
 alias sharemux="gotty tmux new-session -A -s jojolitos"

@@ -12,13 +12,16 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+  -- "jojoyuji/switch.vim",u
+  'AndrewRadev/switch.vim',
   -- completion
   "nvim-treesitter/nvim-treesitter",
   "nvim-treesitter/nvim-treesitter-context",
   { "folke/neodev.nvim",               opts = {} }, -- autocomplete & utilities for nvim dev
-  'williamboman/mason.nvim',
-  "williamboman/nvim-lsp-installer",
+  -- "williamboman/nvim-lsp-installer",
   "neovim/nvim-lspconfig",
+  'williamboman/mason.nvim',
+  'nvimdev/lspsaga.nvim',
   'hrsh7th/nvim-cmp',
   'hrsh7th/cmp-nvim-lsp',
   'L3MON4D3/LuaSnip',
@@ -66,16 +69,13 @@ require("lazy").setup({
     end,
   },
   -- quickfix,
-  -- "itchyny/vim-qfedit",
   "stefandtw/quickfix-reflector.vim",
-  -- "gabrielpoca/replacer.nvim",
   -- "romainl/vim-qf",
   -- bookmarks,
   "MattesGroeger/vim-bookmarks",
   "mbbill/undotree",
   -- git,
   "aacunningham/vim-fuzzy-stash",
-  --  "kdheepak/lazygit.nvim",
   "tpope/vim-fugitive",
   "f-person/git-blame.nvim",
   {
@@ -111,6 +111,7 @@ require("lazy").setup({
     end
   },
   "vimwiki/vimwiki",
+  -- 'nvim-neorg/neorg',
   -- "lervag/wiki.vim",
   "dstein64/vim-startuptime",
   'szw/vim-maximizer',
@@ -125,6 +126,11 @@ require("lazy").setup({
   "leafOfTree/vim-svelte-plugin",
   "dbeniamine/todo.txt-vim",
   { "iamcco/markdown-preview.nvim", build = "cd app && npm install" },
+  {
+    "lukas-reineke/headlines.nvim",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    config = true, -- or `opts = {}`
+  },
   -- inutilities :)
   "jojoyuji/megaman-vim",
   "jojoyuji/nyancat-vim",
@@ -152,7 +158,6 @@ require("lazy").setup({
   "posva/vim-vue",
   "lambdalisue/vim-gista",
   "diepm/vim-rest-console",
-  "jojoyuji/switch.vim",
   "tpope/vim-dispatch",
   -- my plugins
   {
@@ -197,3 +202,4 @@ require("lazy").setup({
   },
   }
 )
+

@@ -14,7 +14,7 @@ bind("n", ";", ":", {noremap = true})
 
 -- "removes trailing spaces and indent
 -- vim.cmd([[ nnoremap Q gg=G``zz <esc> :%s/\s\+$//e<esc>:echo ""<esc>``zz ]])
-bind("n", "Q", ':lua vim.lsp.buf.format()<cr>', {noremap = true, silent = false})
+-- bind("n", "Q", ':lua vim.lsp.buf.format()<cr>', {noremap = true, silent = false})
 
 bind("n", "go", ":OpenURL<cr>", {noremap = true})
 
@@ -101,8 +101,8 @@ bind("n", "<leader>sfm", ":set fdm=marker<cr>", {noremap = true})
 -- bind("n", "<leader>]", ":bnext<cr>", {noremap = true})
 -- bind("n", "<leader>[", ":bprev<cr>", {noremap = true})
 
-bind("n", "+", ':exe "resize " . (winheight(0) + 5)<CR>', {noremap = true})
-bind("n", "_", ':exe "resize " . (winheight(0) - 5)<CR>', {noremap = true})
+-- bind("n", "+", ':exe "resize " . (winheight(0) + 5)<CR>', {noremap = true})
+-- bind("n", "_", ':exe "resize " . (winheight(0) - 5)<CR>', {noremap = true})
 
 bind("n", ")", ':exe "vertical resize " . (winwidth(0) + 5)<CR>', {noremap = true})
 bind("n", "(", ':exe "vertical resize " . (winwidth(0) - 5)<CR>', {noremap = true})
