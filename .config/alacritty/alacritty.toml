@@ -53,7 +53,7 @@ size = 16.0
 # use_thin_strokes = true
 
 [font.bold]
-family = "InconsolataGo Nerd Font"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Bold"
 
 [font.glyph_offset]
@@ -61,11 +61,11 @@ x = 0
 y = 0
 
 [font.italic]
-family = "InconsolataGo Nerd Font"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Italic"
 
 [font.normal]
-family = "InconsolataGo Nerd Font"
+family = "JetBrainsMono Nerd Font Mono"
 # family = "FiraCode Nerd Font Mono"
 
 [font.offset]

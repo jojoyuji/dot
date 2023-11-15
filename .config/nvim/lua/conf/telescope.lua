@@ -80,16 +80,6 @@ require("telescope").setup({
 
 require("telescope").load_extension("neoclip")
 
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>pf",
-	"<CMD>lua require'config/telescope-gitfallback'.project_files()<CR>",
-	{ noremap = true }
-)
-vim.api.nvim_set_keymap("n", "<leader>y", "<CMD>Telescope neoclip a extra=star,plus,b<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>mr", "<CMD>Telescope oldfiles<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>b", "<CMD>Telescope buffers<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>ps", "<CMD>Telescope live_grep<cr>", { noremap = true })
 
 local action_state = require("telescope.actions.state")
 
@@ -112,4 +102,27 @@ end
 
 vim.api.nvim_set_keymap("n", "<leader>b", ":lua m.my_buffer()<cr>", { noremap = true })
 
+local utils = require('telescope.utils')
+local builtin = require('telescope.builtin')
+
+m.project_files = function()
+    local _, ret, _ = utils.get_os_command_output({ 'git', 'rev-parse', '--is-inside-work-tree' }) 
+    if ret == 0 then 
+        builtin.git_files() 
+    else 
+        builtin.find_files() 
+    end 
+end
+-- project_files()
+
+vim.api.nvim_set_keymap("n", "<leader>y", "<CMD>Telescope neoclip a extra=star,plus,b<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>mr", "<CMD>Telescope oldfiles<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>b", "<CMD>Telescope buffers<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>ps", "<CMD>Telescope live_grep<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>pc", "<CMD>Telescope colorscheme<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>pm", "<CMD>Telescope marks<cr>", { noremap = true })
+vim.api.nvim_set_keymap( "n", "<leader>pf", ":lua m.project_files()<cr>", { noremap = true })
+
+
 -- require("neoclip").setup()
+--

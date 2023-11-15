@@ -226,6 +226,7 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH=$HOME:$PATH
 export PATH=$HOME/local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 export PATH=usr/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH="/usr/local/bin:$PATH"
@@ -233,6 +234,7 @@ export PATH="/usr/.local/bin:$PATH"
 export PATH="/usr/local/heroku/bin:$PATH"
 export PNPM_HOME="/Users/jojo/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
+
 
 if [ -d "/usr/local/opt/ruby/bin" ]; then
   export PATH=/usr/local/opt/ruby/bin:$PATH
@@ -243,6 +245,10 @@ export PNPM_HOME="/Users/jojo/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 export PATH="$GOPATH/bin":$PATH
 #pnpm end
+#
+#
+export PATH="/opt/homebrew/lib/python3.11/site-packages:$PATH"
+export PATH="/opt/homebrew/opt/python@3.11/libexec/bin:$PATH"
 
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --bind ctrl-j:down,ctrl-k:up'
 
