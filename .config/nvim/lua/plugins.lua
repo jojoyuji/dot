@@ -178,6 +178,7 @@ require("lazy").setup({
     dependencies = { "nvim-lua/plenary.nvim" }
   },
   {
+
     "AckslD/nvim-neoclip.lua",
     dependencies = {
       { "kkharji/sqlite.lua",           module = "sqlite" },
@@ -185,7 +186,6 @@ require("lazy").setup({
     },
   },
 }, {
-
   dev = {
     -- directory where you store your local plugin projects
     path = "~/.config/nvim/",

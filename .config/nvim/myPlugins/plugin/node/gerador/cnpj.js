@@ -27,3 +27,5 @@ function cnpj(mascara) {
 }
 
 console.log(cnpj() + '');
+
+module.exports = cnpj;

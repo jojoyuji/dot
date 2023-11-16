@@ -1,4 +1,7 @@
 local actions = require("telescope.actions")
+local themes = require "telescope.themes"
+local action_state = require("telescope.actions.state")
+
 require("telescope").setup({
   defaults = {
     theme = "center",
@@ -93,8 +96,6 @@ require("telescope").setup({
 require("telescope").load_extension("neoclip")
 
 
-local action_state = require("telescope.actions.state")
-
 M = {}
 M.my_buffer = function()
   require("telescope.builtin").buffers({
@@ -111,7 +112,7 @@ M.my_buffer = function()
   })
 end
 
-vim.api.nvim_set_keymap("n", "<leader>b", ":lua m.my_buffer()<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>b", ":lua M.my_buffer()<cr>", { noremap = true })
 
 local utils = require('telescope.utils')
 local builtin = require('telescope.builtin')
@@ -132,8 +133,103 @@ vim.api.nvim_set_keymap("n", "<leader>b", "<CMD>Telescope buffers<CR>", { norema
 vim.api.nvim_set_keymap("n", "<leader>ps", "<CMD>Telescope live_grep<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>pc", "<CMD>Telescope colorscheme<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>pm", "<CMD>Telescope marks<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>pf", ":lua m.project_files()<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>pf", ":lua M.project_files()<cr>", { noremap = true })
 
--- vim.cmd [[ nnoremap <leader>jo :lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({ winblend = 10 }))<cr> ]]
+SHOULD_RELOAD_TELESCOPE = true
+local reloader = function()
+  if SHOULD_RELOAD_TELESCOPE then
+    R "plenary"
+    R "telescope"
+    R "tj.telescope.setup"
+  end
+end
+
+-- local actions = require "telescope.actions"
+-- local action_state = require "telescope.actions.state"
+
+local set_prompt_to_entry_value = function(prompt_bufnr)
+  local entry = action_state.get_selected_entry()
+  if not entry or not type(entry) == "table" then
+    return
+  end
+
+  action_state.get_current_picker(prompt_bufnr):reset_prompt(entry.ordinal)
+end
+
+-- local M = {}
+vim.api.nvim_set_keymap("n", "<leader>pv", ":lua M.edit_neovim()<cr>", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "/", ":lua M.curbuf()<cr>", { noremap = true })
 
 
+function M.edit_neovim()
+  local opts_with_preview, opts_without_preview
+
+  opts_with_preview = {
+    prompt_title = "~ dotfiles ~",
+    shorten_path = false,
+    cwd = "~/.config/nvim",
+
+    layout_strategy = "flex",
+    layout_config = {
+      width = 0.9,
+      height = 0.8,
+
+      horizontal = {
+        width = { padding = 0.15 },
+      },
+      vertical = {
+        preview_height = 0.75,
+      },
+    },
+
+    mappings = {
+      i = {
+        ["<C-y>"] = false,
+      },
+    },
+
+    attach_mappings = function(_, map)
+      map("i", "<c-y>", set_prompt_to_entry_value)
+      map("i", "<M-c>", function(prompt_bufnr)
+        actions.close(prompt_bufnr)
+        vim.schedule(function()
+          require("telescope.builtin").find_files(opts_without_preview)
+        end)
+      end)
+
+      return true
+    end,
+  }
+
+  opts_without_preview = vim.deepcopy(opts_with_preview)
+  opts_without_preview.previewer = false
+
+  require("telescope.builtin").find_files(opts_with_preview)
+end
+
+function M.find_nvim_source()
+  require("telescope.builtin").find_files {
+    prompt_title = "~ nvim ~",
+    shorten_path = false,
+    cwd = "~/build/neovim/",
+
+    layout_strategy = "horizontal",
+    layout_config = {
+      preview_width = 0.35,
+    },
+  }
+end
+
+function M.edit_zsh()
+  require("telescope.builtin").find_files {
+    shorten_path = false,
+    cwd = "~/.config/zsh/",
+    prompt = "~ dotfiles ~",
+    hidden = true,
+
+    layout_strategy = "horizontal",
+    layout_config = {
+      preview_width = 0.55,
+    },
+  }
+end
