@@ -13,7 +13,7 @@ bind("n", ";", ":", {noremap = true})
 
 -- "removes trailing spaces and indent
 -- vim.cmd([[ nnoremap Q gg=G``zz <esc> :%s/\s\+$//e<esc>:echo ""<esc>``zz ]])
--- bind("n", "Q", ':lua vim.lsp.buf.format()<cr>', {noremap = true, silent = false})
+bind("n", "Q", ':lua vim.lsp.buf.format()<cr>', {noremap = true, silent = false})
 
 bind("n", "go", ":OpenURL<cr>", {noremap = true})
 

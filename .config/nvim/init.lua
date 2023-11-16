@@ -4,6 +4,3 @@ require("mappings")
 require("plugins")
 require("plugins_config")
 require("optimizations")
-
--- vim.cmd[[so ~/.config/nvim/myPlugins/**.vim]]
-vim.cmd[[ let g:wiki_root = '~/wiki' ]]

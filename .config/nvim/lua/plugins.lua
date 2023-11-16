@@ -41,6 +41,13 @@ require("lazy").setup({
   "ellisonleao/gruvbox.nvim",
   "folke/tokyonight.nvim",
   "wojciechkepka/bogster",
+  { "catppuccin/nvim",   name = "catppuccin", priority = 1000 },
+  {
+    'sainnhe/everforest',
+    config = function()
+      vim.cmd [[ let g:everforest_background="hard" ]]
+    end
+  },
   -- movement,
   "aznhe21/hop.nvim",
   -- textobjects,
@@ -183,9 +190,8 @@ require("lazy").setup({
     -- directory where you store your local plugin projects
     path = "~/.config/nvim/",
     ---@type string[] plugins that match these patterns will use your local versions instead of being fetched from GitHub
-    patterns = {}, -- For example {"folke"}
+    patterns = {},    -- For example {"folke"}
     fallback = false, -- Fallback to git when local plugin doesn't exist
   },
-  }
+}
 )
-
