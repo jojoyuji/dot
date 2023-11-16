@@ -17,7 +17,7 @@ local action_state = require "telescope.actions.state"
 --   end
 -- end
 
-local custom_commands = function(opts)
+Custom_commands = function(opts)
   opts = opts or {}
 
   local result = pickers.new(opts, {
@@ -26,8 +26,11 @@ local custom_commands = function(opts)
     theme = 'ivy',
     finder = finders.new_table {
       results = {
+        { "Gerar CEP", "cep" },
         { "Gerar CPF",  "cpf" },
         { "Gerar CNPJ", "cnpj" },
+        { "Gerar RG", "rg" },
+        { "Gerar PISPASEP", "pispasep" },
         -- { "bloow", "#0000ff" },
       },
       entry_maker = function(entry)
@@ -52,5 +55,5 @@ local custom_commands = function(opts)
     sorter = conf.generic_sorter(opts),
   }):find()
 end
-vim.api.nvim_set_keymap('n', '<leader><leader>c', ":lua custom_commands(require('telescope.themes').get_cursor{})<cr>",
+vim.api.nvim_set_keymap('n', '<leader><leader>c', ":lua Custom_commands(require('telescope.themes').get_cursor{})<cr>",
   { noremap = true })
