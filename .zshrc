@@ -75,6 +75,7 @@ alias cls="clear"
 alias lg="lazygit"
 
 
+alias ni='nvim'
 alias nv='nvim'
 alias nvi='nvim'
 alias im='nvim'
@@ -93,12 +94,12 @@ alias ls='eza --icons'
 alias lsd='eza -l | grep "^d" --icons'
 # Always use color output for `ls`
 alias top='bpytop' #brew install bpytop
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --app=https://youtube.com"
 
 # alias sharemux="gotty tmux new-session -A -s jojolitos"
 # brew install yudai/gotty/gotty
 
 alias share="tty-share --public" # brew install tty-share
-
 
 # Easier navigation: .., ..., ~ and -
 alias ..="cd .."
@@ -106,12 +107,6 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ~="cd ~" # `cd` is probably faster to type though
-# Detect which `ls` flavor is in use
-if ls --color > /dev/null 2>&1; then # GNU `ls`
-	colorflag="--color"
-else # OS X `ls`
-	colorflag="-G"
-fi
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -124,6 +119,7 @@ alias flush="dscacheutil -flushcache"
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
+
 # Shortcuts
 # Empty the Trash on all mounted volumes and the main HDD
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
@@ -185,10 +181,6 @@ alias gs='git status' # Git Status
 alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`' # git root
 
 
-
-
-### Added by the Heroku Toolbelt
-[ -f ~/.secrets.zsh ] && source ~/.secrets
 # Prezto
 [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]] && source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
@@ -252,9 +244,3 @@ export PATH="$GOPATH/bin":$PATH
 
 export PATH="/opt/homebrew/lib/python3.11/site-packages:$PATH"
 export PATH="/opt/homebrew/opt/python@3.11/libexec/bin:$PATH"
-
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --bind ctrl-j:down,ctrl-k:up'
-
-# export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
-
-# export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}"'
