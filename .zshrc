@@ -94,7 +94,8 @@ alias ls='eza --icons'
 alias lsd='eza -l | grep "^d" --icons'
 # Always use color output for `ls`
 alias top='bpytop' #brew install bpytop
-alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --app=https://youtube.com"
+alias cat='bat' #brew install bat
+alias chrom="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --app=https://youtube.com"
 
 # alias sharemux="gotty tmux new-session -A -s jojolitos"
 # brew install yudai/gotty/gotty

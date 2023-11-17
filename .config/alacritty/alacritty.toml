@@ -80,10 +80,12 @@ save_to_clipboard = false
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [window]
-# decorations = "buttonless"
-decorations = "none"
+# decorations = "full"
+# decorations = "transparent"
+decorations = "buttonless"
+# decorations = "none"
 dynamic_padding = true
-opacity = 0.86
+opacity = 0.87
 startup_mode = "Maximized"
 title = "Alacritty"
 
@@ -93,7 +95,7 @@ lines = 0
 
 [window.padding]
 x = 2
-y = 3
+y = 2
 
 [[keyboard.bindings]]
 action = "Paste"
