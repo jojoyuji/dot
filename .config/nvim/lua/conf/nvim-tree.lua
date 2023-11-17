@@ -29,7 +29,6 @@ local function my_on_attach(bufnr)
   --   end
   -- end
   -- print(dump(api.tree))
-
 end
 
 -- disable netrw at the very start of your init.lua
@@ -52,4 +51,9 @@ require("nvim-tree").setup({
     dotfiles = true,
   },
   on_attach = my_on_attach,
+  actions = {
+    open_file = {
+      quit_on_open = true,
+    },
+  },
 })
