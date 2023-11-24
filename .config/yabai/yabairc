@@ -17,7 +17,7 @@ yabai -m config \
     window_opacity on \
     insert_feedback_color 0xffd75f5f \
     split_type auto \
-    auto_balance on \
+    auto_balance off \
     top_padding 8 \
     bottom_padding 8 \
     left_padding 8 \

@@ -2,6 +2,16 @@ vim.api.nvim_set_keymap("n", "<leader><tab>", ":NvimTreeToggle ./<cr>", { norema
 vim.api.nvim_set_keymap("n", "<leader>f", ":NvimTreeFindFile<cr>", { noremap = true, silent = true })
 vim.cmd([[ autocmd FileType NvimTree nnoremap <buffer> <leader>q :NvimTreeClose<cr> ]])
 
+vim.api.nvim_create_autocmd("BufLeave", {
+  callback = function(arg)
+    -- print(vim.api.nvim_buf_get_name(0))
+    if vim.api.nvim_buf_get_name(0):match("NvimTree_") ~= nil then
+      -- vim.cmd "echo 'HELLO'"
+      vim.cmd "quit"
+    end
+  end
+})
+
 local function my_on_attach(bufnr)
   local api = require "nvim-tree.api"
 
@@ -16,19 +26,6 @@ local function my_on_attach(bufnr)
   vim.keymap.set('n', 'u', api.tree.change_root_to_parent, opts('Up'))
   vim.keymap.set('n', 'C', api.tree.change_root_to_node, opts('Up'))
   vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
-  -- local function dump(o)
-  --   if type(o) == 'table' then
-  --     local s = '{ '
-  --     for k, v in pairs(o) do
-  --       if type(k) ~= 'number' then k = '"' .. k .. '"' end
-  --       s = s .. '[' .. k .. '] = ' .. dump(v) .. ','
-  --     end
-  --     return s .. '} '
-  --   else
-  --     return tostring(o)
-  --   end
-  -- end
-  -- print(dump(api.tree))
 end
 
 -- disable netrw at the very start of your init.lua

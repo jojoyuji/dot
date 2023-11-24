@@ -6,6 +6,10 @@ require("hop").setup({
   -- hint_offset = 1,
   -- hint_position = require'hop.hint'.HintPosition.END,
 })
-vim.api.nvim_set_keymap("n", "s", ":HopWordAC<cr>", { noremap = true, silent = false })
-vim.api.nvim_set_keymap("n", "S", ":HopWordBC<cr>", { noremap = true, silent = false })
+vim.api.nvim_set_keymap("n", "f", ":HopWordAC<cr>", { noremap = true, silent = false })
+vim.api.nvim_set_keymap("n", "F", ":HopWordBC<cr>", { noremap = true, silent = false })
+
+vim.api.nvim_set_keymap("n", "t", ":HopChar1<cr>", { noremap = true, silent = false })
+vim.api.nvim_set_keymap("o", "t", "v:HopChar1<cr>", { noremap = true, silent = false })
+
 -- vim.api.nvim_set_keymap("n", "s", ":HopLineStart<cr>", { noremap = true, silent = false })

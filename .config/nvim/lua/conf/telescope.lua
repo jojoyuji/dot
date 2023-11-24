@@ -65,7 +65,7 @@ require("telescope").setup({
     generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
     -- shorten_path = true,
     path_display = {},
-    winblend = 20,
+    winblend = 15,
     results_height = 1,
     results_width = 0.8,
     border = {},
@@ -120,9 +120,9 @@ local builtin = require('telescope.builtin')
 M.project_files = function()
   local _, ret, _ = utils.get_os_command_output({ 'git', 'rev-parse', '--is-inside-work-tree' })
   if ret == 0 then
-    builtin.git_files(require('telescope.themes').get_ivy({ winblend = 20 }))
+    builtin.git_files(require('telescope.themes').get_ivy({ winblend = 15 }))
   else
-    builtin.find_files(require('telescope.themes').get_ivy({ winblend = 20 }))
+    builtin.find_files(require('telescope.themes').get_ivy({ winblend = 15 }))
   end
 end
 -- project_files()
