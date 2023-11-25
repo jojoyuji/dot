@@ -12,13 +12,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  -- "jojoyuji/switch.vim",u
   'AndrewRadev/switch.vim',
   -- completion
   "nvim-treesitter/nvim-treesitter",
   "nvim-treesitter/nvim-treesitter-context",
   { "folke/neodev.nvim", opts = {} }, -- autocomplete & utilities for nvim dev
-  -- "williamboman/nvim-lsp-installer",
   "neovim/nvim-lspconfig",
   'williamboman/mason.nvim',
   'nvimdev/lspsaga.nvim',
@@ -32,8 +30,8 @@ require("lazy").setup({
   "hrsh7th/cmp-cmdline",
   "andersevenrud/cmp-tmux",
   "hrsh7th/cmp-emoji",
-  -- statusline
-  'ojroques/nvim-hardline',
+  -- 'ojroques/nvim-hardline',
+  -- 'rebelot/heirline.nvim',
   -- colorschemes,
   "drewtempelmeyer/palenight.vim",
   "sainnhe/edge",
@@ -48,6 +46,8 @@ require("lazy").setup({
       vim.cmd [[ let g:everforest_background="hard" ]]
     end
   },
+  -- statusline
+  'windwp/windline.nvim',
   -- movement,
   "aznhe21/hop.nvim",
   -- textobjects,
@@ -91,7 +91,6 @@ require("lazy").setup({
   },
   -- utilities,
   'sk1418/HowMuch',
-  -- "lukas-reineke/indent-blankline.nvim",
   { 'kevinhwang91/nvim-ufo',        dependencies = 'kevinhwang91/promise-async' },
   {
     'glacambre/firenvim',
@@ -119,6 +118,17 @@ require("lazy").setup({
   "leafOfTree/vim-svelte-plugin",
   "dbeniamine/todo.txt-vim",
   { "iamcco/markdown-preview.nvim", build = "cd app && npm install" },
+  {
+    "toppair/peek.nvim",
+    event = { "VeryLazy" },
+    build = "deno task --quiet build:fast",
+    config = function()
+      require("peek").setup()
+      -- refer to `configuration to change defaults`
+      vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+      vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+    end,
+  },
   {
     "lukas-reineke/headlines.nvim",
     dependencies = "nvim-treesitter/nvim-treesitter",
@@ -152,6 +162,7 @@ require("lazy").setup({
   "lambdalisue/vim-gista",
   "diepm/vim-rest-console",
   "tpope/vim-dispatch",
+  "mfussenegger/nvim-dap",
   -- my plugins
   {
     name = "myPlugins",

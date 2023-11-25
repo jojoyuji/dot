@@ -55,5 +55,5 @@ Custom_commands = function(opts)
     sorter = conf.generic_sorter(opts),
   }):find()
 end
-vim.api.nvim_set_keymap('n', '<leader>cc', ":lua Custom_commands(require('telescope.themes').get_cursor{})<cr>",
-  { noremap = true })
+
+vim.api.nvim_set_keymap('n', '<leader><leader>p', ":lua Custom_commands(require('telescope.themes').get_cursor{})<cr>", { noremap = true })
