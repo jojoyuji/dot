@@ -65,7 +65,7 @@ require("telescope").setup({
     generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
     -- shorten_path = true,
     path_display = {},
-    winblend = 15,
+    winblend = 20,
     results_height = 1,
     results_width = 0.8,
     border = {},
@@ -126,6 +126,7 @@ M.project_files = function()
   end
 end
 -- project_files()
+vim.cmd "autocmd User TelescopePreviewerLoaded setlocal number"
 
 vim.api.nvim_set_keymap("n", "<leader>y", "<CMD>Telescope neoclip a extra=star,plus,b<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>mr", "<CMD>Telescope oldfiles<CR>", { noremap = true })

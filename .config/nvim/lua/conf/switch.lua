@@ -49,4 +49,4 @@ vim.cmd [[
   \ ]
 ]]
 
-vim.cmd [[ nnoremap <leader>1 yi":let @/ = @"<CR> ]]
+-- vim.cmd [[ nnoremap <leader>1 yi":let @/ = @"<CR> ]]

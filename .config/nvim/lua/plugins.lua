@@ -17,8 +17,10 @@ require("lazy").setup({
   "nvim-treesitter/nvim-treesitter",
   "nvim-treesitter/nvim-treesitter-context",
   { "folke/neodev.nvim", opts = {} }, -- autocomplete & utilities for nvim dev
-  "neovim/nvim-lspconfig",
   'williamboman/mason.nvim',
+  'williamboman/mason-lspconfig.nvim',
+  "neovim/nvim-lspconfig",
+
   'nvimdev/lspsaga.nvim',
   'hrsh7th/nvim-cmp',
   'hrsh7th/cmp-nvim-lsp',
@@ -30,8 +32,6 @@ require("lazy").setup({
   "hrsh7th/cmp-cmdline",
   "andersevenrud/cmp-tmux",
   "hrsh7th/cmp-emoji",
-  -- 'ojroques/nvim-hardline',
-  -- 'rebelot/heirline.nvim',
   -- colorschemes,
   "drewtempelmeyer/palenight.vim",
   "sainnhe/edge",
@@ -63,7 +63,6 @@ require("lazy").setup({
   "dietsche/vim-lastplace",
   -- quickfix,
   "stefandtw/quickfix-reflector.vim",
-  -- "romainl/vim-qf",
   -- bookmarks,
   "MattesGroeger/vim-bookmarks",
   "mbbill/undotree",
@@ -162,7 +161,25 @@ require("lazy").setup({
   "lambdalisue/vim-gista",
   "diepm/vim-rest-console",
   "tpope/vim-dispatch",
-  "mfussenegger/nvim-dap",
+
+  -- Debugging
+  {
+    "mfussenegger/nvim-dap",
+    lazy = true,
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+    },
+  },
+  { "mxsdev/nvim-dap-vscode-js", dependencies = { "mfussenegger/nvim-dap" } },
+  {
+    "microsoft/vscode-js-debug",
+    build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+  },
+  "theHamsta/nvim-dap-virtual-text",
+  "nvim-telescope/telescope-dap.nvim",
   -- my plugins
   {
     name = "myPlugins",

@@ -8,6 +8,7 @@ vim.g.mapleader = " "
 
 vim.g.maplocalleader = " "
 
+o.mouse = ''
 vim.opt.undofile = true
 wo.number = true
 o.termguicolors = false
@@ -59,3 +60,4 @@ bo.copyindent = true
 o.shiftround = true
 bo.modeline = true
 o.showcmd = false
+

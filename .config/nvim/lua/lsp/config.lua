@@ -27,7 +27,12 @@ end
 
 lspconfig.tsserver.setup({
   on_attach = on_attach,
-  root_dir = lspconfig.util.root_pattern("tsconfig.json", "package.json", ".git");
+  root_dir = lspconfig.util.root_pattern("tsconfig.json", "package.json", ".git"),
+  init_options = {
+    preferences = {
+      disableSuggestions = true,
+    },
+  },
 })
 lspconfig.jsonls.setup({
   on_attach = on_attach,
@@ -95,4 +100,3 @@ lspconfig.lua_ls.setup {
     },
   },
 }
-
