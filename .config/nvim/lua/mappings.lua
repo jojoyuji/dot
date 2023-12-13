@@ -35,8 +35,8 @@ bind("v", "s", "S", {})
 -- remove trailing white space
 vim.cmd([[nnoremap <leader>W :%s/\s\+$//<cr>:let @/='']])
 
--- fix for annoying man!
-bind("n", "K", "<nop>", {noremap = true})
+-- fix for annoying man! (remaped for lsp)
+-- bind("n", "K", "<nop>", {noremap = true})
 
 -- use ,z to 'focus'   the current fold
 -- bind("n", "<leader>z", "zmzvzz", {noremap = true})

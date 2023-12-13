@@ -245,3 +245,4 @@ export PATH="$GOPATH/bin":$PATH
 
 export PATH="/opt/homebrew/lib/python3.11/site-packages:$PATH"
 export PATH="/opt/homebrew/opt/python@3.11/libexec/bin:$PATH"
+export OPENAI_API_KEY="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"

@@ -52,10 +52,22 @@ require("lazy").setup({
   "aznhe21/hop.nvim",
   -- textobjects,
   "kana/vim-textobj-user",
-  { "michaeljsmith/vim-indent-object", lazy = true },
-  { "glts/vim-textobj-comment",        lazy = true },
-  { "hchbaw/textobj-motionmotion.vim", lazy = true },
-  { "kana/vim-textobj-lastpat",        lazy = true },
+  {
+    "michaeljsmith/vim-indent-object",
+    dependencies = "kana/vim-textobj-user",
+  },
+  {
+    "glts/vim-textobj-comment",
+    dependencies = "kana/vim-textobj-user",
+  },
+  {
+    "hchbaw/textobj-motionmotion.vim",
+    dependencies = "kana/vim-textobj-user",
+  },
+  {
+    "jonatashashimoto/vim-textobj-lastpat",
+    dependencies = "kana/vim-textobj-user",
+  },
   -- operations,
   "kylechui/nvim-surround",
   "rhysd/clever-f.vim",
@@ -89,13 +101,14 @@ require("lazy").setup({
     dependencies = "kyazdani42/nvim-web-devicons",
   },
   -- utilities,
+  'Konfekt/FastFold',
   'sk1418/HowMuch',
   { 'kevinhwang91/nvim-ufo',        dependencies = 'kevinhwang91/promise-async' },
   {
     'glacambre/firenvim',
 
     -- Lazy load firenvim
-    -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
+    -- Explanation:
     lazy = not vim.g.started_by_firenvim,
     build = function()
       vim.fn["firenvim#install"](0)
@@ -128,6 +141,7 @@ require("lazy").setup({
       vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
     end,
   },
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl" },
   {
     "lukas-reineke/headlines.nvim",
     dependencies = "nvim-treesitter/nvim-treesitter",
@@ -170,7 +184,10 @@ require("lazy").setup({
       "rcarriga/nvim-dap-ui",
     },
   },
-  { "mxsdev/nvim-dap-vscode-js", dependencies = { "mfussenegger/nvim-dap" } },
+  {
+    "mxsdev/nvim-dap-vscode-js",
+    dependencies = { "mfussenegger/nvim-dap" }
+  },
   {
     "microsoft/vscode-js-debug",
     build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
@@ -201,8 +218,11 @@ require("lazy").setup({
     dependencies = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } }
   },
   -- harpoon
+  --
+  "nvim-lua/plenary.nvim",
   {
     'ThePrimeagen/harpoon',
+    branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" }
   },
   {
@@ -221,7 +241,7 @@ require("lazy").setup({
   dev = {
     -- directory where you store your local plugin projects
     path = "~/.config/nvim/",
-    ---@type string[] plugins that match these patterns will use your local versions instead of being fetched from GitHub
+    ---@type string[] plugins that match these patterns will use your local
     patterns = {},    -- For example {"folke"}
     fallback = false, -- Fallback to git when local plugin doesn't exist
   },

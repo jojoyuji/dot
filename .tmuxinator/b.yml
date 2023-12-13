@@ -1,4 +1,4 @@
-name: jojolitos
+name: mux b
 root: <%= @args[0] ? @args[0]: __dir__ %>
 
 

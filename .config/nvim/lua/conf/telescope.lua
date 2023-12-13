@@ -64,7 +64,7 @@ require("telescope").setup({
     },
     generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
     -- shorten_path = true,
-    path_display = {},
+    path_display = { "smart" },
     winblend = 20,
     results_height = 1,
     results_width = 0.8,

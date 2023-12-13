@@ -1,6 +1,6 @@
 -- Add commands for reload and restart
-vim.cmd([[ command! Reload lua require("utils").Reload() ]])
-vim.cmd([[ command! Restart lua require("utils").Restart() ]])
+-- vim.cmd([[ command! Reload lua require("utils").Reload() ]])
+-- vim.cmd([[ command! Restart lua require("utils").Restart() ]])
 
 vim.cmd([[ autocmd BufWinEnter * lcd %:p:h ]])
 -- keep of splits when resized

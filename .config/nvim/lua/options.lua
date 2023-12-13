@@ -1,4 +1,11 @@
 vim.cmd("set termguicolors")
+vim.cmd [[
+ if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
+]]
 local o = vim.opt
 local wo = vim.opt
 local bo = vim.opt
@@ -7,6 +14,7 @@ vim.cmd [[ set fillchars=fold:\ ,vert:\│,eob:\ ,msgsep:‾ ]]
 vim.g.mapleader = " "
 
 vim.g.maplocalleader = " "
+
 
 o.mouse = ''
 vim.opt.undofile = true
@@ -60,4 +68,3 @@ bo.copyindent = true
 o.shiftround = true
 bo.modeline = true
 o.showcmd = false
-

@@ -8,9 +8,9 @@ local on_attach = function(client, bufnr)
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-  -- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
   vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
   vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
   vim.keymap.set("n", "<leader>wl", function()
@@ -23,6 +23,10 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "Q", function()
     vim.lsp.buf.format({ async = true })
   end, bufopts)
+
+
+  vim.keymap.set("i", "<C-n>", vim.lsp.buf.hover, bufopts)
+  vim.keymap.set("i", "<C-p>", vim.lsp.buf.hover, bufopts)
 end
 
 lspconfig.tsserver.setup({
@@ -41,9 +45,9 @@ lspconfig.jsonls.setup({
     provideFormatter = true,
   },
 })
-lspconfig.eslint.setup({
-  on_attach = on_attach,
-})
+-- lspconfig.eslint.setup({
+--   on_attach = on_attach,
+-- })
 lspconfig.volar.setup({
   on_attach = on_attach,
   filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
