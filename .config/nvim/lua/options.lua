@@ -1,4 +1,4 @@
-vim.cmd("set termguicolors")
+-- vim.cmd("set termguicolors")
 vim.cmd [[
  if exists('+colorcolumn')
   set colorcolumn=80
@@ -19,7 +19,7 @@ vim.g.maplocalleader = " "
 o.mouse = ''
 vim.opt.undofile = true
 wo.number = true
-o.termguicolors = false
+o.termguicolors = true
 bo.synmaxcol = 80
 wo.cursorcolumn = false
 wo.cursorline = false

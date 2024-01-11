@@ -246,3 +246,9 @@ export PATH="$GOPATH/bin":$PATH
 export PATH="/opt/homebrew/lib/python3.11/site-packages:$PATH"
 export PATH="/opt/homebrew/opt/python@3.11/libexec/bin:$PATH"
 export OPENAI_API_KEY="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"
+# bun completions
+[ -s "/Users/jojo/.bun/_bun" ] && source "/Users/jojo/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
