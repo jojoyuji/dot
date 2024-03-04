@@ -96,8 +96,8 @@ bind("n", "L", "<c-w>l", { noremap = true })
 bind("n", "<leader>sfi", ":set fdm=indent<cr>", { noremap = true })
 bind("n", "<leader>sfm", ":set fdm=marker<cr>", { noremap = true })
 
--- bind("n", "<leader>]", ":bnext<cr>", {noremap = true})
--- bind("n", "<leader>[", ":bprev<cr>", {noremap = true})
+bind("n", "<leader>]", ":bn<cr>", {noremap = true})
+bind("n", "<leader>[", ":bp<cr>", {noremap = true})
 
 -- bind("n", "+", ':exe "resize " . (winheight(0) + 5)<CR>', {noremap = true})
 -- bind("n", "_", ':exe "resize " . (winheight(0) - 5)<CR>', {noremap = true})

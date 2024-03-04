@@ -17,3 +17,5 @@ autocmd Syntax foo setl fdm=manual
 autocmd BufWritePost *.foo setl fdm=syntax
 autocmd BufWritePost *.foo setl fdm=manual
 ]]
+
+vim.cmd [[ autocmd Filetype json if getfsize(@%) > 100000 | setlocal syntax=off :TSBufDisable highlight :NoMatchParen | endif ]]

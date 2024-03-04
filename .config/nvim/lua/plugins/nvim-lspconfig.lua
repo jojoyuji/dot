@@ -17,7 +17,7 @@ return {
           -- 'eslint-lsp',
           -- 'js-debug-adapter',
           -- 'prettier',
-          -- 'typescript-language-server',
+          'tsserver',
         }
       }
     end
@@ -35,8 +35,9 @@ return {
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
         vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-        vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
+        -- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
+        vim.keymap.set("n", "gi", vim.lsp.buf.incoming_calls, bufopts)
+        vim.keymap.set("n", "<k-k>", vim.lsp.buf.signature_help, bufopts)
         vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
         vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
         vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
@@ -56,12 +57,24 @@ return {
         vim.keymap.set("i", "<C-p>", vim.lsp.buf.hover, bufopts)
       end
 
+      on_attach()
+
       lspconfig.tsserver.setup({
+        autostart = true,
         on_attach = on_attach,
-        root_dir = lspconfig.util.root_pattern("tsconfig.json", "package.json", ".git"),
+        -- capabilities = {},
+        
+        -- cmd = {'typescript-language-server', '--stdio'},
+        -- root_dir = lspconfig.util.root_pattern("tsconfig.json", "package.json", ".git"),
+        root_dir = function(pattern)
+          local cwd  = vim.loop.cwd();
+          local root = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git")(pattern);
+          return root or cwd;
+        end,
         init_options = {
           preferences = {
-            disableSuggestions = true,
+            -- disableSuggestions = true,
+            provideFormatter = true,
           },
         },
       })

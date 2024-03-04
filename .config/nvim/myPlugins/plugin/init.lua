@@ -57,3 +57,4 @@ Custom_commands = function(opts)
 end
 
 vim.api.nvim_set_keymap('n', '<leader><leader>p', ":lua Custom_commands(require('telescope.themes').get_cursor{})<cr>", { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>pp', ":lua Custom_commands(require('telescope.themes').get_cursor{})<cr>", { noremap = true })
